@@ -4,6 +4,7 @@ import './App.css';
 import Code from './components/Code/Code';
 import Home from './components/Home/Home';
 import Nav from './components/Nav/Nav';
+import Skills from './components/Skills/Skills';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/" rel="preconnect" exact component={Home} />
+          <Route path="/skills" rel="preconnect" exact component={Skills} />
           <Route path="/code" rel="preconnect" exact component={Code} />
         </Switch>
       </div>
