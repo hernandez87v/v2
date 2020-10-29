@@ -10,7 +10,10 @@ export default function Nav() {
       <nav>
         <ul className="nav_links">
           <li>
-            <Link to="/placeholder">placeholder</Link>
+            <Link to="/code">Code Nav</Link>
+          </li>
+          <li>
+            <Link to="/skills">Skills Nav</Link>
           </li>
         </ul>
       </nav>
