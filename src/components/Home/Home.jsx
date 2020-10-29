@@ -3,11 +3,11 @@ import './Home.css';
 
 import { Canvas } from 'react-three-fiber';
 import * as THREE from 'three';
-import Coolvetica from './Coolvetica.json';
+import Oswald from './Oswald.json';
 
 export default function Home() {
   // parse JSON file with Three
-  const font = new THREE.FontLoader().parse(Coolvetica);
+  const font = new THREE.FontLoader().parse(Oswald);
 
   // configure font geometry
   const textOptions = {
