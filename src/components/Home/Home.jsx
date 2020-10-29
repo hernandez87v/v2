@@ -1,35 +1,49 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Home.css';
 
 import { Canvas } from 'react-three-fiber';
 import * as THREE from 'three';
 import Oswald from './Oswald.json';
+// import texture from './space-texture.jpg';
+import { OrbitControls } from 'drei';
 
 function TextMesh(props) {
-  // parse JSON file with Three
+  const mesh = useRef(null);
+
   const font = new THREE.FontLoader().parse(Oswald);
 
-  // configure font geometry
   const textOptions = {
     font,
-    size: 3,
+    size: 40,
     height: 0.5,
+    // curveSegments: 15,
+    bevelEnabled: true,
+    // bevelThickness: 15,
+    bevelSize: 5,
+    bevelOffset: 0,
+    bevelSegments: 5,
   };
   return (
-    <mesh position={[-5, 0, 0]}>
-      <textGeometry attach="geometry" args={['Welcome', textOptions]} />
-      <meshStandardMaterial attach="material" />
-    </mesh>
+    <group ref={mesh}>
+      <mesh position={[-10, 0, -50]}>
+        <textGeometry
+          attach="geometry"
+          args={['WELCOME', textOptions]}
+          factor={0.7}
+        />
+        <meshBasicMaterial attach="material" color="tomato" />
+        <OrbitControls />
+      </mesh>
+    </group>
   );
 }
 
 export default function Home() {
   return (
     <div className="Home">
-      <Canvas
-        // style={{ height: '100vh', width: '100vw' }}
-        camera={{ position: [-10, 0, 30] }}
-      >
+      <Canvas camera={{ position: [0, 0, 35] }}>
+        <ambientLight intensity={2} />
+        <pointLight position={[40, 40, 40]} />
         <TextMesh />
       </Canvas>
     </div>
