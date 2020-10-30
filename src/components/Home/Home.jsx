@@ -14,12 +14,12 @@ const TextMesh = ({ props, args, position }) => {
 
   const textOptions = {
     font,
-    size: 40,
+    size: 35,
     height: 10,
     curveSegments: 32,
     bevelEnabled: true,
-    bevelThickness: 2,
-    bevelSize: 0.5,
+    bevelThickness: 1,
+    bevelSize: .3,
     bevelOffset: 0,
     bevelSegments: 5,
   };
@@ -41,13 +41,13 @@ export default function Home() {
         <ambientLight intensity={2} />
         <pointLight position={[40, 40, 40]} />
         <group>
-          <TextMesh args="W" position={[-115, 0, -100]} />
-          <TextMesh args="E" position={[-65, 0, -100]} />
-          <TextMesh args="L" position={[-30, 0, -100]} />
+          <TextMesh args="W" position={[-100, 0, -100]} />
+          <TextMesh args="E" position={[-55, 0, -100]} />
+          <TextMesh args="L" position={[-25, 0, -100]} />
           <TextMesh args="C" position={[0, 0, -100]} />
-          <TextMesh args="O" position={[35, 0, -100]} />
-          <TextMesh args="M" position={[75, 0, -100]} />
-          <TextMesh args="E" position={[115, 0, -100]} />
+          <TextMesh args="O" position={[32, 0, -100]} />
+          <TextMesh args="M" position={[65, 0, -100]} />
+          <TextMesh args="E" position={[100, 0, -100]} />
         </group>
       </Canvas>
     </div>
