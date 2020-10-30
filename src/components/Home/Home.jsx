@@ -5,33 +5,33 @@ import { Canvas } from 'react-three-fiber';
 import * as THREE from 'three';
 import Modak from './Modak.json';
 import { OrbitControls } from 'drei';
-import texture from './wavy-layers-black-paper-circles-background.jpg';
+// import texture from './wavy-layers-black-paper-circles-background.jpg';
 
 function TextMesh({ args, position }) {
   const mesh = useRef(null);
 
   const font = new THREE.FontLoader().parse(Modak);
-  const moon = new THREE.TextureLoader().load(texture);
-  moon.wrapS = THREE.RepeatWrapping;
-  moon.wrapT = THREE.RepeatWrapping;
-  moon.repeat.set(0.2, 0.2);
+  // const moon = new THREE.TextureLoader().load(texture);
+  // moon.wrapS = THREE.RepeatWrapping;
+  // moon.wrapT = THREE.RepeatWrapping;
+  // moon.repeat.set(0.1, 0.1);
   const textOptions = {
     font,
-    size: 4,
-    height: 2,
-    curveSegments: 32,
-    bevelEnabled: true,
-    bevelThickness: 0.1,
-    bevelSize: 0.1,
-    bevelOffset: 0.2,
-    bevelSegments: 0.1,
+    size: 5,
+    height: 1,
+    // curveSegments: 10,
+    // bevelEnabled: true,
+    // bevelThickness: 0.1,
+    // bevelSize: 0.1,
+    // bevelOffset: 0.1,
+    // bevelSegments: 0.5,
   };
   // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
   return (
     <mesh castShadow receiveShadow position={position} ref={mesh}>
       <textGeometry attach="geometry" args={[args, textOptions]} factor={0.3} />
-      <meshBasicMaterial args={{ map: moon }} color="cyan" attach="material" />
-      <OrbitControls />
+      <meshBasicMaterial color="cyan" attach="material" />
+      {/* <OrbitControls /> */}
     </mesh>
   );
 }
@@ -43,7 +43,7 @@ function Plane() {
     <mesh
       ref={ref}
       rotation={[-Math.PI / 2, 0, 0]}
-      position={[0, -1, 0]}
+      position={[0, -1.5, 0]}
       receiveShadow
     >
       <planeBufferGeometry attach="geometry" args={[300, 300]} />
@@ -58,11 +58,11 @@ export default function Home() {
       <Canvas
         colorManagement
         shadowMap
-        camera={{ position: [-20, 20, 75], fov: 40 }}
+        camera={{ position: [0, 0, 25], fov: 100 }}
       >
         <ambientLight intensity={0.5} />
         <spotLight
-          intensity={0.6}
+          intensity={0.2}
           position={[30, 30, 30]}
           angle={0.3}
           penumbra={1}
