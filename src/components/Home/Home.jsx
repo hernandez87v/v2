@@ -1,13 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './Home.css';
 
-import { Canvas } from 'react-three-fiber';
+import { Canvas, useFrame } from 'react-three-fiber';
 import * as THREE from 'three';
 import Modak from './Modak.json';
 import { OrbitControls } from 'drei';
 // import texture from './wavy-layers-black-paper-circles-background.jpg';
 
-function TextMesh({ args, position }) {
+function TextMesh({ props, args, position }) {
   const mesh = useRef(null);
 
   const font = new THREE.FontLoader().parse(Modak);
@@ -27,11 +27,38 @@ function TextMesh({ args, position }) {
     // bevelSegments: 0.5,
   };
   // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
+  const [hovered, setHover] = useState(false);
+  const [active, setActive] = useState(false);
+
+  // Rotate mesh every frame, this is outside of React without overhead
+  useFrame(() => {
+    if (hovered && !active) {
+      mesh.current.rotation.y += 0.01;
+      // mesh.current.rotation.x += 0.01;
+    }
+    if (hovered && active) {
+      mesh.current.rotation.y += 0.02;
+      // mesh.current.rotation.x += 0.06;
+    }
+  });
   return (
-    <mesh castShadow receiveShadow position={position} ref={mesh}>
+    <mesh
+      {...props}
+      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
+      onClick={(e) => setActive(!active)}
+      onPointerOver={(e) => setHover(true)}
+      onPointerOut={(e) => setHover(false)}
+      castShadow
+      receiveShadow
+      position={position}
+      ref={mesh}
+    >
       <textGeometry attach="geometry" args={[args, textOptions]} factor={0.3} />
-      <meshBasicMaterial color="cyan" attach="material" />
-      {/* <OrbitControls /> */}
+      <meshBasicMaterial
+        color={hovered ? 'cyan' : 'orange'}
+        attach="material"
+      />
+      <OrbitControls />
     </mesh>
   );
 }
@@ -42,7 +69,7 @@ function Plane() {
   return (
     <mesh
       ref={ref}
-      rotation={[-Math.PI / 2, 0, 0]}
+      rotation={[-Math.PI / 30, 0, 0]}
       position={[0, -1.5, 0]}
       receiveShadow
     >
@@ -58,7 +85,7 @@ export default function Home() {
       <Canvas
         colorManagement
         shadowMap
-        camera={{ position: [0, 0, 25], fov: 100 }}
+        camera={{ position: [0, 0, 28], fov: 100 }}
       >
         <ambientLight intensity={0.5} />
         <spotLight
