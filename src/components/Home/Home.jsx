@@ -1,50 +1,54 @@
 import React, { useRef } from 'react';
 import './Home.css';
 
-import { Canvas } from 'react-three-fiber';
+import { Canvas, useFrame } from 'react-three-fiber';
 import * as THREE from 'three';
-import Oswald from './Oswald.json';
+import Modak from './Modak.json';
 // import texture from './space-texture.jpg';
 import { OrbitControls } from 'drei';
 
-function TextMesh(props) {
+const TextMesh = ({ props, args, position }) => {
   const mesh = useRef(null);
 
-  const font = new THREE.FontLoader().parse(Oswald);
+  const font = new THREE.FontLoader().parse(Modak);
 
   const textOptions = {
     font,
     size: 40,
-    height: 0.5,
-    // curveSegments: 15,
+    height: 10,
+    curveSegments: 32,
     bevelEnabled: true,
-    // bevelThickness: 15,
-    bevelSize: 5,
+    bevelThickness: 2,
+    bevelSize: 0.5,
     bevelOffset: 0,
     bevelSegments: 5,
   };
+
+  // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
   return (
-    <group ref={mesh}>
-      <mesh position={[-10, 0, -50]}>
-        <textGeometry
-          attach="geometry"
-          args={['WELCOME', textOptions]}
-          factor={0.7}
-        />
-        <meshBasicMaterial attach="material" color="tomato" />
-        <OrbitControls />
-      </mesh>
-    </group>
+    <mesh position={position} ref={mesh}>
+      <textGeometry attach="geometry" args={[args, textOptions]} factor={0.7} />
+      <meshBasicMaterial attach="material" color="cyan" />
+      <OrbitControls />
+    </mesh>
   );
-}
+};
 
 export default function Home() {
   return (
     <div className="Home">
-      <Canvas camera={{ position: [0, 0, 35] }}>
+      <Canvas camera={{ position: [0, 10, 75], fov: 75 }}>
         <ambientLight intensity={2} />
         <pointLight position={[40, 40, 40]} />
-        <TextMesh />
+        <group>
+          <TextMesh args="W" position={[-115, 0, -100]} />
+          <TextMesh args="E" position={[-65, 0, -100]} />
+          <TextMesh args="L" position={[-30, 0, -100]} />
+          <TextMesh args="C" position={[0, 0, -100]} />
+          <TextMesh args="O" position={[35, 0, -100]} />
+          <TextMesh args="M" position={[75, 0, -100]} />
+          <TextMesh args="E" position={[115, 0, -100]} />
+        </group>
       </Canvas>
     </div>
   );
