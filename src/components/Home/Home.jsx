@@ -33,18 +33,18 @@ function TextMesh({ props, args, position }) {
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => {
     if (hovered && !active) {
-      mesh.current.rotation.y += 0.01;
+      mesh.current.rotation.y = 0.5;
       // mesh.current.rotation.x += 0.01;
     }
     if (hovered && active) {
-      mesh.current.rotation.y += 0.02;
+      mesh.current.rotation.y = 0.02;
       // mesh.current.rotation.x += 0.06;
     }
   });
   return (
     <mesh
       {...props}
-      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
+      scale={active ? [1.1, 1.1, 1.1] : [1, 1, 1]}
       onClick={(e) => setActive(!active)}
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}
@@ -55,7 +55,7 @@ function TextMesh({ props, args, position }) {
     >
       <textGeometry attach="geometry" args={[args, textOptions]} factor={0.3} />
       <meshBasicMaterial
-        color={hovered ? 'cyan' : 'orange'}
+        color={hovered ? 'cyan' : 'dodgerblue'}
         attach="material"
       />
       <OrbitControls />
@@ -97,13 +97,13 @@ export default function Home() {
         />
         <group>
           <Plane />
-          <TextMesh args="W" position={[-13, 0, 0.2]} />
+          <TextMesh args="W" position={[-13, 0, 1.2]} />
           <TextMesh args="E" position={[-7.5, 0, 0.2]} />
-          <TextMesh args="L" position={[-3.5, 0, 0.2]} />
+          <TextMesh args="L" position={[-3.5, 0, 1.2]} />
           <TextMesh args="C" position={[0, 0, 0.2]} />
-          <TextMesh args="O" position={[4, 0, 0.2]} />
+          <TextMesh args="O" position={[4, 0, 1.2]} />
           <TextMesh args="M" position={[8, 0, 0.2]} />
-          <TextMesh args="E" position={[12.5, 0, 0.2]} />
+          <TextMesh args="E" position={[12.5, 0, 1.2]} />
         </group>
       </Canvas>
     </div>
