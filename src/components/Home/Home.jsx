@@ -14,14 +14,14 @@ function TextMesh({ props, args, position }) {
 
   const textOptions = {
     font,
-    size: 5,
-    height: 1,
-    // curveSegments: 10,
-    // bevelEnabled: true,
-    // bevelThickness: 0.1,
-    // bevelSize: 0.1,
-    // bevelOffset: 0.1,
-    // bevelSegments: 0.5,
+    size: 15,
+    height: 2,
+    curveSegments: 32,
+    bevelEnabled: true,
+    bevelThickness: 1.2,
+    bevelSize: 1,
+    bevelOffset: -0.1,
+    bevelSegments: 5,
   };
   // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
   const [hovered, setHover] = useState(false);
@@ -48,8 +48,8 @@ function TextMesh({ props, args, position }) {
       ref={mesh}
     >
       <textGeometry attach="geometry" args={[args, textOptions]} factor={0.3} />
-      <meshBasicMaterial
-        color={hovered ? 'cyan' : 'dodgerblue'}
+      <meshPhongMaterial
+        color={hovered ? 'cyan' : 'tomato'}
         attach="material"
       />
       <OrbitControls enableZoom={false} />
@@ -64,11 +64,11 @@ function Plane() {
     <mesh
       ref={ref}
       rotation={[-Math.PI / 30, 0, 0]}
-      position={[0, -1.5, 0]}
+      position={[-20, -1.5, 0]}
       receiveShadow
     >
       <planeBufferGeometry attach="geometry" args={[300, 300]} />
-      <shadowMaterial attach="material" color="#324c4a" opacity={0.3} />
+      <shadowMaterial attach="material" color="white" opacity={0.3} />
     </mesh>
   );
 }
@@ -94,25 +94,32 @@ export default function Home() {
             className="Home"
             colorManagement
             shadowMap
-            camera={{ position: [0, 0, 28], fov: 100 }}
+            camera={{ position: [0, -20, 100], fov: 85 }}
           >
-            <ambientLight intensity={0.5} />
+            <ambientLight intensity={0.3} />
             <spotLight
-              intensity={0.2}
-              position={[30, 30, 30]}
+              intensity={0.3}
+              position={[150, 200, 50]}
+              angle={0.3}
+              penumbra={1}
+              castShadow
+            />
+            <spotLight
+              intensity={0.4}
+              position={[80, 20, 40]}
               angle={0.3}
               penumbra={1}
               castShadow
             />
             <group>
               <Plane />
-              <TextMesh args="W" position={[-13, 0, 1.2]} />
-              <TextMesh args="E" position={[-7.5, 0, 0.2]} />
-              <TextMesh args="L" position={[-3.5, 0, 1.2]} />
-              <TextMesh args="C" position={[0, 0, 0.2]} />
-              <TextMesh args="O" position={[4, 0, 1.2]} />
-              <TextMesh args="M" position={[8, 0, 0.2]} />
-              <TextMesh args="E" position={[12.5, 0, 1.2]} />
+              <TextMesh args="W" position={[-35, 0, 1.2]} />
+              <TextMesh args="e" position={[-18, 0, 0.2]} />
+              <TextMesh args="l" position={[-6, 0, 1.2]} />
+              <TextMesh args="c" position={[0, 0, 0.2]} />
+              <TextMesh args="o" position={[12, 0, 1.2]} />
+              <TextMesh args="m" position={[23, 0, 0.2]} />
+              <TextMesh args="e" position={[40, 0, 1.2]} />
             </group>
           </Canvas>
         </div>
