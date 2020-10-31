@@ -84,7 +84,6 @@ export default function Home() {
   // const ref = useRef(null);
 
   return (
-    // <Parallax pages={2} ref={(ref) => (this.parallax = ref)}>
     <Parallax pages={2} ref={(ref) => (parallax = ref)}>
       <ParallaxLayer
         offset={1}
@@ -96,7 +95,7 @@ export default function Home() {
         speed={1}
         style={{ backgroundColor: '#87BCDE' }}
       />
-      <ParallaxLayer offset={0.3} speed={0}>
+      <ParallaxLayer>
         <div className="Home">
           <Canvas
             className="Home"
@@ -125,7 +124,7 @@ export default function Home() {
           </Canvas>
         </div>
       </ParallaxLayer>
-      <ParallaxLayer offset={0} speed={0.5}>
+      <ParallaxLayer offset={1} speed={0.5}>
         <span>Layers can contain anything</span>
       </ParallaxLayer>
     </Parallax>
