@@ -80,16 +80,30 @@ function Plane() {
   );
 }
 export default function Home() {
+  let parallax;
+  // const ref = useRef(null);
+
   return (
-    <>
-      <div className="Home">
-        <Canvas
-          className="Home"
-          colorManagement
-          shadowMap
-          camera={{ position: [0, 0, 28], fov: 100 }}
-        >
-          <Parallax ref={(ref) => (this.parallax = ref)} pages={2}>
+    // <Parallax pages={2} ref={(ref) => (this.parallax = ref)}>
+    <Parallax pages={2} ref={(ref) => (parallax = ref)}>
+      <ParallaxLayer
+        offset={1}
+        speed={1}
+        style={{ backgroundColor: '#805E73' }}
+      />
+      <ParallaxLayer
+        offset={2}
+        speed={1}
+        style={{ backgroundColor: '#87BCDE' }}
+      />
+      <ParallaxLayer offset={0.3} speed={0}>
+        <div className="Home">
+          <Canvas
+            className="Home"
+            colorManagement
+            shadowMap
+            camera={{ position: [0, 0, 28], fov: 100 }}
+          >
             <ambientLight intensity={0.5} />
             <spotLight
               intensity={0.2}
@@ -98,41 +112,22 @@ export default function Home() {
               penumbra={1}
               castShadow
             />
-            {/* <group> */}
-            <Plane />
-            <ParallaxLayer
-              offset={0}
-              speed={0.1}
-              onClick={() => this.parallax.scrollTo(1)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
+            <group>
+              <Plane />
               <TextMesh args="W" position={[-13, 0, 1.2]} />
-            </ParallaxLayer>
-            <ParallaxLayer
-              offset={0}
-              speed={0.1}
-              onClick={() => this.parallax.scrollTo(2)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
               <TextMesh args="E" position={[-7.5, 0, 0.2]} />
-            </ParallaxLayer>
-            <TextMesh args="L" position={[-3.5, 0, 1.2]} />
-            <TextMesh args="C" position={[0, 0, 0.2]} />
-            <TextMesh args="O" position={[4, 0, 1.2]} />
-            <TextMesh args="M" position={[8, 0, 0.2]} />
-            <TextMesh args="E" position={[12.5, 0, 1.2]} />
-            {/* </group> */}
-          </Parallax>
-        </Canvas>
-      </div>
-    </>
+              <TextMesh args="L" position={[-3.5, 0, 1.2]} />
+              <TextMesh args="C" position={[0, 0, 0.2]} />
+              <TextMesh args="O" position={[4, 0, 1.2]} />
+              <TextMesh args="M" position={[8, 0, 0.2]} />
+              <TextMesh args="E" position={[12.5, 0, 1.2]} />
+            </group>
+          </Canvas>
+        </div>
+      </ParallaxLayer>
+      <ParallaxLayer offset={0} speed={0.5}>
+        <span>Layers can contain anything</span>
+      </ParallaxLayer>
+    </Parallax>
   );
 }
