@@ -78,34 +78,36 @@ function Plane() {
     </mesh>
   );
 }
-
 export default function Home() {
   return (
-    <div className="Home">
-      <Canvas
-        colorManagement
-        shadowMap
-        camera={{ position: [0, 0, 28], fov: 100 }}
-      >
-        <ambientLight intensity={0.5} />
-        <spotLight
-          intensity={0.2}
-          position={[30, 30, 30]}
-          angle={0.3}
-          penumbra={1}
-          castShadow
-        />
-        <group>
-          <Plane />
-          <TextMesh args="W" position={[-13, 0, 1.2]} />
-          <TextMesh args="E" position={[-7.5, 0, 0.2]} />
-          <TextMesh args="L" position={[-3.5, 0, 1.2]} />
-          <TextMesh args="C" position={[0, 0, 0.2]} />
-          <TextMesh args="O" position={[4, 0, 1.2]} />
-          <TextMesh args="M" position={[8, 0, 0.2]} />
-          <TextMesh args="E" position={[12.5, 0, 1.2]} />
-        </group>
-      </Canvas>
-    </div>
+    <>
+      <div className="Home">
+        <Canvas
+          className="Home"
+          colorManagement
+          shadowMap
+          camera={{ position: [0, 0, 28], fov: 100 }}
+        >
+          <ambientLight intensity={0.5} />
+          <spotLight
+            intensity={0.2}
+            position={[30, 30, 30]}
+            angle={0.3}
+            penumbra={1}
+            castShadow
+          />
+          <group>
+            <Plane />
+            <TextMesh args="W" position={[-13, 0, 1.2]} />
+            <TextMesh args="E" position={[-7.5, 0, 0.2]} />
+            <TextMesh args="L" position={[-3.5, 0, 1.2]} />
+            <TextMesh args="C" position={[0, 0, 0.2]} />
+            <TextMesh args="O" position={[4, 0, 1.2]} />
+            <TextMesh args="M" position={[8, 0, 0.2]} />
+            <TextMesh args="E" position={[12.5, 0, 1.2]} />
+          </group>
+        </Canvas>
+      </div>
+    </>
   );
 }
