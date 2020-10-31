@@ -4,18 +4,14 @@ import './Home.css';
 import { Canvas, useFrame } from 'react-three-fiber';
 import * as THREE from 'three';
 import Modak from './Modak.json';
-// import { OrbitControls } from 'drei';
-// import texture from './wavy-layers-black-paper-circles-background.jpg';
+import { OrbitControls } from 'drei';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 
 function TextMesh({ props, args, position }) {
   const mesh = useRef(null);
 
   const font = new THREE.FontLoader().parse(Modak);
-  // const moon = new THREE.TextureLoader().load(texture);
-  // moon.wrapS = THREE.RepeatWrapping;
-  // moon.wrapT = THREE.RepeatWrapping;
-  // moon.repeat.set(0.1, 0.1);
+
   const textOptions = {
     font,
     size: 5,
@@ -31,15 +27,12 @@ function TextMesh({ props, args, position }) {
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
-  // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => {
     if (hovered && !active) {
       mesh.current.rotation.y = 0.5;
-      // mesh.current.rotation.x += 0.01;
     }
     if (hovered && active) {
       mesh.current.rotation.y = 0.02;
-      // mesh.current.rotation.x += 0.06;
     }
   });
   return (
@@ -59,7 +52,7 @@ function TextMesh({ props, args, position }) {
         color={hovered ? 'cyan' : 'dodgerblue'}
         attach="material"
       />
-      {/* <OrbitControls /> */}
+      <OrbitControls enableZoom={false} />
     </mesh>
   );
 }
