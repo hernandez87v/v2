@@ -4,8 +4,9 @@ import './Home.css';
 import { Canvas, useFrame } from 'react-three-fiber';
 import * as THREE from 'three';
 import Modak from './Modak.json';
-import { OrbitControls } from 'drei';
+// import { OrbitControls } from 'drei';
 // import texture from './wavy-layers-black-paper-circles-background.jpg';
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 
 function TextMesh({ props, args, position }) {
   const mesh = useRef(null);
@@ -58,7 +59,7 @@ function TextMesh({ props, args, position }) {
         color={hovered ? 'cyan' : 'dodgerblue'}
         attach="material"
       />
-      <OrbitControls />
+      {/* <OrbitControls /> */}
     </mesh>
   );
 }
@@ -88,24 +89,48 @@ export default function Home() {
           shadowMap
           camera={{ position: [0, 0, 28], fov: 100 }}
         >
-          <ambientLight intensity={0.5} />
-          <spotLight
-            intensity={0.2}
-            position={[30, 30, 30]}
-            angle={0.3}
-            penumbra={1}
-            castShadow
-          />
-          <group>
+          <Parallax ref={(ref) => (this.parallax = ref)} pages={2}>
+            <ambientLight intensity={0.5} />
+            <spotLight
+              intensity={0.2}
+              position={[30, 30, 30]}
+              angle={0.3}
+              penumbra={1}
+              castShadow
+            />
+            {/* <group> */}
             <Plane />
-            <TextMesh args="W" position={[-13, 0, 1.2]} />
-            <TextMesh args="E" position={[-7.5, 0, 0.2]} />
+            <ParallaxLayer
+              offset={0}
+              speed={0.1}
+              onClick={() => this.parallax.scrollTo(1)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <TextMesh args="W" position={[-13, 0, 1.2]} />
+            </ParallaxLayer>
+            <ParallaxLayer
+              offset={0}
+              speed={0.1}
+              onClick={() => this.parallax.scrollTo(2)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <TextMesh args="E" position={[-7.5, 0, 0.2]} />
+            </ParallaxLayer>
             <TextMesh args="L" position={[-3.5, 0, 1.2]} />
             <TextMesh args="C" position={[0, 0, 0.2]} />
             <TextMesh args="O" position={[4, 0, 1.2]} />
             <TextMesh args="M" position={[8, 0, 0.2]} />
             <TextMesh args="E" position={[12.5, 0, 1.2]} />
-          </group>
+            {/* </group> */}
+          </Parallax>
         </Canvas>
       </div>
     </>
