@@ -9,8 +9,6 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Physics, useBox, usePlane } from 'use-cannon';
 
 function TextMesh({ args = [0.5, 32, 32], ...props }) {
-  // const mesh = useRef(null);
-
   const font = new THREE.FontLoader().parse(Modak);
 
   const textOptions = {
@@ -25,18 +23,14 @@ function TextMesh({ args = [0.5, 32, 32], ...props }) {
     bevelSegments: 4,
   };
 
-  const { viewport } = useThree();
-  const [ref, api] = useBox(() => ({ mass: 1, args, ...props }));
-
-  usePlane(() => ({
-    position: [0, -viewport.height, 0],
-    rotation: [-Math.PI / 2, 0, 0],
-    onCollide: () => {
-      api.position.set(0, 0, 0);
-      api.velocity.set(0, 10, 0);
-    },
+  const [ref] = useBox(() => ({
+    mass: 1,
+    position: [0, 0, 0],
+    angularDamping: 1,
+    // rotation: [0.4, 0.2, 0.5],
+    ...props,
   }));
-  // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
+
   return (
     <mesh castShadow receiveShadow ref={ref}>
       <textGeometry attach="geometry" args={[args, textOptions]} factor={0.3} />
@@ -52,13 +46,21 @@ function TextMesh({ args = [0.5, 32, 32], ...props }) {
 }
 
 function Plane() {
-  const ref = useRef(null);
+  // const ref = useRef(null);
+  const [ref, api] = usePlane(() => ({
+    position: [0, -1, 0],
+    rotation: [-Math.PI / 2, 0, 0],
+    onCollide: () => {
+      api.position.set(0, 0, 0);
+      api.velocity.set(0, 1, 0);
+    },
+  }));
 
   return (
     <mesh
       ref={ref}
-      rotation={[-Math.PI / -50, 0, 0]}
-      position={[0, -25, 0]}
+      // rotation={[-Math.PI / -50, 0, 0]}
+      // position={[0, -25, 0]}
       receiveShadow
     >
       <planeBufferGeometry attach="geometry" args={[300, 300]} />
@@ -104,10 +106,7 @@ export default function Home() {
               penumbra={1}
             />
             <group>
-              <Physics
-                gravity={[0, -20, 0]}
-                defaultContactMaterial={{ restitution: 1 }}
-              >
+              <Physics>
                 <Plane />
                 <TextMesh args="W" position={[-42, 0, 1.2]} />
                 <TextMesh args="e" position={[-25, 0, 0.2]} />
