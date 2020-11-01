@@ -85,7 +85,6 @@ export default function Home() {
       <ParallaxLayer>
         <div className="Home">
           <Canvas
-            className="Home"
             colorManagement
             shadowMap
             camera={{ position: [0, 30, 100], fov: 85 }}
@@ -106,8 +105,8 @@ export default function Home() {
             />
             <group>
               <Physics
-                gravity={[10, -20, 0]}
-                defaultContactMaterial={{ restitution: 1.1 }}
+                gravity={[0, -20, 0]}
+                defaultContactMaterial={{ restitution: 1 }}
               >
                 <Plane />
                 <TextMesh args="W" position={[-42, 0, 1.2]} />
