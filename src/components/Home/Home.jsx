@@ -43,7 +43,7 @@ function TextMesh({ args = [0.5, 32, 32], ...props }) {
       <meshPhysicalMaterial
         clearcoat={1}
         roughness={0.2}
-        color={'tomato'}
+        color="mediumspringgreen"
         attach="material"
       />
       {/* <OrbitControls enableZoom={false} /> */}
@@ -57,12 +57,12 @@ function Plane() {
   return (
     <mesh
       ref={ref}
-      rotation={[-Math.PI / 2, 0, 0]}
-      position={[-20, -10, 0]}
+      rotation={[-Math.PI / -50, 0, 0]}
+      position={[0, -25, 0]}
       receiveShadow
     >
       <planeBufferGeometry attach="geometry" args={[300, 300]} />
-      <shadowMaterial attach="material" color="#383737" opacity={0.2} />
+      <shadowMaterial attach="material" color="#246623" opacity={0.2} />
     </mesh>
   );
 }
