@@ -92,14 +92,19 @@ export default function Home() {
               penumbra={1}
             />
             <group>
-              <Plane />
-              <TextMesh args="W" position={[-42, 0, 1.2]} />
-              <TextMesh args="e" position={[-25, 0, 0.2]} />
-              <TextMesh args="l" position={[-13, 0, 1.2]} />
-              <TextMesh args="c" position={[-7, 0, 0.2]} />
-              <TextMesh args="o" position={[3, 0, 1.2]} />
-              <TextMesh args="m" position={[14, 0, 0.2]} />
-              <TextMesh args="e" position={[31, 0, 1.2]} />
+              <Physics
+                gravity={[0, -20, 0]}
+                defaultContactMaterial={{ restitution: 1.1 }}
+              >
+                <Plane />
+                <TextMesh args="W" position={[-42, 0, 1.2]} />
+                <TextMesh args="e" position={[-25, 0, 0.2]} />
+                <TextMesh args="l" position={[-13, 0, 1.2]} />
+                <TextMesh args="c" position={[-7, 0, 0.2]} />
+                <TextMesh args="o" position={[3, 0, 1.2]} />
+                <TextMesh args="m" position={[14, 0, 0.2]} />
+                <TextMesh args="e" position={[31, 0, 1.2]} />
+              </Physics>
             </group>
           </Canvas>
         </div>
