@@ -28,6 +28,7 @@ function TextMesh({ args, position }) {
     <mesh castShadow receiveShadow position={position} ref={mesh}>
       <textGeometry attach="geometry" args={[args, textOptions]} factor={0.3} />
       <meshPhysicalMaterial
+        clearcoat={1}
         roughness={0.2}
         color={'tomato'}
         attach="material"
@@ -44,7 +45,7 @@ function Plane() {
     <mesh
       ref={ref}
       rotation={[-Math.PI / 2, 0, 0]}
-      position={[0, -10, 0]}
+      position={[-20, -10, 0]}
       receiveShadow
     >
       <planeBufferGeometry attach="geometry" args={[300, 300]} />
@@ -79,7 +80,7 @@ export default function Home() {
             <ambientLight intensity={0.3} />
             <spotLight
               intensity={0.5}
-              position={[190, 160, 60]}
+              position={[120, 130, 80]}
               angle={0.3}
               penumbra={1}
               castShadow
