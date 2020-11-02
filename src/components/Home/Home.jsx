@@ -145,7 +145,12 @@ export default function Home() {
         </div>
       </ParallaxLayer>
       <ParallaxLayer offset={1} speed={0.5}>
-        <span>Layers can contain anything</span>
+        <article>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
+          impedit ut accusamus maiores, ipsum dolore, culpa et nemo quas itaque
+          est ducimus quos cupiditate doloremque optio incidunt voluptas. Enim,
+          obcaecati!
+        </article>
       </ParallaxLayer>
     </Parallax>
   );
