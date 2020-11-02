@@ -38,9 +38,12 @@ function TextMesh({ args, position }) {
       <textGeometry attach="geometry" args={[args, textOptions]} factor={0.7} />
       <meshPhysicalMaterial
         clearcoat={1}
+        reflectivity={1}
         roughness={0.2}
-        color="silver"
+        color="red"
         attach="material"
+        transparent={true}
+        opacity={0.8}
       />
       {/* <OrbitControls enableZoom={false} /> */}
     </mesh>
