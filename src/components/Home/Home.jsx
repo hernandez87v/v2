@@ -34,7 +34,7 @@ function TextMesh({ args, position }) {
   // }));
 
   return (
-    <mesh position={position} castShadow receiveShadow ref={ref}>
+    <mesh position={position} ref={ref}>
       <textGeometry attach="geometry" args={[args, textOptions]} factor={0.7} />
       <meshPhysicalMaterial
         clearcoat={1}
@@ -62,12 +62,7 @@ function Plane() {
   // }));
 
   return (
-    <mesh
-      ref={ref}
-      rotation={[-Math.PI / 2, 0, 0]}
-      position={[0, 0, 0]}
-      receiveShadow
-    >
+    <mesh ref={ref} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
       <planeBufferGeometry attach="geometry" args={[300, 300]} />
       <shadowMaterial attach="material" color="#246623" opacity={0.2} />
     </mesh>
@@ -105,18 +100,13 @@ export default function Home() {
 
       <ParallaxLayer>
         <div className="Home">
-          <Canvas
-            colorManagement
-            shadowMap
-            camera={{ position: [0, 30, 100], fov: 85 }}
-          >
+          <Canvas colorManagement camera={{ position: [0, 30, 100], fov: 85 }}>
             <ambientLight intensity={0.3} />
             <spotLight
               intensity={0.5}
-              position={[120, 130, 80]}
+              position={[120, 30, 80]}
               angle={0.3}
               penumbra={1}
-              castShadow
             />
             <spotLight
               intensity={0.2}
