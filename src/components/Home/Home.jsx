@@ -4,6 +4,7 @@ import './Home.css';
 import { Canvas, useThree } from 'react-three-fiber';
 import * as THREE from 'three';
 import Modak from './Modak.json';
+import SourcesSansPro from './SourceSansPro.json';
 // import { OrbitControls } from 'drei';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Physics, useBox, usePlane } from 'use-cannon';
@@ -11,6 +12,7 @@ import { Physics, useBox, usePlane } from 'use-cannon';
 // function TextMesh({ args = [0.5, 32, 32], ...props }) {
 function TextMesh({ args, position }) {
   const font = new THREE.FontLoader().parse(Modak);
+  // const font2 = new THREE.FontLoader().parse(SourcesSansPro);
 
   const textOptions = {
     font,
@@ -24,6 +26,18 @@ function TextMesh({ args, position }) {
     bevelSegments: 4,
   };
 
+  // const textOptions2 = {
+  //   font2,
+  //   size: 5,
+  //   height: 1.5,
+  //   curveSegments: 15,
+  //   bevelEnabled: true,
+  //   bevelThickness: 1.2,
+  //   bevelSize: 1,
+  //   bevelOffset: -0.1,
+  //   bevelSegments: 4,
+  // };
+
   const ref = useRef(null);
   // const [ref] = useBox(() => ({
   //   mass: 1,
@@ -35,6 +49,7 @@ function TextMesh({ args, position }) {
 
   return (
     <mesh position={position} ref={ref}>
+      <textGeometry attach="geometry" args={[args, textOptions]} factor={0.7} />
       <textGeometry attach="geometry" args={[args, textOptions]} factor={0.7} />
       <meshPhysicalMaterial
         clearcoat={1}
