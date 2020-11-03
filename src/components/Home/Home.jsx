@@ -55,10 +55,10 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.2}
-        color="red"
+        color="gray"
         attach="material"
-        transparent={true}
-        opacity={0.8}
+        // transparent={true}
+        // opacity={0.8}
       />
       {/* <OrbitControls enableZoom={false} /> */}
     </mesh>
@@ -119,21 +119,29 @@ export default function Home() {
             <ambientLight intensity={0.3} />
             <spotLight
               intensity={0.5}
-              position={[120, 30, 80]}
+              position={[180, 25, 100]}
               angle={0.3}
               penumbra={1}
             />
             <spotLight
-              intensity={0.2}
-              position={[-100, -50, -50]}
-              angle={0.2}
+              intensity={0.3}
+              // color="red"
+              position={[0, 200, 60]}
+              // angle={0.5}
+              penumbra={1}
+            />
+            <spotLight
+              intensity={0.5}
+              position={[200, 150, 150]}
+              // angle={0.2}
               penumbra={1}
             />
             <group>
               {/* <Physics> */}
               <Plane />
               <TextMesh args="Welcome" position={[-42, 25, 2]} />
-              <TextMesh args={'My name is Vlad.'} position={[-75, 0, 0.2]} />
+              <TextMesh args={'My name'} position={[-42, 0, 0.2]} />
+              <TextMesh args={'is Vlad.'} position={[-42, -25, 0.2]} />
               {/* <TextMesh args="l" position={[-13, 0, 1.2]} />
                 <TextMesh args="c" position={[-7, 0, 0.2]} />
                 <TextMesh args="o" position={[3, 0, 1.2]} />
