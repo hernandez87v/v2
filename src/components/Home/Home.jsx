@@ -55,7 +55,7 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.2}
-        color="gray"
+        color="darkorange"
         attach="material"
         // transparent={true}
         // opacity={0.8}
@@ -127,21 +127,19 @@ export default function Home() {
               intensity={0.3}
               // color="red"
               position={[0, 200, 60]}
-              // angle={0.5}
               penumbra={1}
             />
             <spotLight
               intensity={0.5}
               position={[200, 150, 150]}
-              // angle={0.2}
               penumbra={1}
             />
             <group>
               {/* <Physics> */}
               <Plane />
-              <TextMesh args="Welcome" position={[-42, 25, 2]} />
-              <TextMesh args={'My name'} position={[-42, 0, 0.2]} />
-              <TextMesh args={'is Vlad.'} position={[-42, -25, 0.2]} />
+              <TextMesh args="Welcome" position={[-43, 20, 0]} />
+              <TextMesh args={'My name'} position={[-43, 0, 0]} />
+              <TextMesh args={'is Vlad.'} position={[-43, -20, 0]} />
               {/* <TextMesh args="l" position={[-13, 0, 1.2]} />
                 <TextMesh args="c" position={[-7, 0, 0.2]} />
                 <TextMesh args="o" position={[3, 0, 1.2]} />
