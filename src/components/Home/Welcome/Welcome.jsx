@@ -74,14 +74,7 @@ export default function Welcome() {
           <TextMesh args="Welcome" position={[-43, 20, 0]} />
           <TextMesh args={'My name'} position={[-43, 0, 0]} />
           <TextMesh args={'is Vlad.'} position={[-43, -20, 0]} />
-          <Stars
-            radius={40}
-            depth={50}
-            count={500}
-            factor={5}
-            saturation={0}
-            fade
-          />
+          <Stars radius={75} count={1000} />
         </group>
       </Canvas>
     </div>
