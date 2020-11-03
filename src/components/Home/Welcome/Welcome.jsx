@@ -4,6 +4,7 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
+import { OrbitControls } from 'drei';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -39,7 +40,12 @@ function TextMesh({ args, position }) {
         color="darkorange"
         attach="material"
       />
-      {/* <OrbitControls enableZoom={false} /> */}
+      <OrbitControls
+        enableZoom={false}
+        enabled={false}
+        autoRotate
+        autoRotateSpeed={0.5}
+      />
     </mesh>
   );
 }
@@ -75,6 +81,7 @@ export default function Welcome() {
         <ambientLight intensity={0.3} />
         <spotLight intensity={0.3} position={[0, 200, 60]} penumbra={1} />
         <spotLight intensity={0.5} position={[200, 150, 150]} penumbra={1} />
+        <spotLight intensity={0.5} position={[-200, -150, -150]} penumbra={1} />
         <group>
           {/* <Physics> */}
           {/* <Plane /> */}
