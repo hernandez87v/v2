@@ -4,9 +4,6 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
 export default function Home() {
-  // let parallax;
-  // const ref = useRef(null);
-
   return (
     <div className="Home">
       <Parallax pages={2} ref={(ref) => ref}>
@@ -20,12 +17,6 @@ export default function Home() {
           speed={1}
           style={{ backgroundColor: '#87BCDE' }}
         />
-        {/* <ParallaxLayer
-        offset={0}
-        speed={0}
-        factor={3}
-        style={{ backgroundImage: url('stars', true), backgroundSize: 'cover' }}
-      /> */}
         <ParallaxLayer>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
