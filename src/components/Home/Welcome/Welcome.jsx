@@ -1,10 +1,9 @@
 import React, { useRef } from 'react';
 import './Welcome.css';
-
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
-import { Html, OrbitControls, Stars, Stats } from 'drei';
+import { OrbitControls, Stars } from 'drei';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -20,19 +19,15 @@ function TextMesh({ args, position }) {
     bevelOffset: -0.1,
     bevelSegments: 4,
   };
-
   const ref = useRef(null);
-  // const [ref] = useBox(() => ({
-  //   mass: 1,
-  //   position: [0, 0, 0],
-  //   angularDamping: 1,
-  //   // rotation: [0.4, 0.2, 0.5],
-  //   ...props,
-  // }));
 
   return (
     <mesh position={position} ref={ref}>
-      <textGeometry attach="geometry" args={[args, textOptions]} factor={0.7} />
+      <textBufferGeometry
+        attach="geometry"
+        args={[args, textOptions]}
+        factor={0.7}
+      />
       <meshPhysicalMaterial
         clearcoat={1}
         reflectivity={1}
@@ -44,12 +39,11 @@ function TextMesh({ args, position }) {
         enableZoom={false}
         enabled={false}
         autoRotate
-        autoRotateSpeed={0.5}
+        autoRotateSpeed={0.6}
       />
     </mesh>
   );
 }
-
 // function Plane() {
 //   const ref = useRef(null);
 //   // const [ref, api] = usePlane(() => ({
@@ -68,12 +62,6 @@ function TextMesh({ args, position }) {
 //     </mesh>
 //   );
 // }
-// const url = (name, wrap = false) =>
-//   `${
-//     wrap ? 'url(' : ''
-//   }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
-//     wrap ? ')' : ''
-//   }`;
 export default function Welcome() {
   return (
     <div className="Welcome">
@@ -83,25 +71,17 @@ export default function Welcome() {
         <spotLight intensity={0.5} position={[200, 150, 150]} penumbra={1} />
         <spotLight intensity={0.5} position={[-200, -150, -150]} penumbra={1} />
         <group>
-          {/* <Physics> */}
-          {/* <Plane /> */}
           <TextMesh args="Welcome" position={[-43, 20, 0]} />
           <TextMesh args={'My name'} position={[-43, 0, 0]} />
           <TextMesh args={'is Vlad.'} position={[-43, -20, 0]} />
           <Stars
-            radius={75} // Radius of the inner sphere (default=100)
-            depth={50} // Depth of area where stars should fit (default=50)
-            count={1000} // Amount of stars (default=5000)
-            factor={4} // Size factor (default=4)
-            saturation={1} // Saturation 0-1 (default=0)
-            fade // Faded dots (default=false)
+            radius={40}
+            depth={50}
+            count={500}
+            factor={5}
+            saturation={0}
+            fade
           />
-          {/* <TextMesh args="l" position={[-13, 0, 1.2]} />
-                <TextMesh args="c" position={[-7, 0, 0.2]} />
-                <TextMesh args="o" position={[3, 0, 1.2]} />
-                <TextMesh args="m" position={[14, 0, 0.2]} />
-                <TextMesh args="e" position={[31, 0, 1.2]} /> */}
-          {/* </Physics> */}
         </group>
       </Canvas>
     </div>
