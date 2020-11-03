@@ -4,7 +4,7 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
-import { OrbitControls } from 'drei';
+import { Html, OrbitControls, Stars, Stats } from 'drei';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -12,8 +12,8 @@ function TextMesh({ args, position }) {
   const textOptions = {
     font,
     size: 15,
-    height: 1.5,
-    curveSegments: 10,
+    height: 3,
+    curveSegments: 15,
     bevelEnabled: true,
     bevelThickness: 1.2,
     bevelSize: 1,
@@ -37,7 +37,7 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.2}
-        color="darkorange"
+        color="gray"
         attach="material"
       />
       <OrbitControls
@@ -88,6 +88,14 @@ export default function Welcome() {
           <TextMesh args="Welcome" position={[-43, 20, 0]} />
           <TextMesh args={'My name'} position={[-43, 0, 0]} />
           <TextMesh args={'is Vlad.'} position={[-43, -20, 0]} />
+          <Stars
+            radius={75} // Radius of the inner sphere (default=100)
+            depth={50} // Depth of area where stars should fit (default=50)
+            count={1000} // Amount of stars (default=5000)
+            factor={4} // Size factor (default=4)
+            saturation={1} // Saturation 0-1 (default=0)
+            fade // Faded dots (default=false)
+          />
           {/* <TextMesh args="l" position={[-13, 0, 1.2]} />
                 <TextMesh args="c" position={[-7, 0, 0.2]} />
                 <TextMesh args="o" position={[3, 0, 1.2]} />
