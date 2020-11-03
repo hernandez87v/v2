@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 import './Home.css';
 
-import { Canvas, useThree } from 'react-three-fiber';
+import { Canvas } from 'react-three-fiber';
 import * as THREE from 'three';
 import Modak from './Modak.json';
-import SourcesSansPro from './SourceSansPro.json';
+// import SourcesSansPro from './SourceSansPro.json';
 // import { OrbitControls } from 'drei';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
-import { Physics, useBox, usePlane } from 'use-cannon';
+// import { Physics, useBox, usePlane } from 'use-cannon';
 
 // function TextMesh({ args = [0.5, 32, 32], ...props }) {
 function TextMesh({ args, position }) {
@@ -65,24 +65,24 @@ function TextMesh({ args, position }) {
   );
 }
 
-function Plane() {
-  const ref = useRef(null);
-  // const [ref, api] = usePlane(() => ({
-  //   position: [0, -1, 0],
-  //   rotation: [-Math.PI / 2, 0, 0],
-  //   onCollide: () => {
-  //     api.position.set(0, 0, 0);
-  //     api.velocity.set(0, 1, 0);
-  //   },
-  // }));
+// function Plane() {
+//   const ref = useRef(null);
+//   // const [ref, api] = usePlane(() => ({
+//   //   position: [0, -1, 0],
+//   //   rotation: [-Math.PI / 2, 0, 0],
+//   //   onCollide: () => {
+//   //     api.position.set(0, 0, 0);
+//   //     api.velocity.set(0, 1, 0);
+//   //   },
+//   // }));
 
-  return (
-    <mesh ref={ref} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-      <planeBufferGeometry attach="geometry" args={[300, 300]} />
-      <shadowMaterial attach="material" color="#246623" opacity={0.2} />
-    </mesh>
-  );
-}
+//   return (
+//     <mesh ref={ref} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+//       <planeBufferGeometry attach="geometry" args={[300, 300]} />
+//       <shadowMaterial attach="material" color="#246623" opacity={0.2} />
+//     </mesh>
+//   );
+// }
 const url = (name, wrap = false) =>
   `${
     wrap ? 'url(' : ''
@@ -136,7 +136,7 @@ export default function Home() {
             />
             <group>
               {/* <Physics> */}
-              <Plane />
+              {/* <Plane /> */}
               <TextMesh args="Welcome" position={[-43, 20, 0]} />
               <TextMesh args={'My name'} position={[-43, 0, 0]} />
               <TextMesh args={'is Vlad.'} position={[-43, -20, 0]} />
