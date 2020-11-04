@@ -3,6 +3,8 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
+// import { OrbitControls } from 'drei';
+// import Constellation from '../../Constellation/Constellation';
 import { OrbitControls, Stars } from 'drei';
 
 function TextMesh({ args, position }) {
@@ -30,9 +32,9 @@ function TextMesh({ args, position }) {
       />
       <meshPhysicalMaterial
         clearcoat={1}
-        reflectivity={1}
-        roughness={0.2}
-        color="gray"
+        reflectivity={0.5}
+        roughness={0.5}
+        color="tomato"
         attach="material"
       />
       <OrbitControls
@@ -67,13 +69,13 @@ export default function Welcome() {
     <div className="Welcome">
       <Canvas colorManagement camera={{ position: [0, 30, 100], fov: 85 }}>
         <ambientLight intensity={0.3} />
-        <spotLight intensity={0.3} position={[0, 200, 60]} penumbra={1} />
-        <spotLight intensity={0.5} position={[200, 150, 150]} penumbra={1} />
+        <spotLight intensity={0.7} position={[0, 200, 60]} penumbra={1} />
+        <spotLight intensity={0.5} position={[200, 100, 100]} penumbra={1} />
         <spotLight intensity={0.5} position={[-200, -150, -150]} penumbra={1} />
         <group>
-          <TextMesh args="Welcome" position={[-43, 20, 0]} />
-          <TextMesh args={'My name'} position={[-43, 0, 0]} />
-          <TextMesh args={'is Vlad.'} position={[-43, -20, 0]} />
+          <TextMesh args="Welcome," position={[-43, 20, 0]} />
+          <TextMesh args="my name" position={[-43, 0, 0]} />
+          <TextMesh args="is Vlad." position={[-43, -20, 0]} />
           <Stars radius={75} count={1000} />
         </group>
       </Canvas>

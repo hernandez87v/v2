@@ -1,8 +1,8 @@
-import React, { Suspense, lazy } from 'react';
-import './Home.css';
-import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { OrbitControls, Stars, Text } from 'drei';
-import { Canvas, useThree } from 'react-three-fiber';
+import React, { Suspense, lazy } from 'react';
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
+import { Canvas } from 'react-three-fiber';
+// import Constellation from '../Constellation/Constellation';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
@@ -13,14 +13,14 @@ export default function Home() {
         <ParallaxLayer
           offset={1}
           speed={1}
-          style={{ backgroundColor: '#5e7f79' }}
+          style={{ backgroundColor: 'gray' }}
         />
         <ParallaxLayer
           offset={2}
           speed={1}
-          style={{ backgroundColor: '#87BCDE' }}
+          style={{ backgroundColor: 'tomato' }}
         />
-        <ParallaxLayer offset={0.5} speed={0} factor={4}>
+        <ParallaxLayer offset={0} speed={0} factor={4}>
           <Suspense fallback={<div>Loading...</div>}>
             <Canvas
               colorManagement
@@ -32,8 +32,7 @@ export default function Home() {
                 autoRotate
                 autoRotateSpeed={0.6}
               />
-
-              <Stars radius={50} count={1000} />
+              <Stars radius={75} count={5000} />
             </Canvas>
           </Suspense>
         </ParallaxLayer>
@@ -43,15 +42,23 @@ export default function Home() {
             <Welcome />
           </Suspense>
         </ParallaxLayer>
-        <ParallaxLayer offset={3} speed={0.5}>
+        <ParallaxLayer
+          offset={3}
+          speed={0.5}
+          // style={{
+          //   display: 'flex',
+          //   alignItems: 'center',
+          //   justifyContent: 'center',
+          // }}
+        >
           <Canvas>
             <Text
-              color="white"
+              color="gray"
               anchorX="center"
               anchorY="middle"
               textAlign="justify"
               lineHeight="1"
-              fontSize="0.2"
+              fontSize="0.4"
               maxWidth="4"
               font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
             >
@@ -61,12 +68,6 @@ export default function Home() {
               molestias? Debitis, eligendi.
             </Text>
           </Canvas>
-          {/* <article>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
-            impedit ut accusamus maiores, ipsum dolore, culpa et nemo quas
-            itaque est ducimus quos cupiditate doloremque optio incidunt
-            voluptas. Enim, obcaecati!
-          </article> */}
         </ParallaxLayer>
       </Parallax>
     </div>
