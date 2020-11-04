@@ -32,9 +32,9 @@ function TextMesh({ args, position }) {
       />
       <meshPhysicalMaterial
         clearcoat={1}
-        reflectivity={0.5}
-        roughness={0.5}
-        color="tomato"
+        reflectivity={1}
+        roughness={0}
+        color="lemonchiffon"
         attach="material"
       />
       <OrbitControls
