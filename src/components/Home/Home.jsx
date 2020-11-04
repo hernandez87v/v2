@@ -2,11 +2,12 @@ import React, { Suspense, lazy } from 'react';
 import './Home.css';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { OrbitControls, Stars, Text } from 'drei';
-import { Canvas } from 'react-three-fiber';
+import { Canvas, useThree } from 'react-three-fiber';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
 export default function Home() {
+  const { viewport } = useThree();
   return (
     <div className="Home">
       <Parallax pages={4} ref={(ref) => ref}>
@@ -50,10 +51,10 @@ export default function Home() {
               anchorX="center"
               anchorY="middle"
               textAlign="justify"
-              // maxWidth={90}
-              lineHeight="0.75"
-              fontSize="0.5"
-              maxWidth="5"
+              // maxWidth={viewport.width}
+              lineHeight="1"
+              fontSize="0.2"
+              maxWidth="4"
               font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
             >
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam
