@@ -7,7 +7,6 @@ import { Canvas, useThree } from 'react-three-fiber';
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
 export default function Home() {
-  const { viewport } = useThree();
   return (
     <div className="Home">
       <Parallax pages={4} ref={(ref) => ref}>
@@ -51,7 +50,6 @@ export default function Home() {
               anchorX="center"
               anchorY="middle"
               textAlign="justify"
-              // maxWidth={viewport.width}
               lineHeight="1"
               fontSize="0.2"
               maxWidth="4"
