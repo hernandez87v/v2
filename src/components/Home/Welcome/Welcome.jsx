@@ -6,6 +6,31 @@ import Modak from './Modak.json';
 // import Constellation from '../../Constellation/Constellation';
 import { OrbitControls, Stars } from 'drei';
 
+function Planet({ args, position }) {
+  const ref = useRef(null);
+
+  return (
+    <mesh position={position} ref={ref}>
+      <sphereBufferGeometry attach="geometry" args={[args]} factor={0.7} />
+      <meshPhysicalMaterial
+        clearcoat={1}
+        reflectivity={1}
+        roughness={0.5}
+        metalness={1}
+        // color="lemonchiffon"
+        color="orange"
+        attach="material"
+      />
+      {/* <OrbitControls
+        enableZoom={false}
+        enabled={false}
+        autoRotate
+        autoRotateSpeed={0.8}
+      /> */}
+    </mesh>
+  );
+}
+
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
 
@@ -31,45 +56,30 @@ function TextMesh({ args, position }) {
       <meshPhysicalMaterial
         clearcoat={1}
         reflectivity={1}
-        roughness={0}
-        color="lemonchiffon"
+        roughness={0.5}
+        metalness={1}
+        // color="lemonchiffon"
+        color="red"
         attach="material"
       />
       <OrbitControls
         enableZoom={false}
         enabled={false}
         autoRotate
-        autoRotateSpeed={0.6}
+        autoRotateSpeed={0.8}
       />
     </mesh>
   );
 }
-// function Plane() {
-//   const ref = useRef(null);
-//   // const [ref, api] = usePlane(() => ({
-//   //   position: [0, -1, 0],
-//   //   rotation: [-Math.PI / 2, 0, 0],
-//   //   onCollide: () => {
-//   //     api.position.set(0, 0, 0);
-//   //     api.velocity.set(0, 1, 0);
-//   //   },
-//   // }));
 
-//   return (
-//     <mesh ref={ref} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-//       <planeBufferGeometry attach="geometry" args={[300, 300]} />
-//       <shadowMaterial attach="material" color="#246623" opacity={0.2} />
-//     </mesh>
-//   );
-// }
 export default function Welcome() {
   return (
     <div className="Welcome">
       <Canvas colorManagement camera={{ position: [0, 30, 100], fov: 85 }}>
-        <ambientLight intensity={0.3} />
-        <spotLight intensity={0.7} position={[0, 200, 60]} penumbra={1} />
-        <spotLight intensity={0.5} position={[200, 100, 100]} penumbra={1} />
-        <spotLight intensity={0.5} position={[-200, -150, -150]} penumbra={1} />
+        <ambientLight intensity={0.2} />
+        <spotLight intensity={0.2} position={[30, -60, 160]} penumbra={1} />
+        <spotLight intensity={0.2} position={[-30, -10, 200]} penumbra={1} />
+        <spotLight intensity={0.2} position={[-200, -150, -150]} penumbra={1} />
         <group>
           <TextMesh args="Hello," position={[-43, 20, 0]} />
           <TextMesh args="my name" position={[-43, 0, 0]} />
