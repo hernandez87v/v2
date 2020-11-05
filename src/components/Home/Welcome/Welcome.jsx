@@ -5,22 +5,13 @@ import { FontLoader } from 'three';
 import Modak from './Modak.json';
 // import Constellation from '../../Constellation/Constellation';
 import { OrbitControls, Stars } from 'drei';
-// import { useSphere } from 'use-cannon';
 
-function Planet({ args, position, ...props }) {
-  // const [ref] = useSphere(() => ({ args: 0.5 }));
+function Planet({ args, position, color, ...props }) {
   const ref = useRef();
-  console.log(position, args);
   return (
     <mesh position={position} {...props} ref={ref}>
       <sphereBufferGeometry attach="geometry" args={args} />
-      <meshStandardMaterial color="lemonchiffon" attach="material" />
-      {/* <OrbitControls
-        enableZoom={false}
-        enabled={false}
-        autoRotate
-        autoRotateSpeed={0.8}
-      /> */}
+      <meshStandardMaterial color={color} attach="material" />
     </mesh>
   );
 }
@@ -50,10 +41,9 @@ function TextMesh({ args, position }) {
       <meshPhysicalMaterial
         clearcoat={1}
         reflectivity={1}
-        roughness={0.5}
+        roughness={0.4}
         metalness={1}
-        // color="lemonchiffon"
-        color="red"
+        color="tomato"
         attach="material"
       />
       <OrbitControls
