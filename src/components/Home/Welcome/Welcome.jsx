@@ -7,18 +7,14 @@ import Modak from './Modak.json';
 import { OrbitControls, Stars } from 'drei';
 // import { useSphere } from 'use-cannon';
 
-function Planet({ args = [10, 32, 32], color, ...props }) {
+function Planet({ args, position, ...props }) {
   // const [ref] = useSphere(() => ({ args: 0.5 }));
   const ref = useRef();
-
+  console.log(position, args);
   return (
-    <mesh {...props} ref={ref}>
-      <sphereBufferGeometry attach="geometry" args={[args]} />
-      <meshStandardMaterial
-        // color="lemonchiffon"
-        color={color}
-        attach="material"
-      />
+    <mesh position={position} {...props} ref={ref}>
+      <sphereBufferGeometry attach="geometry" args={args} />
+      <meshStandardMaterial color="lemonchiffon" attach="material" />
       {/* <OrbitControls
         enableZoom={false}
         enabled={false}
@@ -79,8 +75,12 @@ export default function Welcome() {
         <spotLight intensity={0.2} position={[-30, -10, 200]} penumbra={1} />
         <spotLight intensity={0.2} position={[-200, -150, -150]} penumbra={1} />
         <group>
-          <Planet position={[0.5, 32, 32]} color="lemonchiffon" />
-          <Planet position={[-50, 20, 0]} color="lemonchiffon" />
+          <Planet args={[10, 32, 32]} position={[110, -25, 0]} color="silver" />
+          <Planet
+            args={[20, 32, 32]}
+            position={[0, 50, -100]}
+            color="lemonchiffon"
+          />
           <TextMesh args="Hello," position={[-43, 20, 0]} />
           <TextMesh args="my name" position={[-43, 0, 0]} />
           <TextMesh args="is Vlad," position={[-43, -20, 0]} />
