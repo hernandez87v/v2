@@ -5,20 +5,18 @@ import { FontLoader } from 'three';
 import Modak from './Modak.json';
 // import Constellation from '../../Constellation/Constellation';
 import { OrbitControls, Stars } from 'drei';
+// import { useSphere } from 'use-cannon';
 
-function Planet({ args, position }) {
-  const ref = useRef(null);
+function Planet({ args = [10, 32, 32], color, ...props }) {
+  // const [ref] = useSphere(() => ({ args: 0.5 }));
+  const ref = useRef();
 
   return (
-    <mesh position={position} ref={ref}>
-      <sphereBufferGeometry attach="geometry" args={[args]} factor={0.7} />
-      <meshPhysicalMaterial
-        clearcoat={1}
-        reflectivity={1}
-        roughness={0.5}
-        metalness={1}
+    <mesh {...props} ref={ref}>
+      <sphereBufferGeometry attach="geometry" args={[args]} />
+      <meshStandardMaterial
         // color="lemonchiffon"
-        color="orange"
+        color={color}
         attach="material"
       />
       {/* <OrbitControls
@@ -81,6 +79,8 @@ export default function Welcome() {
         <spotLight intensity={0.2} position={[-30, -10, 200]} penumbra={1} />
         <spotLight intensity={0.2} position={[-200, -150, -150]} penumbra={1} />
         <group>
+          <Planet position={[0.5, 32, 32]} color="lemonchiffon" />
+          <Planet position={[-50, 20, 0]} color="lemonchiffon" />
           <TextMesh args="Hello," position={[-43, 20, 0]} />
           <TextMesh args="my name" position={[-43, 0, 0]} />
           <TextMesh args="is Vlad," position={[-43, -20, 0]} />
