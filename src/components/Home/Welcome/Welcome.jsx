@@ -3,9 +3,8 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
-// import { OrbitControls } from 'drei';
 // import Constellation from '../../Constellation/Constellation';
-import { OrbitControls, Stars } from 'drei';
+import { OrbitControls, Stars, Text } from 'drei';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -73,10 +72,23 @@ export default function Welcome() {
         <spotLight intensity={0.5} position={[200, 100, 100]} penumbra={1} />
         <spotLight intensity={0.5} position={[-200, -150, -150]} penumbra={1} />
         <group>
-          <TextMesh args="Welcome," position={[-43, 20, 0]} />
+          <TextMesh args="Hello," position={[-43, 20, 0]} />
           <TextMesh args="my name" position={[-43, 0, 0]} />
-          <TextMesh args="is Vlad." position={[-43, -20, 0]} />
+          <TextMesh args="is Vlad," position={[-43, -20, 0]} />
+          <TextMesh args="Web Developer." position={[-43, -40, 0]} />
           <Stars radius={75} count={1000} />
+          <Text
+            color="gray"
+            anchorX="center"
+            anchorY="top"
+            textAlign="left"
+            lineHeight="1"
+            fontSize="16"
+            maxWidth="4"
+            font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
+          >
+            WEB DEVELOPER
+          </Text>
         </group>
       </Canvas>
     </div>
