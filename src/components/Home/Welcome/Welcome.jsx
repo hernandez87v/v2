@@ -4,7 +4,7 @@ import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
 // import Constellation from '../../Constellation/Constellation';
-import { OrbitControls, Stars, Text } from 'drei';
+import { OrbitControls, Stars } from 'drei';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -17,8 +17,7 @@ function TextMesh({ args, position }) {
     bevelEnabled: true,
     bevelThickness: 1.2,
     bevelSize: 1,
-    bevelOffset: -0.1,
-    bevelSegments: 4,
+    bevelSegments: 2,
   };
   const ref = useRef(null);
 
@@ -75,20 +74,8 @@ export default function Welcome() {
           <TextMesh args="Hello," position={[-43, 20, 0]} />
           <TextMesh args="my name" position={[-43, 0, 0]} />
           <TextMesh args="is Vlad," position={[-43, -20, 0]} />
-          <TextMesh args="Web Developer." position={[-43, -40, 0]} />
+          <TextMesh args="Web Dev." position={[-43, -40, 0]} />
           <Stars radius={75} count={1000} />
-          <Text
-            color="gray"
-            anchorX="center"
-            anchorY="top"
-            textAlign="left"
-            lineHeight="1"
-            fontSize="16"
-            maxWidth="4"
-            font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
-          >
-            WEB DEVELOPER
-          </Text>
         </group>
       </Canvas>
     </div>
