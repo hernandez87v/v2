@@ -1,26 +1,12 @@
 import React, { Suspense, useRef, useState } from 'react';
 import './Welcome.css';
-import { Canvas, useLoader } from 'react-three-fiber';
+import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
-import { OrbitControls, Stars } from 'drei';
-import { TextureLoader } from 'three';
-import sRGBEncoding from './2kSun.jpg';
+import { OrbitControls, Stars, useTextureLoader } from 'drei';
+import sun_texture from './2kSun.jpg';
 import moon_texture from './2kMoon.jpg';
-
-function Planet({ args, position, color, map, ...props }) {
-  const ref = useRef();
-
-  const sun = useLoader(TextureLoader, sRGBEncoding);
-  const moon = useLoader(TextureLoader, moon_texture);
-
-  return (
-    <mesh position={position} {...props} ref={ref}>
-      <sphereBufferGeometry attach="geometry" args={args} />
-      <meshStandardMaterial color={color} attach="material" map={moon} />
-    </mesh>
-  );
-}
+import moonBump from './moonBump.jpg';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -51,12 +37,27 @@ function TextMesh({ args, position }) {
         color="lemonchiffon"
         attach="material"
       />
-      {/* <OrbitControls
-        enableZoom={false}
-        enabled={false}
-        autoRotate
-        autoRotateSpeed={0.3}
-      /> */}
+      <OrbitControls
+      // enableZoom={false}
+      // enabled={false}
+      // autoRotate
+      // autoRotateSpeed={0.3}
+      />
+    </mesh>
+  );
+}
+function Planet({ args, position, map, ...props }) {
+  const ref = useRef();
+  const bumpMap = useTextureLoader(moonBump);
+  return (
+    <mesh position={position} {...props} ref={ref}>
+      <sphereBufferGeometry attach="geometry" args={args} />
+      <meshStandardMaterial
+        bumpMap={bumpMap}
+        radius={1}
+        bumpScale={0.5}
+        map={map}
+      />
     </mesh>
   );
 }
@@ -64,6 +65,8 @@ function TextMesh({ args, position }) {
 export default function Welcome() {
   const date = new Date();
   const [hour] = useState(date);
+  const [sun, moon] = useTextureLoader([sun_texture, moon_texture]);
+
   // var c = <Canvas>...</Canvas>;
   // console.log(c);
   // console.log(hour.getHours());
@@ -76,15 +79,14 @@ export default function Welcome() {
         <spotLight intensity={0.2} position={[-200, -150, -150]} penumbra={1} />
         <group>
           <Suspense fallback={null}>
-            {hour.getHours() < 16 ? (
+            {hour.getHours() < 12 ? (
               <Planet
                 clearcoat={0}
                 reflectivity={0}
                 roughness={1}
-                args={[50, 32, 32]}
+                args={[150, 32, 32]}
                 position={[0, 90, -310]}
-                // color="white"
-                // map={map}
+                map={sun}
               />
             ) : (
               <Planet
@@ -93,8 +95,7 @@ export default function Welcome() {
                 roughness={1}
                 args={[10, 32, 32]}
                 position={[150, 50, 50]}
-                // color="white"
-                // map={moon}
+                map={moon}
               />
             )}
           </Suspense>
