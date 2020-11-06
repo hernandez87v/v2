@@ -1,17 +1,25 @@
-import React, { useRef, useState } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import './Welcome.css';
-import { Canvas } from 'react-three-fiber';
+import { Canvas, useLoader } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
 // import Constellation from '../../Constellation/Constellation';
 import { OrbitControls, Stars } from 'drei';
+import * as THREE from 'three';
+import img from './moon8bit.jpg';
 
 function Planet({ args, position, color, ...props }) {
   const ref = useRef();
+
+  const texture = useLoader(THREE.TextureLoader, img);
+  // three_texture.wrapS = THREE.RepeatWrapping;
+  // three_texture.wrapT = THREE.RepeatWrapping;
+  //   three_texture.repeat.set(0.1, 0.1);
+
   return (
     <mesh position={position} {...props} ref={ref}>
       <sphereBufferGeometry attach="geometry" args={args} />
-      <meshStandardMaterial color={color} attach="material" />
+      <meshStandardMaterial color={color} attach="material" map={texture} />
     </mesh>
   );
 }
@@ -65,7 +73,8 @@ export default function Welcome() {
 
   const date = new Date();
   const [hour] = useState(date);
-  console.log(<Canvas></Canvas>);
+  // var c = <Canvas>...</Canvas>;
+  // console.log(c);
 
   return (
     <div className="Welcome">
@@ -75,26 +84,27 @@ export default function Welcome() {
         <spotLight intensity={0.2} position={[70, 30, 30]} penumbra={1} />
         <spotLight intensity={0.2} position={[-200, -150, -150]} penumbra={1} />
         <group>
-          {hour.getHours() < 18 ? (
-            <Planet
-              clearcoat={0}
-              reflectivity={0}
-              roughness={1}
-              args={[50, 32, 32]}
-              position={[0, 90, -310]}
-              color="orange"
-            />
-          ) : (
-            <Planet
-              clearcoat={0}
-              reflectivity={0}
-              roughness={1}
-              args={[10, 32, 32]}
-              position={[150, 50, 50]}
-              color="gray"
-            />
-          )}
-
+          <Suspense fallback={null}>
+            {hour.getHours() < 18 ? (
+              <Planet
+                clearcoat={0}
+                reflectivity={0}
+                roughness={1}
+                args={[50, 32, 32]}
+                position={[0, 90, -310]}
+                color="orange"
+              />
+            ) : (
+              <Planet
+                clearcoat={0}
+                reflectivity={0}
+                roughness={1}
+                args={[10, 32, 32]}
+                position={[150, 50, 50]}
+                color="gray"
+              />
+            )}
+          </Suspense>
           {/* <TextMesh args="Vlad Hernandez" position={[-50, 0, 0]} />
           <TextMesh args="Web Developer" position={[-43, -15, 0]} /> */}
           <TextMesh args="Hello," position={[-43, 30, 0]} />
