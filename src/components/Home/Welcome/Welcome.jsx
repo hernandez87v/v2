@@ -3,7 +3,6 @@ import './Welcome.css';
 import { Canvas, useLoader } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
-// import Constellation from '../../Constellation/Constellation';
 import { OrbitControls, Stars } from 'drei';
 import { TextureLoader } from 'three';
 import sRGBEncoding from './2kSun.jpg';
@@ -49,7 +48,6 @@ function TextMesh({ args, position }) {
         clearcoat={0}
         reflectivity={1}
         roughness={1}
-        // metalness={1}
         color="lemonchiffon"
         attach="material"
       />
@@ -68,7 +66,7 @@ export default function Welcome() {
   const [hour] = useState(date);
   // var c = <Canvas>...</Canvas>;
   // console.log(c);
-  console.log(hour.getHours());
+  // console.log(hour.getHours());
   return (
     <div className="Welcome">
       <Canvas colorManagement camera={{ position: [0, 30, 100], fov: 85 }}>
@@ -100,8 +98,6 @@ export default function Welcome() {
               />
             )}
           </Suspense>
-          {/* <TextMesh args="Vlad Hernandez" position={[-50, 0, 0]} />
-          <TextMesh args="Web Developer" position={[-43, -15, 0]} /> */}
           <TextMesh args="Hello," position={[-43, 30, 0]} />
           <TextMesh args="my name" position={[-43, 10, 0]} />
           <TextMesh args="is Vlad," position={[-43, -10, 0]} />

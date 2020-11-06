@@ -2,7 +2,6 @@ import { OrbitControls, Stars, Text } from 'drei';
 import React, { Suspense, lazy } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
-// import Constellation from '../Constellation/Constellation';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
@@ -36,21 +35,12 @@ export default function Home() {
             </Canvas>
           </Suspense>
         </ParallaxLayer>
-
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
           </Suspense>
         </ParallaxLayer>
-        <ParallaxLayer
-          offset={3}
-          speed={0.5}
-          // style={{
-          //   display: 'flex',
-          //   alignItems: 'center',
-          //   justifyContent: 'center',
-          // }}
-        >
+        <ParallaxLayer offset={3} speed={0.5}>
           <Canvas>
             <Text
               color="gray"
