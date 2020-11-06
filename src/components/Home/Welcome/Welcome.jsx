@@ -3,7 +3,7 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
-import { OrbitControls, Stars, useTextureLoader } from 'drei';
+import { OrbitControls, useTextureLoader } from 'drei';
 import sun_texture from './2kSun.jpg';
 import moon_texture from './2kMoon.jpg';
 
@@ -66,7 +66,6 @@ export default function Welcome() {
   return (
     <div className="Welcome">
       <Canvas
-        alpha={false}
         colorManagement
         camera={{ position: [0, 30, 100], fov: 85 }}
         gl={{
@@ -74,13 +73,17 @@ export default function Welcome() {
         }}
       >
         <ambientLight intensity={0.2} />
-        <spotLight intensity={0.3} position={[50, 30, 30]} penumbra={1} />
+        <spotLight intensity={0.2} position={[200, 150, 150]} penumbra={1} />
         <spotLight intensity={0.2} position={[70, 30, 30]} penumbra={1} />
         <spotLight intensity={0.2} position={[-200, -150, -150]} penumbra={1} />
         <group>
           <Suspense fallback={null}>
             {hour.getHours() < 16 ? (
-              <Planet args={[50, 32, 32]} position={[0, 90, -310]} map={sun} />
+              <Planet
+                args={[50, 32, 32]}
+                position={[-250, 90, -310]}
+                map={sun}
+              />
             ) : (
               <Planet args={[10, 32, 32]} position={[150, 50, 50]} map={moon} />
             )}
