@@ -5,16 +5,13 @@ import { FontLoader } from 'three';
 import Modak from './Modak.json';
 // import Constellation from '../../Constellation/Constellation';
 import { OrbitControls, Stars } from 'drei';
-import * as THREE from 'three';
+import { TextureLoader } from 'three';
 import img from './moon8bit.jpg';
 
 function Planet({ args, position, color, ...props }) {
   const ref = useRef();
 
-  const texture = useLoader(THREE.TextureLoader, img);
-  // three_texture.wrapS = THREE.RepeatWrapping;
-  // three_texture.wrapT = THREE.RepeatWrapping;
-  //   three_texture.repeat.set(0.1, 0.1);
+  const texture = useLoader(TextureLoader, img);
 
   return (
     <mesh position={position} {...props} ref={ref}>
