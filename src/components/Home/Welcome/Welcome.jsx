@@ -6,19 +6,19 @@ import Modak from './Modak.json';
 // import Constellation from '../../Constellation/Constellation';
 import { OrbitControls, Stars } from 'drei';
 import { TextureLoader } from 'three';
-import sun_texture from './2kSun.jpg';
+import sRGBEncoding from './2kSun.jpg';
 import moon_texture from './2kMoon.jpg';
 
-function Planet({ args, position, color, ...props }) {
+function Planet({ args, position, color, map, ...props }) {
   const ref = useRef();
 
-  const sun = useLoader(TextureLoader, sun_texture);
+  const sun = useLoader(TextureLoader, sRGBEncoding);
   const moon = useLoader(TextureLoader, moon_texture);
 
   return (
     <mesh position={position} {...props} ref={ref}>
       <sphereBufferGeometry attach="geometry" args={args} />
-      <meshStandardMaterial color={color} attach="material" map={sun} />
+      <meshStandardMaterial color={color} attach="material" map={moon} />
     </mesh>
   );
 }
@@ -85,7 +85,8 @@ export default function Welcome() {
                 roughness={1}
                 args={[50, 32, 32]}
                 position={[0, 90, -310]}
-                color="white"
+                // color="white"
+                // map={map}
               />
             ) : (
               <Planet
@@ -94,7 +95,8 @@ export default function Welcome() {
                 roughness={1}
                 args={[10, 32, 32]}
                 position={[150, 50, 50]}
-                color="gray"
+                // color="white"
+                // map={moon}
               />
             )}
           </Suspense>
