@@ -6,7 +6,3 @@
   display: flex;
   justify-content: center;
 }
-
-.Canvas {
-  z-index: 2;
-}

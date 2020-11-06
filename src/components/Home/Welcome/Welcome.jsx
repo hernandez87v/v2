@@ -40,7 +40,7 @@ function TextMesh({ args, position }) {
         enableZoom={false}
         enabled={false}
         autoRotate
-        autoRotateSpeed={0.3}
+        autoRotateSpeed={0.1}
       />
     </mesh>
   );
