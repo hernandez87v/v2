@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <header id="navbar-header">
       <h2 className="logo" alt="logo">
-        <Link to="/">Vlad Hernandez</Link>
+        <Link to="/">VH</Link>
       </h2>
       <nav>
         <ul className="nav_links">
