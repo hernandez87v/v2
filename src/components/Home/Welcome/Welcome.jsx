@@ -65,7 +65,7 @@ export default function Welcome() {
 
   const date = new Date();
   const [hour] = useState(date);
-  console.log(hour.getHours());
+  console.log(<Canvas></Canvas>);
 
   return (
     <div className="Welcome">
@@ -102,7 +102,7 @@ export default function Welcome() {
           <TextMesh args="is Vlad," position={[-43, -10, 0]} />
           <TextMesh args=">Web" position={[-43, -30, 0]} />
           <TextMesh args="Developer." position={[-43, -50, 0]} />
-          <Stars radius={75} count={1000} />
+          <Stars radius={150} count={1000} />
         </group>
       </Canvas>
     </div>
