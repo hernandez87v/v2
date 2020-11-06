@@ -65,17 +65,11 @@ function TextMesh({ args, position }) {
 }
 
 export default function Welcome() {
-  // const date = new Date();
-  // const hour = date.getHours();
-  // this.setState({
-  //   hour,
-  // });
-
   const date = new Date();
   const [hour] = useState(date);
   // var c = <Canvas>...</Canvas>;
   // console.log(c);
-
+  console.log(hour.getHours());
   return (
     <div className="Welcome">
       <Canvas colorManagement camera={{ position: [0, 30, 100], fov: 85 }}>
@@ -85,7 +79,7 @@ export default function Welcome() {
         <spotLight intensity={0.2} position={[-200, -150, -150]} penumbra={1} />
         <group>
           <Suspense fallback={null}>
-            {hour.getHours() < 18 ? (
+            {hour.getHours() < 16 ? (
               <Planet
                 clearcoat={0}
                 reflectivity={0}
