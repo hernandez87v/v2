@@ -4,6 +4,7 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
+// const SunMoon = lazy(() => import('./SunMoon/SunMoon'));
 
 export default function Home() {
   return (
@@ -38,6 +39,7 @@ export default function Home() {
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
+            {/* <SunMoon /> */}
           </Suspense>
         </ParallaxLayer>
         <ParallaxLayer offset={3} speed={0.5}>

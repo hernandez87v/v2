@@ -27,7 +27,7 @@ export default function SunMoon() {
     <div className="SunMoon">
       <Canvas
         colorManagement
-        camera={{ position: [0, 30, 100], fov: 85 }}
+        camera={{ position: [0, 0, 0] }}
         gl={{
           powerPreference: 'high-performance',
         }}

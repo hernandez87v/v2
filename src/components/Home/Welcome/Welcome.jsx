@@ -4,8 +4,8 @@ import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
 import { OrbitControls, useTextureLoader } from 'drei';
-import sun_texture from './2kSun.jpg';
-import moon_texture from './2kMoon.jpg';
+import sun_texture from '../SunMoon/2kSun.jpg';
+import moon_texture from '../SunMoon/2kMoon.jpg';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -45,6 +45,7 @@ function TextMesh({ args, position }) {
     </mesh>
   );
 }
+
 function Planet({ args, position, map, ...props }) {
   const ref = useRef();
 
@@ -60,9 +61,6 @@ export default function Welcome() {
   const date = new Date();
   const [hour] = useState(date);
   const [sun, moon] = useTextureLoader([sun_texture, moon_texture]);
-  // var c = <Canvas></Canvas>;
-  // console.log(c);
-  // console.log(hour.getHours());
   return (
     <div className="Welcome">
       <Canvas
