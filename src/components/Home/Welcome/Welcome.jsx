@@ -40,7 +40,7 @@ function TextMesh({ args, position }) {
         enableZoom={false}
         enabled={false}
         autoRotate
-        autoRotateSpeed={0.1}
+        autoRotateSpeed={0.2}
       />
     </mesh>
   );
@@ -65,7 +65,7 @@ export default function Welcome() {
     <div className="Welcome">
       <Canvas
         colorManagement
-        camera={{ position: [0, 30, 100], fov: 85 }}
+        camera={{ position: [0, 20, 100], fov: 100 }}
         gl={{
           powerPreference: 'high-performance',
         }}
@@ -79,7 +79,7 @@ export default function Welcome() {
             {hour.getHours() < 16 ? (
               <Planet
                 args={[50, 32, 32]}
-                position={[-250, 90, -310]}
+                position={[-500, 400, -800]}
                 map={sun}
               />
             ) : (
