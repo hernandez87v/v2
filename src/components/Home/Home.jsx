@@ -1,10 +1,9 @@
-import { OrbitControls, Stars, Text } from 'drei';
+import { Text } from 'drei';
 import React, { Suspense, lazy } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
-// const SunMoon = lazy(() => import('./SunMoon/SunMoon'));
 
 export default function Home() {
   return (
@@ -21,25 +20,11 @@ export default function Home() {
           style={{ backgroundColor: 'tomato' }}
         />
         <ParallaxLayer offset={0} speed={0} factor={4}>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Canvas
-              colorManagement
-              camera={{ position: [100, 30, 100], fov: 100 }}
-            >
-              <OrbitControls
-                enableZoom={false}
-                enabled={false}
-                autoRotate
-                autoRotateSpeed={0.6}
-              />
-              <Stars radius={75} count={5000} />
-            </Canvas>
-          </Suspense>
+
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
-            {/* <SunMoon /> */}
           </Suspense>
         </ParallaxLayer>
         <ParallaxLayer offset={3} speed={0.5}>
