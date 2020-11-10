@@ -2,6 +2,8 @@ import { Text } from 'drei';
 import React, { Suspense, lazy } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
+import Code from '../Code/Code';
+import Skills from '../Skills/Skills';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
@@ -9,25 +11,15 @@ export default function Home() {
   return (
     <div className="Home">
       <Parallax pages={4} ref={(ref) => ref}>
-        <ParallaxLayer
-          offset={1}
-          speed={1}
-          style={{ backgroundColor: 'gray' }}
-        />
-        <ParallaxLayer
-          offset={2}
-          speed={1}
-          style={{ backgroundColor: 'tomato' }}
-        />
-        <ParallaxLayer offset={0} speed={0} factor={4}>
-
-        </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
           </Suspense>
         </ParallaxLayer>
-        <ParallaxLayer offset={3} speed={0.5}>
+        <ParallaxLayer offset={1} speed={1}>
+          <Skills />
+        </ParallaxLayer>
+        <ParallaxLayer offset={2} speed={0.5}>
           <Canvas>
             <Text
               color="gray"
@@ -46,6 +38,15 @@ export default function Home() {
             </Text>
           </Canvas>
         </ParallaxLayer>
+        <ParallaxLayer offset={3} speed={1}>
+          <Code />
+        </ParallaxLayer>
+        <ParallaxLayer
+          style={{ backgroundColor: 'blue' }}
+          offset={4}
+          speed={0}
+          factor={4}
+        ></ParallaxLayer>
       </Parallax>
     </div>
   );

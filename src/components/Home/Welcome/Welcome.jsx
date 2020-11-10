@@ -3,18 +3,15 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
-import { OrbitControls, useTextureLoader } from 'drei';
-import sun_texture from '../SunMoon/2kSun.jpg';
-import moon_texture from '../SunMoon/2kMoon.jpg';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
 
   const textOptions = {
     font,
-    size: 15,
-    height: 3,
-    curveSegments: 15,
+    size: 10,
+    height: 2,
+    curveSegments: 10,
     bevelEnabled: true,
     bevelThickness: 1.2,
     bevelSize: 1,
@@ -32,15 +29,9 @@ function TextMesh({ args, position }) {
       <meshPhysicalMaterial
         clearcoat={1}
         reflectivity={1}
-        roughness={1}
-        color="silver"
+        roughness={0.1}
+        color="white"
         attach="material"
-      />
-      <OrbitControls
-        enableZoom={false}
-        enabled={false}
-        autoRotate
-        autoRotateSpeed={0.2}
       />
     </mesh>
   );
@@ -51,7 +42,7 @@ function Planet({ args, position, map, ...props }) {
 
   return (
     <mesh position={position} {...props} ref={ref}>
-      <sphereBufferGeometry attach="geometry" args={args} />
+      <boxBufferGeometry attach="geometry" args={args} />
       <meshStandardMaterial map={map} />
     </mesh>
   );
@@ -60,7 +51,7 @@ function Planet({ args, position, map, ...props }) {
 export default function Welcome() {
   const date = new Date();
   const [hour] = useState(date);
-  const [sun, moon] = useTextureLoader([sun_texture, moon_texture]);
+
   return (
     <div className="Welcome">
       <Canvas
@@ -77,13 +68,9 @@ export default function Welcome() {
         <group>
           <Suspense fallback={null}>
             {hour.getHours() < 16 ? (
-              <Planet
-                args={[50, 32, 32]}
-                position={[-500, 400, -800]}
-                map={sun}
-              />
+              <Planet args={[50, 32, 32]} position={[-500, 400, -800]} />
             ) : (
-              <Planet args={[10, 32, 32]} position={[150, 50, 50]} map={moon} />
+              <Planet args={[10, 32, 32]} position={[150, 50, 50]} />
             )}
           </Suspense>
           <TextMesh args="Hello," position={[-43, 30, 0]} />
