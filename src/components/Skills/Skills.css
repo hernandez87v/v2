@@ -4,10 +4,10 @@
   padding: 0;
   display: flex;
   justify-content: center;
-  background: rgb(22, 147, 165);
+  background: rgb(28, 182, 204);
   background: linear-gradient(
     0deg,
-    rgba(22, 147, 165, 1) 20%,
+    rgba(28, 182, 204, 1) 20%,
     rgba(7, 0, 126, 1) 100%
   );
 }

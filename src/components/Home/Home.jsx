@@ -16,7 +16,7 @@ export default function Home() {
             <Welcome />
           </Suspense>
         </ParallaxLayer>
-        <ParallaxLayer offset={1} speed={1}>
+        <ParallaxLayer offset={1} speed={1} factor={1.5}>
           <Skills />
         </ParallaxLayer>
         <ParallaxLayer offset={2} speed={0.5}>

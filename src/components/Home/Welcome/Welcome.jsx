@@ -29,8 +29,8 @@ function TextMesh({ args, position }) {
       <meshPhysicalMaterial
         clearcoat={1}
         reflectivity={1}
-        roughness={0.1}
-        color="white"
+        roughness={0.3}
+        color="cyan"
         attach="material"
       />
     </mesh>
@@ -62,9 +62,8 @@ export default function Welcome() {
         }}
       >
         <ambientLight intensity={0.2} />
-        <spotLight intensity={0.2} position={[200, 150, 150]} penumbra={1} />
-        <spotLight intensity={0.2} position={[70, 30, 30]} penumbra={1} />
-        <spotLight intensity={0.2} position={[-200, -150, -150]} penumbra={1} />
+        <spotLight intensity={0.2} position={[0, 20, 200]} penumbra={1} />
+        <spotLight intensity={0.2} position={[0, 0, 50]} penumbra={1} />
         <group>
           <Suspense fallback={null}>
             {hour.getHours() < 16 ? (
@@ -73,11 +72,11 @@ export default function Welcome() {
               <Planet args={[10, 32, 32]} position={[150, 50, 50]} />
             )}
           </Suspense>
-          <TextMesh args="Hello," position={[-43, 30, 0]} />
-          <TextMesh args="my name" position={[-43, 10, 0]} />
-          <TextMesh args="is Vlad," position={[-43, -10, 0]} />
-          <TextMesh args=">Web" position={[-43, -30, 0]} />
-          <TextMesh args="Developer." position={[-43, -50, 0]} />
+          <TextMesh args="Hello," position={[-35, 30, 0]} />
+          <TextMesh args="my name" position={[-35, 15, 0]} />
+          <TextMesh args="is Vlad," position={[-35, 0, 0]} />
+          <TextMesh args=">Web" position={[-35, -20, -10]} />
+          <TextMesh args="Developer." position={[-35, -30, 0]} />
         </group>
       </Canvas>
     </div>
