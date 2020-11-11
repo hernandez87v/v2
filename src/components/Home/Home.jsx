@@ -1,10 +1,13 @@
 import { Text } from 'drei';
-import React, { Suspense, lazy, useState, useEffect } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 import Code from '../Code/Code';
 import Skills from '../Skills/Skills';
-import './Home.css';
+import ReactDOM from 'react-dom';
+// import './Home.css';
+
+import { AnimatedBg, Transition } from 'scroll-background';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
@@ -17,30 +20,46 @@ export default function Home() {
   // }
 
   // window.addEventListener('scroll', bgChanger);
-  const [home, setHome] = useState('home');
 
-  const listenScrollEvent = (event) => {
-    if (window.scrollY > window.innerHeight / 2) {
-      console.log('home', window.scrollY);
-      return setHome('home');
-    } else {
-      return setHome('home2');
-    }
-  };
+  // const [home, setHome] = useState('home');
 
-  useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent);
+  // const listenScrollEvent = (event) => {
+  //   if (window.scrollY > window.innerHeight / 2) {
+  //     console.log('home', window.scrollY);
+  //     return setHome('home');
+  //   } else {
+  //     console.log('home', window.scrollY);
 
-    return () => window.removeEventListener('scroll', listenScrollEvent);
-  }, []);
+  //     return setHome('home2');
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener('scroll', listenScrollEvent);
+
+  //   return () => window.removeEventListener('scroll', listenScrollEvent);
+  // }, []);
 
   return (
-    <div className={home}>
+    <div className="Home">
       <Parallax pages={4} ref={(ref) => ref}>
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
-            <Welcome />
-            <Skills />
+            <AnimatedBg>
+              <div style={{ height: '900px' }} />
+              <Transition height="400px" from="#0D47A1" to="#388E3C">
+                <Welcome />
+              </Transition>
+              <Transition
+                height="400px"
+                from="#388E3C"
+                to="#FFA000"
+                position={0.75}
+              >
+                <Skills />
+              </Transition>
+              <div style={{ height: '900px' }} />
+            </AnimatedBg>
           </Suspense>
         </ParallaxLayer>
         {/* <ParallaxLayer offset={1} speed={1} factor={1.5}>
@@ -78,3 +97,6 @@ export default function Home() {
     </div>
   );
 }
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(<Home />, rootElement);
