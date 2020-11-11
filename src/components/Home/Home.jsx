@@ -1,24 +1,51 @@
 import { Text } from 'drei';
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 import Code from '../Code/Code';
 import Skills from '../Skills/Skills';
+import './Home.css';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
 export default function Home() {
+  // function bgChanger(e) {
+  //   console.log(this.scrollY);
+  //   // if (window.scrollY > window.innerHeight / 2) {
+  //   //   document.body.className.add('bg-Active');
+  //   // }
+  // }
+
+  // window.addEventListener('scroll', bgChanger);
+  const [home, setHome] = useState('home');
+
+  const listenScrollEvent = (event) => {
+    if (window.scrollY > window.innerHeight / 2) {
+      console.log('home', window.scrollY);
+      return setHome('home');
+    } else {
+      return setHome('home2');
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+
+    return () => window.removeEventListener('scroll', listenScrollEvent);
+  }, []);
+
   return (
-    <div className="Home">
+    <div className={home}>
       <Parallax pages={4} ref={(ref) => ref}>
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
+            <Skills />
           </Suspense>
         </ParallaxLayer>
-        <ParallaxLayer offset={1} speed={1} factor={1.5}>
+        {/* <ParallaxLayer offset={1} speed={1} factor={1.5}>
           <Skills />
-        </ParallaxLayer>
+        </ParallaxLayer> */}
         <ParallaxLayer offset={2} speed={0.5}>
           <Canvas>
             <Text
