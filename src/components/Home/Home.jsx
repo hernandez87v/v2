@@ -4,10 +4,7 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 import Code from '../Code/Code';
 import Skills from '../Skills/Skills';
-import ReactDOM from 'react-dom';
 // import './Home.css';
-
-import { AnimatedBg, Transition } from 'scroll-background';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
@@ -45,21 +42,8 @@ export default function Home() {
       <Parallax pages={4} ref={(ref) => ref}>
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
-            <AnimatedBg>
-              <div style={{ height: '900px' }} />
-              <Transition height="400px" from="#0D47A1" to="#388E3C">
-                <Welcome />
-              </Transition>
-              <Transition
-                height="400px"
-                from="#388E3C"
-                to="#FFA000"
-                position={0.75}
-              >
-                <Skills />
-              </Transition>
-              <div style={{ height: '900px' }} />
-            </AnimatedBg>
+            <Welcome />
+            <Skills />
           </Suspense>
         </ParallaxLayer>
         {/* <ParallaxLayer offset={1} speed={1} factor={1.5}>
@@ -97,6 +81,3 @@ export default function Home() {
     </div>
   );
 }
-
-const rootElement = document.getElementById('root');
-ReactDOM.render(<Home />, rootElement);
