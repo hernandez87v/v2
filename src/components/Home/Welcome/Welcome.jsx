@@ -3,6 +3,7 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
+import { OrbitControls } from 'drei';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -84,7 +85,7 @@ export default function Welcome() {
           powerPreference: 'high-performance',
         }}
       >
-        <ambientLight intensity={0.1} castShadow />
+        <ambientLight intensity={0.1} />
         <spotLight
           intensity={0.25}
           position={[50, 80, 190]}
@@ -106,6 +107,7 @@ export default function Welcome() {
             )}
           </Suspense> */}
           <Plane position={[0, 0, -20]} />
+          <OrbitControls />
           <TextMesh args="Good" position={[-75, 32, 0]} />
 
           <Suspense fallback={null}>
