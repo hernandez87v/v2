@@ -52,7 +52,12 @@ function Plane({ position }) {
   const ref = useRef(null);
 
   return (
-    <mesh ref={ref} position={position} receiveShadow>
+    <mesh
+      ref={ref}
+      position={position}
+      // rotation={[-Math.PI / 2, 0, 0]}
+      receiveShadow
+    >
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
       <meshPhongMaterial attach="material" color="#7160ff" />
     </mesh>
@@ -76,13 +81,13 @@ export default function Welcome() {
         <ambientLight intensity={0.2} castShadow />
         <spotLight
           intensity={0.2}
-          position={[0, 20, 200]}
+          position={[20, 10, 200]}
           penumbra={1}
           castShadow
         />
         <spotLight
           intensity={0.2}
-          position={[0, 0, 0]}
+          position={[0, 75, 50]}
           penumbra={1}
           castShadow
         />
@@ -94,7 +99,7 @@ export default function Welcome() {
               <Planet args={[10, 32, 32]} position={[150, 50, 50]} />
             )}
           </Suspense> */}
-          <Plane position={[0, 0, -30]} />
+          <Plane position={[0, 0, -15]} />
           <TextMesh args="Good" position={[-75, 60, 0]} />
 
           <Suspense fallback={null}>
