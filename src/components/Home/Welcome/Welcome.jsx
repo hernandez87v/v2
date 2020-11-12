@@ -3,7 +3,7 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
-import { OrbitControls } from 'drei';
+// import { OrbitControls } from 'drei';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -74,13 +74,14 @@ function Plane({ position }) {
 export default function Welcome() {
   const date = new Date();
   const [hour] = useState(date);
+  const time = hour.getHours();
 
   return (
     <div className="Welcome">
       <Canvas
         shadowMap
         colorManagement
-        camera={{ position: [0, 5, 100], fov: 100 }}
+        camera={{ position: [0, 5, 100], fov: 120 }}
         gl={{
           powerPreference: 'high-performance',
         }}
@@ -107,18 +108,20 @@ export default function Welcome() {
             )}
           </Suspense> */}
           <Plane position={[0, 0, -20]} />
-          <OrbitControls />
-          <TextMesh args="Good" position={[-75, 32, 0]} />
+          {/* <OrbitControls  /> */}
+          <TextMesh args="Good" position={[-85, 32, 0]} />
 
           <Suspense fallback={null}>
-            {hour.getHours() < 12 ? (
-              <TextMesh args="Morning," position={[-75, 0, 0]} />
+            {time < 12 ? (
+              <TextMesh args="Morning," position={[-85, 0, 0]} />
+            ) : time < 18 ? (
+              <TextMesh args="Afternoon," position={[-90, 0, 0]} />
             ) : (
-              <TextMesh args="Afternoon," position={[-75, 0, 0]} />
+              <TextMesh args="Evening," position={[-85, 0, 0]} />
             )}
           </Suspense>
-          <TextMesh args="my name" position={[-75, -28, 0]} />
-          <TextMesh args="is Vlad," position={[-75, -60, 0]} />
+          <TextMesh args="my name" position={[-85, -28, 0]} />
+          <TextMesh args="is Vlad," position={[-85, -60, 0]} />
           {/* <TextMesh args=">Web" position={[-35, -20, -10]} />
           <TextMesh args="Developer." position={[-35, -30, 0]} /> */}
         </group>
