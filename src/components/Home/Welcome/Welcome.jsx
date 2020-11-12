@@ -30,7 +30,7 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        color="tomato"
+        color="darkorange"
         attach="material"
       />
     </mesh>
@@ -80,14 +80,14 @@ export default function Welcome() {
       >
         <ambientLight intensity={0.2} castShadow />
         <spotLight
-          intensity={0.2}
-          position={[20, 10, 200]}
+          intensity={0.1}
+          position={[-60, 0, 160]}
           penumbra={1}
           castShadow
         />
         <spotLight
-          intensity={0.2}
-          position={[0, 75, 50]}
+          intensity={0.3}
+          position={[70, 180, 190]}
           penumbra={1}
           castShadow
         />
