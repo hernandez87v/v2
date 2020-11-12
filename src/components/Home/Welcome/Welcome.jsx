@@ -100,13 +100,6 @@ export default function Welcome() {
           castShadow
         />
         <group>
-          {/* <Suspense fallback={null}>
-            {hour.getHours() < 16 ? (
-              <Planet args={[50, 32, 32]} position={[-500, 400, -800]} />
-            ) : (
-              <Planet args={[10, 32, 32]} position={[150, 50, 50]} />
-            )}
-          </Suspense> */}
           <Plane position={[0, 0, -20]} />
           {/* <OrbitControls  /> */}
           <TextMesh args="Good" position={[-85, 32, 0]} />
@@ -122,8 +115,6 @@ export default function Welcome() {
           </Suspense>
           <TextMesh args="my name" position={[-85, -28, 0]} />
           <TextMesh args="is Vlad," position={[-85, -60, 0]} />
-          {/* <TextMesh args=">Web" position={[-35, -20, -10]} />
-          <TextMesh args="Developer." position={[-35, -30, 0]} /> */}
         </group>
       </Canvas>
     </div>
