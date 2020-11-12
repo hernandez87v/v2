@@ -84,16 +84,16 @@ export default function Welcome() {
           powerPreference: 'high-performance',
         }}
       >
-        <ambientLight intensity={0.2} castShadow />
+        <ambientLight intensity={0.1} castShadow />
         <spotLight
-          intensity={0.15}
-          position={[-60, 70, 190]}
+          intensity={0.25}
+          position={[50, 80, 190]}
           penumbra={1}
           castShadow
         />
         <spotLight
-          intensity={0.15}
-          position={[70, 70, 190]}
+          intensity={0.3}
+          position={[-200, 80, 110]}
           penumbra={1}
           castShadow
         />
@@ -105,18 +105,18 @@ export default function Welcome() {
               <Planet args={[10, 32, 32]} position={[150, 50, 50]} />
             )}
           </Suspense> */}
-          <Plane position={[0, 0, -15]} />
-          <TextMesh args="Good" position={[-75, 60, 0]} />
+          <Plane position={[0, 0, -20]} />
+          <TextMesh args="Good" position={[-75, 32, 0]} />
 
           <Suspense fallback={null}>
             {hour.getHours() < 12 ? (
-              <TextMesh args="Morning," position={[-75, 30, 0]} />
+              <TextMesh args="Morning," position={[-75, 0, 0]} />
             ) : (
-              <TextMesh args="Afternoon," position={[-75, 30, 0]} />
+              <TextMesh args="Afternoon," position={[-75, 0, 0]} />
             )}
           </Suspense>
-          <TextMesh args="my name" position={[-75, 0, 0]} />
-          <TextMesh args="is Vlad," position={[-75, -35, 0]} />
+          <TextMesh args="my name" position={[-75, -28, 0]} />
+          <TextMesh args="is Vlad," position={[-75, -60, 0]} />
           {/* <TextMesh args=">Web" position={[-35, -20, -10]} />
           <TextMesh args="Developer." position={[-35, -30, 0]} /> */}
         </group>
