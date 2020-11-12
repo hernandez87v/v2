@@ -9,11 +9,11 @@ function TextMesh({ args, position }) {
 
   const textOptions = {
     font,
-    size: 10,
-    height: 2,
-    curveSegments: 10,
+    size: 25,
+    height: 5,
+    curveSegments: 15,
     bevelEnabled: true,
-    bevelThickness: 1.2,
+    bevelThickness: 4,
     bevelSize: 1,
     bevelSegments: 2,
   };
@@ -30,7 +30,7 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        color="cyan"
+        color="tomato"
         attach="material"
       />
     </mesh>
@@ -56,14 +56,14 @@ export default function Welcome() {
     <div className="Welcome">
       <Canvas
         colorManagement
-        camera={{ position: [0, 20, 100], fov: 100 }}
+        camera={{ position: [0, 0, 100], fov: 100 }}
         gl={{
           powerPreference: 'high-performance',
         }}
       >
         <ambientLight intensity={0.2} />
         <spotLight intensity={0.2} position={[0, 20, 200]} penumbra={1} />
-        <spotLight intensity={0.2} position={[0, 0, 50]} penumbra={1} />
+        <spotLight intensity={0.2} position={[0, 0, 0]} penumbra={1} />
         <group>
           <Suspense fallback={null}>
             {hour.getHours() < 16 ? (
@@ -73,10 +73,10 @@ export default function Welcome() {
             )}
           </Suspense>
           <TextMesh args="Hello," position={[-35, 30, 0]} />
-          <TextMesh args="my name" position={[-35, 15, 0]} />
-          <TextMesh args="is Vlad," position={[-35, 0, 0]} />
-          <TextMesh args=">Web" position={[-35, -20, -10]} />
-          <TextMesh args="Developer." position={[-35, -30, 0]} />
+          <TextMesh args="my name" position={[0, 0, 0]} />
+          <TextMesh args="is Vlad," position={[-35, -35, 0]} />
+          {/* <TextMesh args=">Web" position={[-35, -20, -10]} />
+          <TextMesh args="Developer." position={[-35, -30, 0]} /> */}
         </group>
       </Canvas>
     </div>

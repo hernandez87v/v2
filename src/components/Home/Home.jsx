@@ -5,6 +5,7 @@ import { Canvas } from 'react-three-fiber';
 import Code from '../Code/Code';
 import Skills from '../Skills/Skills';
 // import './Home.css';
+import ScrollingColorBackground from 'react-scrolling-color-background';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
@@ -42,8 +43,23 @@ export default function Home() {
       <Parallax pages={4} ref={(ref) => ref}>
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
-            <Welcome />
-            <Skills />
+            <ScrollingColorBackground
+              selector=".js-color-stop[data-background-color]"
+              colorDataAttribute="data-background-color"
+              initialRgb="rgb(0, 0, 0)"
+            />
+            <section
+              data-background-color="rgb(32, 202, 172)"
+              className="js-color-stop"
+            >
+              <Welcome />
+            </section>
+            <section
+              data-background-color="rgb(60, 191, 246)"
+              className="js-color-stop"
+            >
+              <Skills />
+            </section>
           </Suspense>
         </ParallaxLayer>
         {/* <ParallaxLayer offset={1} speed={1} factor={1.5}>
