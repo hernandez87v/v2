@@ -20,7 +20,7 @@ function TextMesh({ args, position }) {
   const ref = useRef(null);
 
   return (
-    <mesh position={position} ref={ref}>
+    <mesh position={position} ref={ref} castShadow receiveShadow>
       <textBufferGeometry
         attach="geometry"
         args={[args, textOptions]}
@@ -37,13 +37,24 @@ function TextMesh({ args, position }) {
   );
 }
 
-function Planet({ args, position, map, ...props }) {
-  const ref = useRef();
+// function Planet({ args, position, map, ...props }) {
+//   const ref = useRef();
+
+//   return (
+//     <mesh position={position} {...props} ref={ref}>
+//       <boxBufferGeometry attach="geometry" args={args} />
+//       <meshStandardMaterial map={map} />
+//     </mesh>
+//   );
+// }
+
+function Plane({ position }) {
+  const ref = useRef(null);
 
   return (
-    <mesh position={position} {...props} ref={ref}>
-      <boxBufferGeometry attach="geometry" args={args} />
-      <meshStandardMaterial map={map} />
+    <mesh ref={ref} position={position} receiveShadow>
+      <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
+      <meshPhongMaterial attach="material" color="#7160ff" />
     </mesh>
   );
 }
@@ -55,15 +66,26 @@ export default function Welcome() {
   return (
     <div className="Welcome">
       <Canvas
+        shadowMap
         colorManagement
         camera={{ position: [0, 0, 100], fov: 100 }}
         gl={{
           powerPreference: 'high-performance',
         }}
       >
-        <ambientLight intensity={0.2} />
-        <spotLight intensity={0.2} position={[0, 20, 200]} penumbra={1} />
-        <spotLight intensity={0.2} position={[0, 0, 0]} penumbra={1} />
+        <ambientLight intensity={0.2} castShadow />
+        <spotLight
+          intensity={0.2}
+          position={[0, 20, 200]}
+          penumbra={1}
+          castShadow
+        />
+        <spotLight
+          intensity={0.2}
+          position={[0, 0, 0]}
+          penumbra={1}
+          castShadow
+        />
         <group>
           {/* <Suspense fallback={null}>
             {hour.getHours() < 16 ? (
@@ -72,6 +94,7 @@ export default function Welcome() {
               <Planet args={[10, 32, 32]} position={[150, 50, 50]} />
             )}
           </Suspense> */}
+          <Plane position={[0, 0, -30]} />
           <TextMesh args="Good" position={[-75, 60, 0]} />
 
           <Suspense fallback={null}>
