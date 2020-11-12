@@ -30,7 +30,7 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        color="darkorange"
+        color="teal"
         attach="material"
       />
     </mesh>
@@ -59,7 +59,13 @@ function Plane({ position }) {
       receiveShadow
     >
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="#7160ff" />
+      <meshPhongMaterial
+        // clearcoat={0.5}
+        // reflectivity={1}
+        // roughness={0.6}
+        attach="material"
+        color="#61e8e1"
+      />
     </mesh>
   );
 }
@@ -73,21 +79,21 @@ export default function Welcome() {
       <Canvas
         shadowMap
         colorManagement
-        camera={{ position: [0, 0, 100], fov: 100 }}
+        camera={{ position: [0, 5, 100], fov: 100 }}
         gl={{
           powerPreference: 'high-performance',
         }}
       >
         <ambientLight intensity={0.2} castShadow />
         <spotLight
-          intensity={0.1}
-          position={[-60, 0, 160]}
+          intensity={0.15}
+          position={[-60, 70, 190]}
           penumbra={1}
           castShadow
         />
         <spotLight
-          intensity={0.3}
-          position={[70, 180, 190]}
+          intensity={0.15}
+          position={[70, 70, 190]}
           penumbra={1}
           castShadow
         />
