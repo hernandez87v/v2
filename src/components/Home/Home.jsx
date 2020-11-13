@@ -4,7 +4,7 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 import Code from '../Code/Code';
 import Skills from '../Skills/Skills';
-// import './Home.css';
+import './Home.css';
 // import ScrollingColorBackground from 'react-scrolling-color-background';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
@@ -47,7 +47,7 @@ export default function Home() {
 
   window.addEventListener(
     'scroll',
-    function bgChanger(event) {
+    function (event) {
       console.log(document.body.classList, 'scroll');
       if (window.scrollY > window.innerHeight / 2) {
         document.body.classList.add('bg-Active');
