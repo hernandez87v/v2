@@ -2,7 +2,8 @@ import React, { Suspense, useRef, useState } from 'react';
 import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
-import Modak from './Modak.json';
+import Modak from '../..//fonts/Modak.json';
+
 // import { DeviceOrientationControls } from 'drei';
 // import { OrbitControls } from 'drei';
 
