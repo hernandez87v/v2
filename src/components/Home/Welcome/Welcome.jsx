@@ -3,6 +3,7 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from './Modak.json';
+// import { DeviceOrientationControls } from 'drei';
 // import { OrbitControls } from 'drei';
 
 function TextMesh({ args, position }) {
@@ -48,6 +49,7 @@ function TextMesh({ args, position }) {
 //     </mesh>
 //   );
 // }
+// console.log(<DeviceOrientationControls />);
 
 function Plane({ position }) {
   const ref = useRef(null);
@@ -65,7 +67,7 @@ function Plane({ position }) {
         // reflectivity={1}
         // roughness={0.6}
         attach="material"
-        color="#61e8e1"
+        // color="#61e8e1"
       />
     </mesh>
   );
@@ -77,11 +79,11 @@ export default function Welcome() {
   const time = hour.getHours();
 
   return (
-    <div className="Welcome">
+    <div className="Welcome" data-color="violet">
       <Canvas
         shadowMap
         colorManagement
-        camera={{ position: [0, 5, 100], fov: 120 }}
+        camera={{ position: [0, 0, 100], fov: 120 }}
         gl={{
           powerPreference: 'high-performance',
         }}
@@ -101,7 +103,7 @@ export default function Welcome() {
         />
         <group>
           <Plane position={[0, 0, -20]} />
-          {/* <OrbitControls  /> */}
+          {/* <OrbitControls /> */}
           <TextMesh args="Good" position={[-85, 32, 0]} />
 
           <Suspense fallback={null}>

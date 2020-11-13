@@ -10,15 +10,6 @@ import Skills from '../Skills/Skills';
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
 export default function Home() {
-  // function bgChanger(e) {
-  //   console.log(this.scrollY);
-  //   // if (window.scrollY > window.innerHeight / 2) {
-  //   //   document.body.className.add('bg-Active');
-  //   // }
-  // }
-
-  // window.addEventListener('scroll', bgChanger);
-
   // const [home, setHome] = useState('home');
 
   // const listenScrollEvent = (event) => {
@@ -37,7 +28,35 @@ export default function Home() {
 
   //   return () => window.removeEventListener('scroll', listenScrollEvent);
   // }, []);
+  // function bgChanger() {
+  //   console.log('working');
+  //   if (window.scrollY > window.innerHeight / 2) {
+  //     document.body.className.add('bg-Active');
+  //   }
+  // }
 
+  // window.addEventListener('scroll', bgChanger);
+
+  // window.addEventListener(
+  //   'scroll',
+  //   function (event) {
+  //     console.log('scroll');
+  //   },
+  //   true
+  // );
+
+  window.addEventListener(
+    'scroll',
+    function bgChanger(event) {
+      console.log(document.body.classList, 'scroll');
+      if (window.scrollY > window.innerHeight / 2) {
+        document.body.classList.add('bg-Active');
+      } else {
+        document.body.classList.remove('bg-Active');
+      }
+    },
+    true
+  );
   return (
     <div className="Home">
       <Parallax pages={4} ref={(ref) => ref}>
