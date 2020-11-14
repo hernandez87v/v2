@@ -61,13 +61,14 @@ export default function Skills() {
         <ambientLight intensity={0.2} />
         <spotLight
           intensity={0.5}
-          position={[-100, 40, 180]}
+          // position={[-100, 40, 180]}
+          position={[-80, 90, 250]}
           penumbra={1}
           castShadow
         />
         <group>
-          <Plane position={[0, 0, -20]} />
-          <TextMesh args="SKILLS" position={[-50, 30, 0]} />
+          <Plane position={[0, 0, -5]} />
+          <TextMesh args="SKILLS" position={[-50, 50, 0]} />
         </group>
       </Canvas>
     </div>

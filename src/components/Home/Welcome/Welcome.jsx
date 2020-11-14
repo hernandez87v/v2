@@ -105,7 +105,7 @@ export default function Welcome() {
           castShadow
         />
         <group>
-          <Plane position={[0, 0, -20]} />
+          <Plane position={[0, 0, -5]} />
           {/* <OrbitControls /> */}
           <TextMesh args="Good" position={[-85, 32, 0]} />
 
