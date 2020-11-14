@@ -49,7 +49,7 @@ function Plane({ position }) {
 }
 export default function Skills() {
   return (
-    <div className="Skills" data-color="violet">
+    <div className="Skills">
       <Canvas
         shadowMap
         colorManagement
@@ -58,7 +58,7 @@ export default function Skills() {
           powerPreference: 'high-performance',
         }}
       >
-        <ambientLight intensity={0.1} />
+        <ambientLight intensity={0.2} />
         <spotLight
           intensity={0.4}
           position={[-100, 40, 180]}
@@ -67,7 +67,7 @@ export default function Skills() {
         />
         <group>
           <Plane position={[0, 0, -20]} />
-          <TextMesh args="Code" position={[-100, 70, 0]} />
+          <TextMesh args="Code" position={[-50, 30, 0]} />
         </group>
       </Canvas>
     </div>

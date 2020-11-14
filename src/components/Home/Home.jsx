@@ -4,59 +4,12 @@ import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 import Code from '../Code/Code';
 import Skills from '../Skills/Skills';
-import './Home.css';
+// import './Home.css';
 // import ScrollingColorBackground from 'react-scrolling-color-background';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 
 export default function Home() {
-  // const [home, setHome] = useState('home');
-
-  // const listenScrollEvent = (event) => {
-  //   if (window.scrollY > window.innerHeight / 2) {
-  //     console.log('home', window.scrollY);
-  //     return setHome('home');
-  //   } else {
-  //     console.log('home', window.scrollY);
-
-  //     return setHome('home2');
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', listenScrollEvent);
-
-  //   return () => window.removeEventListener('scroll', listenScrollEvent);
-  // }, []);
-  // function bgChanger() {
-  //   console.log('working');
-  //   if (window.scrollY > window.innerHeight / 2) {
-  //     document.body.className.add('bg-Active');
-  //   }
-  // }
-
-  // window.addEventListener('scroll', bgChanger);
-
-  // window.addEventListener(
-  //   'scroll',
-  //   function (event) {
-  //     console.log('scroll');
-  //   },
-  //   true
-  // );
-
-  window.addEventListener(
-    'scroll',
-    function (event) {
-      console.log(document.body.classList, 'scroll');
-      if (window.scrollY > window.innerHeight / 2) {
-        document.body.classList.add('bg-Active');
-      } else {
-        document.body.classList.remove('bg-Active');
-      }
-    },
-    true
-  );
   return (
     <div className="Home">
       <Parallax pages={4} ref={(ref) => ref}>

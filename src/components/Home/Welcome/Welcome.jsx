@@ -68,7 +68,7 @@ function Plane({ position }) {
         // reflectivity={1}
         // roughness={0.6}
         attach="material"
-        // color="#61e8e1"
+        color="#61e8e1"
       />
     </mesh>
   );
@@ -80,7 +80,7 @@ export default function Welcome() {
   const time = hour.getHours();
 
   return (
-    <div className="Welcome" data-color="violet">
+    <div className="Welcome">
       <Canvas
         shadowMap
         colorManagement
