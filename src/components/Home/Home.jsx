@@ -12,7 +12,13 @@ const Welcome = lazy(() => import('./Welcome/Welcome'));
 export default function Home() {
   return (
     <div className="Home">
-      <Parallax pages={4} horizontal ref={(ref) => ref}>
+      {/* <Parallax pages={4} horizontal ref={(ref) => ref}> */}
+      <Parallax
+        pages={4}
+        horizontal
+        ref={(ref) => ref}
+        // ref={(ref) => (this.parallax = ref)}
+      >
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
