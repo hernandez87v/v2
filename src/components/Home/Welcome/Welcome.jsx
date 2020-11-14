@@ -2,7 +2,7 @@ import React, { Suspense, useRef, useState } from 'react';
 import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
-import Modak from '../..//fonts/Modak.json';
+import Modak from '../../fonts/Modak.json';
 // import Scene from '../../Scene/Scene';
 
 // import { DeviceOrientationControls } from 'drei';
@@ -34,7 +34,8 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        color="teal"
+        // color="teal"
+        color="#61e8e1"
         attach="material"
       />
     </mesh>

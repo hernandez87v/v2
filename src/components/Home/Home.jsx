@@ -3,6 +3,7 @@ import React, { Suspense, lazy } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 import Code from '../Code/Code';
+import codeImg from '../images/code2.jpg';
 import Skills from '../Skills/Skills';
 // import './Home.css';
 // import ScrollingColorBackground from 'react-scrolling-color-background';
@@ -13,12 +14,22 @@ export default function Home() {
   return (
     <div className="Home">
       {/* <Parallax pages={4} horizontal ref={(ref) => ref}> */}
+
       <Parallax
         pages={4}
         horizontal
         ref={(ref) => ref}
         // ref={(ref) => (this.parallax = ref)}
       >
+        <ParallaxLayer
+          offset={0}
+          speed={0}
+          factor={4}
+          style={{
+            backgroundImage: `url(${codeImg})`,
+            backgroundSize: 'cover',
+          }}
+        />
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
