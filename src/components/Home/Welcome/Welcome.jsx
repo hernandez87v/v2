@@ -3,6 +3,7 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from '../..//fonts/Modak.json';
+// import Scene from '../../Scene/Scene';
 
 // import { DeviceOrientationControls } from 'drei';
 // import { OrbitControls } from 'drei';
@@ -66,9 +67,9 @@ function Plane({ position }) {
       <meshPhongMaterial
         // clearcoat={0.5}
         // reflectivity={1}
-        // roughness={0.6}
+        roughness={1}
         attach="material"
-        // color="#61e8e1"
+        color="#61e8e1"
       />
     </mesh>
   );

@@ -43,10 +43,7 @@ function Plane({ position }) {
   return (
     <mesh ref={ref} position={position} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial
-        attach="material"
-        // color="#61e8e1"
-      />
+      <meshPhongMaterial attach="material" color="#61e8e1" />
     </mesh>
   );
 }
@@ -63,7 +60,7 @@ export default function Skills() {
       >
         <ambientLight intensity={0.2} />
         <spotLight
-          intensity={0.4}
+          intensity={0.5}
           position={[-100, 40, 180]}
           penumbra={1}
           castShadow
