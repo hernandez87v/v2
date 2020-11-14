@@ -1,16 +1,10 @@
 .Skills {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
-  /* background: rgba(28, 181, 204, 0.226);
-  background: linear-gradient(
-    0deg,
-    rgba(28, 181, 204, 0.226) 20%,
-    rgba(6, 0, 126, 0.178) 100%
-  ); */
 }
 
 /* .Skills h1 {

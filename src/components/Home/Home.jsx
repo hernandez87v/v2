@@ -3,7 +3,7 @@ import React, { Suspense, lazy } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 // import Code from '../Code/Code';
-import codeImg from '../images/code4.jpg';
+import codeImg from '../images/code.jpg';
 // import Skills from '../Skills/Skills';
 // import './Home.css';
 
@@ -18,20 +18,23 @@ export default function Home() {
 
       <Parallax
         pages={4}
-        horizontal
+        // horizontal
         ref={(ref) => ref}
         // ref={(ref) => (this.parallax = ref)}
       >
         <ParallaxLayer
-          offset={0}
+          offset={0.5}
           speed={0}
-          factor={4}
+          factor={2}
           style={{
-            backgroundImage: `url(${codeImg})`,
-            backgroundSize: 'cover',
+            // backgroundImage: `url(${codeImg})`,
+            // backgroundSize: '150%',
+            background: 'rgb(116,183,193)',
+            background:
+              'linearGradient(0deg, rgba(116,183,193,1) 46%, rgba(41,146,141,1) 100%)',
           }}
         />
-        <ParallaxLayer offset={0} speed={0.5} factor={1.5}>
+        <ParallaxLayer offset={0} speed={1.5} factor={1.5}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
           </Suspense>
