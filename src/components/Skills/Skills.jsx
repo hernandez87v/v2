@@ -60,8 +60,7 @@ export default function Skills() {
       >
         <ambientLight intensity={0.2} />
         <spotLight
-          intensity={0.5}
-          // position={[-100, 40, 180]}
+          intensity={0.4}
           position={[-80, 90, 250]}
           penumbra={1}
           castShadow

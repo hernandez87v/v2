@@ -60,7 +60,7 @@ export default function Code() {
       >
         <ambientLight intensity={0.2} />
         <spotLight
-          intensity={0.3}
+          intensity={0.4}
           position={[-80, 90, 250]}
           penumbra={1}
           castShadow
