@@ -30,7 +30,7 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        color="#7bdff2"
+        color="#fec89a"
         attach="material"
       />
     </mesh>
@@ -43,7 +43,7 @@ function Plane({ position }) {
   return (
     <mesh ref={ref} position={position} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="#7bdff2" />
+      <meshPhongMaterial attach="material" color="#fec89a" />
     </mesh>
   );
 }
@@ -67,7 +67,7 @@ export default function Skills() {
         />
         <group>
           <Plane position={[0, 0, -20]} />
-          <TextMesh args="Code" position={[-50, 30, 0]} />
+          <TextMesh args="SKILLS" position={[-50, 30, 0]} />
         </group>
       </Canvas>
     </div>

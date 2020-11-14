@@ -3,7 +3,7 @@ import React, { Suspense, lazy } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 import Code from '../Code/Code';
-import codeImg from '../images/code2.jpg';
+import codeImg from '../images/code4.jpg';
 import Skills from '../Skills/Skills';
 // import './Home.css';
 // import ScrollingColorBackground from 'react-scrolling-color-background';
@@ -30,15 +30,18 @@ export default function Home() {
             backgroundSize: 'cover',
           }}
         />
-        <ParallaxLayer offset={0} speed={0.1}>
+        <ParallaxLayer offset={0} speed={0.5} factor={1.5}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
           </Suspense>
         </ParallaxLayer>
-        <ParallaxLayer offset={1} speed={1} factor={1.5}>
+        <ParallaxLayer offset={1} speed={0.5} factor={1.5}>
           <Skills />
         </ParallaxLayer>
-        <ParallaxLayer offset={2} speed={0.5}>
+        <ParallaxLayer offset={2} speed={0.5} factor={1.5}>
+          <Code />
+        </ParallaxLayer>
+        <ParallaxLayer offset={3} speed={2}>
           <Canvas>
             <Text
               color="gray"
@@ -56,9 +59,6 @@ export default function Home() {
               molestias? Debitis, eligendi.
             </Text>
           </Canvas>
-        </ParallaxLayer>
-        <ParallaxLayer offset={3} speed={1}>
-          <Code />
         </ParallaxLayer>
         <ParallaxLayer
           style={{ backgroundColor: 'blue' }}
