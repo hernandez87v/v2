@@ -35,7 +35,7 @@ function TextMesh({ args, position }) {
         reflectivity={1}
         roughness={0.3}
         // color="teal"
-        color="#ffe66d"
+        color="#ffcdb2"
         attach="material"
       />
     </mesh>
@@ -71,7 +71,7 @@ function Plane({ position }) {
         // roughness={1}
         attach="material"
         // color="#61e8e1"
-        color="#ffe66d"
+        color="#ffcdb2"
       />
     </mesh>
   );
@@ -94,22 +94,20 @@ export default function Welcome() {
       >
         <ambientLight intensity={0.1} />
         <spotLight
-          intensity={0.25}
+          intensity={0.2}
           position={[50, 80, 190]}
           penumbra={1}
           castShadow
         />
         <spotLight
-          intensity={0.3}
+          intensity={0.2}
           position={[-200, 80, 110]}
           penumbra={1}
           castShadow
         />
         <group>
           <Plane position={[0, 0, -5]} />
-          {/* <OrbitControls /> */}
           <TextMesh args="Good" position={[-85, 32, 0]} />
-
           <Suspense fallback={null}>
             {time < 12 ? (
               <TextMesh args="Morning," position={[-85, 0, 0]} />
