@@ -18,7 +18,7 @@ function TextMesh({ args, position }) {
     bevelEnabled: true,
     bevelThickness: 2,
     bevelSize: 1,
-    bevelSegments: 8,
+    bevelSegments: 5,
   };
   const ref = useRef(null);
 
@@ -68,7 +68,7 @@ function Plane({ position }) {
         // reflectivity={1}
         // roughness={0.6}
         attach="material"
-        color="#61e8e1"
+        // color="#61e8e1"
       />
     </mesh>
   );
@@ -84,7 +84,7 @@ export default function Welcome() {
       <Canvas
         shadowMap
         colorManagement
-        camera={{ position: [0, 0, 100], fov: 120 }}
+        camera={{ position: [0, 0, 100], fov: 100 }}
         gl={{
           powerPreference: 'high-performance',
         }}

@@ -15,7 +15,7 @@ function TextMesh({ args, position }) {
     bevelEnabled: true,
     bevelThickness: 2,
     bevelSize: 1,
-    bevelSegments: 8,
+    bevelSegments: 5,
   };
   const ref = useRef(null);
 
@@ -43,7 +43,10 @@ function Plane({ position }) {
   return (
     <mesh ref={ref} position={position} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="#61e8e1" />
+      <meshPhongMaterial
+        attach="material"
+        // color="#61e8e1"
+      />
     </mesh>
   );
 }
