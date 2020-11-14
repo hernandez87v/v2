@@ -67,7 +67,7 @@ function Plane({ position }) {
       <meshPhongMaterial
         // clearcoat={0.5}
         // reflectivity={1}
-        roughness={1}
+        // roughness={1}
         attach="material"
         color="#61e8e1"
       />

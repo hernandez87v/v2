@@ -12,16 +12,15 @@ const Welcome = lazy(() => import('./Welcome/Welcome'));
 export default function Home() {
   return (
     <div className="Home">
-      <Parallax pages={4} ref={(ref) => ref}>
+      <Parallax pages={4} horizontal ref={(ref) => ref}>
         <ParallaxLayer offset={0} speed={0.1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
-            <Skills />
           </Suspense>
         </ParallaxLayer>
-        {/* <ParallaxLayer offset={1} speed={1} factor={1.5}>
+        <ParallaxLayer offset={1} speed={1} factor={1.5}>
           <Skills />
-        </ParallaxLayer> */}
+        </ParallaxLayer>
         <ParallaxLayer offset={2} speed={0.5}>
           <Canvas>
             <Text
