@@ -2,13 +2,14 @@ import { Text } from 'drei';
 import React, { Suspense, lazy } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
-import Code from '../Code/Code';
+// import Code from '../Code/Code';
 import codeImg from '../images/code4.jpg';
-import Skills from '../Skills/Skills';
+// import Skills from '../Skills/Skills';
 // import './Home.css';
-// import ScrollingColorBackground from 'react-scrolling-color-background';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
+const Code = lazy(() => import('../Code/Code'));
+const Skills = lazy(() => import('../Skills/Skills'));
 
 export default function Home() {
   return (
@@ -36,10 +37,14 @@ export default function Home() {
           </Suspense>
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={0.5} factor={1.5}>
-          <Skills />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Skills />
+          </Suspense>
         </ParallaxLayer>
         <ParallaxLayer offset={2} speed={0.5} factor={1.5}>
-          <Code />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Code />
+          </Suspense>
         </ParallaxLayer>
         <ParallaxLayer offset={3} speed={2}>
           <Canvas>

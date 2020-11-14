@@ -30,7 +30,7 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        color="#fec89a"
+        color="#7bdff2"
         attach="material"
       />
     </mesh>
@@ -43,7 +43,7 @@ function Plane({ position }) {
   return (
     <mesh ref={ref} position={position} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="#fec89a" />
+      <meshPhongMaterial attach="material" color="#7bdff2" />
     </mesh>
   );
 }
