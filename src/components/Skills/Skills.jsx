@@ -19,8 +19,21 @@ function TextMesh({ args, position }) {
   };
   const ref = useRef(null);
 
+  // const [hovered, setHover] = useState(false);
+  // const [active, setActive] = useState(false);
+
   return (
-    <mesh position={position} ref={ref} castShadow receiveShadow>
+    <mesh
+      // {...props}
+      // scale={active ? [1.1, 1.1, 1.1] : [1, 1, 1]}
+      // onClick={(e) => setActive(!active)}
+      // onPointerOver={(e) => setHover(true)}
+      // onPointerOut={(e) => setHover(false)}
+      position={position}
+      ref={ref}
+      castShadow
+      receiveShadow
+    >
       <textBufferGeometry
         attach="geometry"
         args={[args, textOptions]}
@@ -31,6 +44,8 @@ function TextMesh({ args, position }) {
         reflectivity={1}
         roughness={0.3}
         color="#7bdff2"
+        // color="#f25757"
+        // color={hovered ? '#7bdff2' : '#7bdfe5'}
         attach="material"
       />
     </mesh>
@@ -58,7 +73,7 @@ export default function Skills() {
           powerPreference: 'high-performance',
         }}
       >
-        <ambientLight intensity={0.2} />
+        <ambientLight intensity={0.1} />
         <spotLight
           intensity={0.4}
           position={[-80, 90, 250]}

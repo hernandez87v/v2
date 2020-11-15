@@ -35,7 +35,7 @@ function TextMesh({ args, position }) {
         reflectivity={1}
         roughness={0.3}
         // color="teal"
-        color="#ffcdb2"
+        color="#61e8e1"
         attach="material"
       />
     </mesh>
@@ -70,8 +70,7 @@ function Plane({ position }) {
         // reflectivity={1}
         // roughness={1}
         attach="material"
-        // color="#61e8e1"
-        color="#ffcdb2"
+        color="#61e8e1"
       />
     </mesh>
   );

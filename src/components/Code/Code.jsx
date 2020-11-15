@@ -59,7 +59,7 @@ export default function Code() {
           powerPreference: 'high-performance',
         }}
       >
-        <ambientLight intensity={0.2} />
+        <ambientLight intensity={0.1} />
         <spotLight
           intensity={0.4}
           position={[-80, 90, 250]}
