@@ -52,8 +52,6 @@ function Plane({ position }) {
 export default function Code() {
   return (
     <div className="Code">
-      {/* <div> */}
-      {/* </div> */}
       <Canvas
         shadowMap
         colorManagement
@@ -70,11 +68,11 @@ export default function Code() {
           castShadow
         />
         <group>
-          <a.div>
-            <Plane position={[0, 0, -5]} />
-            <TextMesh args="CODE" position={[-50, 50, 0]} />{' '}
-            <h1> PWA Weather App</h1>
-          </a.div>
+          {/* <a.div> */}
+          <Plane position={[0, 0, -5]} />
+          <TextMesh args="CODE" position={[-50, 50, 0]} />
+          {/* <h1> PWA Weather App</h1>
+          </a.div> */}
         </group>
       </Canvas>
     </div>
