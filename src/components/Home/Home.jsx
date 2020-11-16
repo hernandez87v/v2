@@ -1,5 +1,5 @@
 import { Text } from 'drei';
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 import codeImg from '../images/code.jpg';
@@ -10,14 +10,15 @@ const Code = lazy(() => import('../Code/Code'));
 const Skills = lazy(() => import('../Skills/Skills'));
 
 export default function Home() {
+  const [parallax, setParallax] = useState(false);
   return (
     <div className="Home">
       {/* <Parallax pages={4} horizontal ref={(ref) => ref}> */}
 
       <Parallax
         pages={4}
-        // horizontal
-        ref={(ref) => ref}
+        // ref={(ref) => ref}
+        ref={parallax}
         // ref={(ref) => (this.parallax = ref)}
       >
         <ParallaxLayer
@@ -30,9 +31,10 @@ export default function Home() {
             justifyContent: 'center',
             zIndex: '1',
           }}
+          onClick={() => setParallax.scrollTo(1)}
         >
           {' '}
-          <img src={codeImg} style={{ width: '20%' }} />
+          <img src={codeImg} alt={'code'} style={{ width: '20%' }} />
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} factor={1}>
           <Suspense fallback={<div>Loading...</div>}>
