@@ -3,6 +3,7 @@ import './Code.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from '../fonts/Modak.json';
+import { a } from 'react-spring';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -51,6 +52,8 @@ function Plane({ position }) {
 export default function Code() {
   return (
     <div className="Code">
+      {/* <div> */}
+      {/* </div> */}
       <Canvas
         shadowMap
         colorManagement
@@ -71,6 +74,10 @@ export default function Code() {
           <TextMesh args="CODE" position={[-50, 50, 0]} />
         </group>
       </Canvas>
+      <a.div>
+        {' '}
+        <h1> PWA Weather App</h1>
+      </a.div>
     </div>
   );
 }
