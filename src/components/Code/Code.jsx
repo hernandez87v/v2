@@ -70,14 +70,13 @@ export default function Code() {
           castShadow
         />
         <group>
-          <Plane position={[0, 0, -5]} />
-          <TextMesh args="CODE" position={[-50, 50, 0]} />
+          <a.div>
+            <Plane position={[0, 0, -5]} />
+            <TextMesh args="CODE" position={[-50, 50, 0]} />{' '}
+            <h1> PWA Weather App</h1>
+          </a.div>
         </group>
       </Canvas>
-      <a.div>
-        {' '}
-        <h1> PWA Weather App</h1>
-      </a.div>
     </div>
   );
 }
