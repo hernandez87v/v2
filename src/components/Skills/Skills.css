@@ -6,21 +6,3 @@
   display: flex;
   justify-content: center;
 }
-
-/* .Skills h1 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.Skills p {
-  font-size: 22px;
-} */
-
-Canvas {
-  background: rgb(36, 164, 235);
-  background: linear-gradient(
-    0deg,
-    rgba(36, 164, 235, 1) 0%,
-    rgba(41, 146, 141, 1) 100%
-  );
-}
