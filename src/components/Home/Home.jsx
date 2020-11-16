@@ -53,7 +53,11 @@ export default function Home() {
           }}
         >
           {' '}
-          <img src={codeImg} alt={'code'} style={{ width: '20%' }} />
+          <img
+            src={codeImg}
+            alt={'code'}
+            style={{ width: '20%', height: '20%' }}
+          />
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} factor={1}>
           <Suspense fallback={<div>Loading...</div>}>
