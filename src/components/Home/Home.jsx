@@ -21,15 +21,19 @@ export default function Home() {
         // ref={(ref) => (this.parallax = ref)}
       >
         <ParallaxLayer
-          offset={2.5}
+          offset={2}
           speed={-2}
-          factor={1.5}
+          factor={1}
           style={{
-            backgroundImage: `url(${codeImg})`,
-            backgroundSize: '50%',
-            zIndex: '2',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: '1',
           }}
-        />
+        >
+          {' '}
+          <img src={codeImg} style={{ width: '20%' }} />
+        </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} factor={1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
