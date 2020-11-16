@@ -2,7 +2,7 @@ import { Text } from 'drei';
 import React, { Suspense, lazy, useState, useRef } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
-import codeImg from '../images/code.jpg';
+import codeImg from '../images/code4.jpg';
 // import './Home.css';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
