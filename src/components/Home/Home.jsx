@@ -1,5 +1,5 @@
 import { Text } from 'drei';
-import React, { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useState, useRef } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 import codeImg from '../images/code.jpg';
@@ -10,7 +10,26 @@ const Code = lazy(() => import('../Code/Code'));
 const Skills = lazy(() => import('../Skills/Skills'));
 
 export default function Home() {
-  const [parallax, setParallax] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const parallax = useRef(current);
+  const pageCount = 3;
+
+  function handleScrollTo(item) {
+    setCurrent(item);
+    parallax.current.scrollTo(item);
+  }
+
+  function backSlide() {
+    const next = (current - (1 % pageCount) + pageCount) % pageCount;
+    setCurrent(next);
+    parallax.current.scrollTo(next);
+  }
+
+  function forwardSlide() {
+    const next = (current + 1) % pageCount;
+    setCurrent(next);
+    parallax.current.scrollTo(next);
+  }
   return (
     <div className="Home">
       {/* <Parallax pages={4} horizontal ref={(ref) => ref}> */}
@@ -18,10 +37,11 @@ export default function Home() {
       <Parallax
         pages={4}
         // ref={(ref) => ref}
-        ref={parallax}
+        ref={(ref) => (parallax.current = ref)}
         // ref={(ref) => (this.parallax = ref)}
       >
         <ParallaxLayer
+          onClick={() => handleScrollTo(1)}
           offset={2}
           speed={-2}
           factor={1}
@@ -31,7 +51,6 @@ export default function Home() {
             justifyContent: 'center',
             zIndex: '1',
           }}
-          onClick={() => setParallax.scrollTo(1)}
         >
           {' '}
           <img src={codeImg} alt={'code'} style={{ width: '20%' }} />

@@ -3,7 +3,7 @@ import './Code.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from '../fonts/Modak.json';
-import { a } from 'react-spring';
+// import { a } from 'react-spring';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
