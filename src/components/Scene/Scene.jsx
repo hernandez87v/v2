@@ -1,24 +1,12 @@
 import React, { useRef } from 'react';
 // import { Canvas } from 'react-three-fiber';
 
-function Plane({ position }) {
+function Plane() {
   const ref = useRef(null);
-
   return (
-    <mesh
-      ref={ref}
-      position={position}
-      // rotation={[-Math.PI / 2, 0, 0]}
-      receiveShadow
-    >
+    <mesh ref={ref} position={[0, 0, -5]} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial
-        // clearcoat={0.5}
-        // reflectivity={1}
-        roughness={1}
-        attach="material"
-        color="#61e8e1"
-      />
+      <meshPhongMaterial attach="material" color="#0e1119" />
     </mesh>
   );
 }

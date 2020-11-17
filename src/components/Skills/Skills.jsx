@@ -3,6 +3,7 @@ import './Skills.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from '../fonts/Modak.json';
+import { Plane } from '../Home/Welcome/Welcome';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -52,16 +53,16 @@ function TextMesh({ args, position }) {
   );
 }
 
-function Plane({ position }) {
-  const ref = useRef(null);
+// function Plane({ position }) {
+//   const ref = useRef(null);
 
-  return (
-    <mesh ref={ref} position={position} receiveShadow>
-      <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="black" />
-    </mesh>
-  );
-}
+//   return (
+//     <mesh ref={ref} position={position} receiveShadow>
+//       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
+//       <meshPhongMaterial attach="material" color="black" />
+//     </mesh>
+//   );
+// }
 export default function Skills() {
   return (
     <div className="Skills">
@@ -81,7 +82,7 @@ export default function Skills() {
           castShadow
         />
         <group>
-          <Plane position={[0, 0, -5]} />
+          <Plane />
           <TextMesh args="SKILLS" position={[-50, 50, 0]} />
         </group>
       </Canvas>
