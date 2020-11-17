@@ -3,82 +3,56 @@ import React, { Suspense, lazy, useState, useRef } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
 // import './Home.css';
-import { Lighting, Plane, TextMesh } from './../Scene/Scene';
+// import { Lighting, SmallTextMesh } from './../Scene/Scene';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 const Code = lazy(() => import('../Code/Code'));
 const Skills = lazy(() => import('../Skills/Skills'));
 
-const url = (topic) =>
-  `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${topic}/${topic}.png`;
+// const url = (topic) =>
+//   `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${topic}/${topic}.png`;
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const parallax = useRef(current);
-  // const pageCount = 3;
+  const pageCount = 4;
 
-  function handleScrollTo(item) {
-    setCurrent(item);
-    parallax.current.scrollTo(item);
+  // function handleScrollTo(item) {
+  //   setCurrent(item);
+  //   parallax.current.scrollTo(item);
+  // }
+
+  function backSlide() {
+    const next = (current - (1 % pageCount) + pageCount) % pageCount;
+    setCurrent(next);
+    parallax.current.scrollTo(next);
   }
 
-  // function backSlide() {
-  //   const next = (current - (1 % pageCount) + pageCount) % pageCount;
-  //   setCurrent(next);
-  //   parallax.current.scrollTo(next);
-  // }
-
-  // function forwardSlide() {
-  //   const next = (current + 1) % pageCount;
-  //   setCurrent(next);
-  //   parallax.current.scrollTo(next);
-  // }
+  function forwardSlide() {
+    const next = (current + 1) % pageCount;
+    setCurrent(next);
+    parallax.current.scrollTo(next);
+  }
   return (
     <div className="Home">
-      <Parallax pages={4} ref={(ref) => (parallax.current = ref)}>
-        <ParallaxLayer
-          className="gh-images"
-          onClick={() => handleScrollTo(0)}
-          offset={1}
-          speed={2}
-          factor={1}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: '1',
-            // height: '0',
-          }}
-        >
-          {' '}
-          <Canvas>
-            <Lighting />
-            <TextMesh args={'up'} position={[90, 0, -150]} />
-          </Canvas>
-        </ParallaxLayer>
+      <Parallax ref={(ref) => (parallax.current = ref)} pages={pageCount}>
         {/* <ParallaxLayer
-          className="gh-images"
-          onClick={() => handleScrollTo(1)}
-          offset={0}
+          onClick={() => handleScrollTo(0)}
+          // onClick={() => backSlide()}
+          offset={2}
           speed={-2}
           factor={1}
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
             zIndex: '1',
-            // height: '0',
           }}
         >
           {' '}
           <Canvas>
             <Lighting />
-            <group>
-              <TextMesh args={'down'} position={[90, -50, -50]} />
-            </group>
+            <SmallTextMesh args={'up'} position={[-5, -20, -30]} />
           </Canvas>
         </ParallaxLayer> */}
-        <ParallaxLayer
+        {/* <ParallaxLayer
           className="gh-images"
           onClick={() => handleScrollTo(1)}
           offset={1.5}
@@ -91,22 +65,22 @@ export default function Home() {
             zIndex: '1',
             height: '0',
           }}
-        >
-          {/* <img
+        > */}
+        {/* <img
             src={url('html')}
             alt={'code'}
             width="32"
             height="32"
             style={{ width: '32', height: '32' }}
           />{' '} */}{' '}
-          <img src={url('html')} alt={'html'} width="32" height="32" />{' '}
+        {/* <img src={url('html')} alt={'html'} width="32" height="32" />{' '}
           <img src={url('css')} alt={'css'} width="32" height="32" />{' '}
           <img src={url('javascript')} alt={'code'} width="32" height="32" />{' '}
           <img src={url('react')} alt={'code'} width="32" height="32" />{' '}
           <img src={url('firebase')} alt={'code'} width="32" height="32" />{' '}
           <img src={url('pwa')} alt={'code'} width="32" height="32" />{' '}
-          {/* <img src={url('figma')} alt={'code'} width="32" height="32" />
-          <img src={url('gatsby')} alt={'code'} width="32" height="32" /> */}
+          <img src={url('figma')} alt={'code'} width="32" height="32" />
+          <img src={url('gatsby')} alt={'code'} width="32" height="32" />
           <img src={url('sass')} alt={'code'} width="32" height="32" />
           <img src={url('ruby')} alt={'code'} width="32" height="32" />
           <img src={url('rails')} alt={'code'} width="32" height="32" />
@@ -121,7 +95,7 @@ export default function Home() {
             height="32"
           />
           <img src={url('terminal')} alt={'code'} width="32" height="32" />
-        </ParallaxLayer>
+        </ParallaxLayer> */}
         <ParallaxLayer offset={0} speed={0} factor={1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
@@ -156,13 +130,11 @@ export default function Home() {
             </Text>
           </Canvas>
         </ParallaxLayer>
-        <ParallaxLayer
-          style={{ backgroundColor: 'blue' }}
-          offset={4}
-          speed={0}
-          factor={4}
-        ></ParallaxLayer>
       </Parallax>
+      <div style={{ position: 'absolute', zIndex: 2 }}>
+        <button onClick={() => backSlide()}>Back</button>
+        <button onClick={() => forwardSlide()}>Forward</button>
+      </div>
     </div>
   );
 }

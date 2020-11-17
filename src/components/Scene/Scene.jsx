@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { FontLoader } from 'three';
 import Modak from '../fonts/Modak.json';
+const font = new FontLoader().parse(Modak);
 
 export function Plane() {
   const ref = useRef(null);
@@ -13,8 +14,6 @@ export function Plane() {
 }
 
 export function TextMesh({ args, position }) {
-  const font = new FontLoader().parse(Modak);
-
   const textOptions = {
     font,
     size: 25,
@@ -68,6 +67,60 @@ export function Lighting() {
   );
 }
 
+export function WTextMesh({ args, position }) {
+  const textOptions = {
+    font,
+    size: 20,
+    height: 2,
+    curveSegments: 15,
+    bevelEnabled: true,
+    bevelThickness: 2,
+    bevelSize: 0.9,
+    bevelSegments: 5,
+  };
+  const ref = useRef(null);
+  return (
+    <mesh position={position} ref={ref} castShadow receiveShadow>
+      <textBufferGeometry
+        attach="geometry"
+        args={[args, textOptions]}
+        factor={0.7}
+      />
+      <meshPhysicalMaterial
+        clearcoat={1}
+        reflectivity={1}
+        roughness={0.3}
+        color="cyan"
+        attach="material"
+      />
+    </mesh>
+  );
+}
+
+export function WLighting() {
+  return (
+    <mesh>
+      <spotLight
+        intensity={0.3}
+        position={[-150, 100, 180]}
+        penumbra={1}
+        castShadow
+      />
+      <spotLight
+        intensity={0.1}
+        position={[-10, 20, 150]}
+        penumbra={0.5}
+        castShadow
+      />
+      <spotLight
+        intensity={0.3}
+        position={[150, -70, 190]}
+        penumbra={1}
+        castShadow
+      />
+    </mesh>
+  );
+}
 // function Box({ args, position, map, color, ...props }) {
 //   const ref = useRef();
 
