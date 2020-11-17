@@ -9,6 +9,9 @@ const Welcome = lazy(() => import('./Welcome/Welcome'));
 const Code = lazy(() => import('../Code/Code'));
 const Skills = lazy(() => import('../Skills/Skills'));
 
+const url = (topic) =>
+  `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${topic}/${topic}.png`;
+
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const parallax = useRef(current);
@@ -42,7 +45,7 @@ export default function Home() {
       >
         <ParallaxLayer
           onClick={() => handleScrollTo(1)}
-          offset={2}
+          offset={1}
           speed={-2}
           factor={1}
           style={{
@@ -54,9 +57,18 @@ export default function Home() {
         >
           {' '}
           <img
-            src={codeImg}
+            src={url('css')}
             alt={'code'}
-            style={{ width: '20%', height: '20%' }}
+            width="32"
+            height="32"
+            style={{ width: '32', height: '32' }}
+          />{' '}
+          <img
+            src={url('html')}
+            alt={'code'}
+            width="32"
+            height="32"
+            style={{ width: '32', height: '32' }}
           />
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} factor={1}>
