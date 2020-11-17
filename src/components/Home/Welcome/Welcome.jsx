@@ -13,8 +13,8 @@ function TextMesh({ args, position }) {
 
   const textOptions = {
     font,
-    size: 25,
-    height: 3,
+    size: 20,
+    height: 2,
     curveSegments: 15,
     bevelEnabled: true,
     bevelThickness: 2,
@@ -34,8 +34,8 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        // color="teal"
-        color="#61e8e1"
+        // color="#61e8e1"
+        color="cyan"
         attach="material"
       />
     </mesh>
@@ -65,13 +65,7 @@ function Plane({ position }) {
       receiveShadow
     >
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial
-        // clearcoat={0.5}
-        // reflectivity={1}
-        // roughness={1}
-        attach="material"
-        color="#61e8e1"
-      />
+      <meshPhongMaterial attach="material" color="black" />
     </mesh>
   );
 }
@@ -106,18 +100,18 @@ export default function Welcome() {
         />
         <group>
           <Plane position={[0, 0, -5]} />
-          <TextMesh args="Good" position={[-85, 32, 0]} />
+          <TextMesh args="Good" position={[-55, 32, 0]} />
           <Suspense fallback={null}>
             {time < 12 ? (
-              <TextMesh args="Morning," position={[-85, 0, 0]} />
+              <TextMesh args="Morning," position={[-55, 0, 0]} />
             ) : time < 18 ? (
-              <TextMesh args="Afternoon," position={[-90, 0, 0]} />
+              <TextMesh args="Afternoon," position={[-55, 0, 0]} />
             ) : (
-              <TextMesh args="Evening," position={[-85, 0, 0]} />
+              <TextMesh args="Evening," position={[-55, 0, 0]} />
             )}
           </Suspense>
-          <TextMesh args="my name" position={[-85, -28, 0]} />
-          <TextMesh args="is Vlad," position={[-85, -60, 0]} />
+          <TextMesh args="my name" position={[-55, -28, 0]} />
+          <TextMesh args="is Vlad." position={[-55, -60, 0]} />
         </group>
       </Canvas>
     </div>
