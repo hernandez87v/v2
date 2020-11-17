@@ -2,7 +2,6 @@ import { Text } from 'drei';
 import React, { Suspense, lazy, useState, useRef } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
-import codeImg from '../images/code4.jpg';
 // import './Home.css';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
@@ -35,17 +34,11 @@ export default function Home() {
   }
   return (
     <div className="Home">
-      {/* <Parallax pages={4} horizontal ref={(ref) => ref}> */}
-
-      <Parallax
-        pages={4}
-        // ref={(ref) => ref}
-        ref={(ref) => (parallax.current = ref)}
-        // ref={(ref) => (this.parallax = ref)}
-      >
+      <Parallax pages={4} ref={(ref) => (parallax.current = ref)}>
         <ParallaxLayer
+          className="gh-images"
           onClick={() => handleScrollTo(1)}
-          offset={1}
+          offset={1.5}
           speed={-2}
           factor={1}
           style={{
@@ -53,6 +46,7 @@ export default function Home() {
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: '1',
+            height: '0',
           }}
         >
           {/* <img

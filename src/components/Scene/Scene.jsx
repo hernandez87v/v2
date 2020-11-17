@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { FontLoader } from 'three';
 import Modak from '../fonts/Modak.json';
 
@@ -18,25 +18,21 @@ export function TextMesh({ args, position }) {
   const textOptions = {
     font,
     size: 25,
-    height: 3,
+    height: 2,
     curveSegments: 15,
     bevelEnabled: true,
     bevelThickness: 2,
-    bevelSize: 1,
+    bevelSize: 0.9,
     bevelSegments: 5,
   };
   const ref = useRef(null);
 
-  // const [hovered, setHover] = useState(false);
-  // const [active, setActive] = useState(false);
+  const [hovered, setHover] = useState(false);
 
   return (
     <mesh
-      // {...props}
-      // scale={active ? [1.1, 1.1, 1.1] : [1, 1, 1]}
-      // onClick={(e) => setActive(!active)}
-      // onPointerOver={(e) => setHover(true)}
-      // onPointerOut={(e) => setHover(false)}
+      onPointerOver={(e) => setHover(true)}
+      onPointerOut={(e) => setHover(false)}
       position={position}
       ref={ref}
       castShadow
@@ -51,9 +47,7 @@ export function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        // color="#7bdff2"
-        color="cyan"
-        // color={hovered ? '#7bdff2' : '#7bdfe5'}
+        color={hovered ? 'black' : 'cyan'}
         attach="material"
       />
     </mesh>
@@ -73,3 +67,21 @@ export function Lighting() {
     </mesh>
   );
 }
+
+// function Box({ args, position, map, color, ...props }) {
+//   const ref = useRef();
+
+//   return (
+//     <mesh position={position} {...props} ref={ref}>
+//       <boxBufferGeometry attach="geometry" args={args} />
+//       {/* <meshStandardMaterial color={color} map={map} /> */}
+//       <MeshWobbleMaterial
+//         attach="material"
+//         color={color}
+//         // map={map}
+//         speed={2}
+//         factor={0.7}
+//       />
+//     </mesh>
+//   );
+// }

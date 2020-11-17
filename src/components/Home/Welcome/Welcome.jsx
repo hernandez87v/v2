@@ -30,30 +30,12 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        // color="#61e8e1"
         color="cyan"
         attach="material"
       />
     </mesh>
   );
 }
-// function Box({ args, position, map, color, ...props }) {
-//   const ref = useRef();
-
-//   return (
-//     <mesh position={position} {...props} ref={ref}>
-//       <boxBufferGeometry attach="geometry" args={args} />
-//       {/* <meshStandardMaterial color={color} map={map} /> */}
-//       <MeshWobbleMaterial
-//         attach="material"
-//         color={color}
-//         // map={map}
-//         speed={2}
-//         factor={0.7}
-//       />
-//     </mesh>
-//   );
-// }
 export default function Welcome() {
   const date = new Date();
   const [hour] = useState(date);

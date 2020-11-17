@@ -17,7 +17,7 @@ export default function Skills() {
         <Lighting />
         <group>
           <Plane />
-          <TextMesh args="SKILLS" position={[-50, 50, 0]} />
+          <TextMesh args={'SKILLS'} position={[-50, 50, 0]} />
         </group>
       </Canvas>
     </div>
