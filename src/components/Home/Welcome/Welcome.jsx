@@ -5,9 +5,6 @@ import { FontLoader } from 'three';
 import Modak from '../../fonts/Modak.json';
 // import Scene from '../../Scene/Scene';
 
-// import { DeviceOrientationControls } from 'drei';
-// import { OrbitControls } from 'drei';
-
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
 
@@ -42,30 +39,36 @@ function TextMesh({ args, position }) {
   );
 }
 
-// function Planet({ args, position, map, ...props }) {
+// function Box({ args, position, map, color, ...props }) {
 //   const ref = useRef();
 
 //   return (
 //     <mesh position={position} {...props} ref={ref}>
 //       <boxBufferGeometry attach="geometry" args={args} />
-//       <meshStandardMaterial map={map} />
+//       {/* <meshStandardMaterial color={color} map={map} /> */}
+//       <MeshWobbleMaterial
+//         attach="material"
+//         color={color}
+//         // map={map}
+//         speed={2}
+//         factor={0.7}
+//       />
 //     </mesh>
 //   );
 // }
-// console.log(<DeviceOrientationControls />);
 
 function Plane({ position }) {
   const ref = useRef(null);
 
   return (
-    <mesh
-      ref={ref}
-      position={position}
-      // rotation={[-Math.PI / 2, 0, 0]}
-      receiveShadow
-    >
+    <mesh ref={ref} position={position} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="#0e1119" />
+      <meshPhongMaterial
+        attach="material"
+        color="#0e1119"
+        speed={2}
+        factor={0.7}
+      />
     </mesh>
   );
 }
