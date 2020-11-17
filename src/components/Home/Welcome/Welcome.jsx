@@ -18,7 +18,7 @@ function TextMesh({ args, position }) {
     curveSegments: 15,
     bevelEnabled: true,
     bevelThickness: 2,
-    bevelSize: 1,
+    bevelSize: 0.9,
     bevelSegments: 5,
   };
   const ref = useRef(null);
@@ -85,33 +85,38 @@ export default function Welcome() {
           powerPreference: 'high-performance',
         }}
       >
-        <ambientLight intensity={0.1} />
         <spotLight
-          intensity={0.2}
-          position={[50, 80, 190]}
+          intensity={0.3}
+          position={[-150, 100, 180]}
           penumbra={1}
           castShadow
         />
         <spotLight
-          intensity={0.2}
-          position={[-200, 80, 110]}
+          intensity={0.1}
+          position={[-10, 20, 150]}
+          penumbra={0.5}
+          castShadow
+        />
+        <spotLight
+          intensity={0.3}
+          position={[150, -70, 190]}
           penumbra={1}
           castShadow
         />
         <group>
           <Plane position={[0, 0, -5]} />
-          <TextMesh args="Good" position={[-55, 32, 0]} />
+          <TextMesh args="Good" position={[-55, 40, 0]} />
           <Suspense fallback={null}>
             {time < 12 ? (
-              <TextMesh args="Morning," position={[-55, 0, 0]} />
+              <TextMesh args="Morning," position={[-55, 15, 0]} />
             ) : time < 18 ? (
-              <TextMesh args="Afternoon," position={[-55, 0, 0]} />
+              <TextMesh args="Afternoon," position={[-55, 15, 0]} />
             ) : (
-              <TextMesh args="Evening," position={[-55, 0, 0]} />
+              <TextMesh args="Evening," position={[-55, 15, 0]} />
             )}
           </Suspense>
-          <TextMesh args="my name" position={[-55, -28, 0]} />
-          <TextMesh args="is Vlad." position={[-55, -60, 0]} />
+          <TextMesh args="my name" position={[-55, -10, 0]} />
+          <TextMesh args="is Vlad." position={[-55, -35, 0]} />
         </group>
       </Canvas>
     </div>
