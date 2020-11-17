@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 // import { Canvas } from 'react-three-fiber';
 
-function Plane() {
+export function Plane() {
   const ref = useRef(null);
   return (
     <mesh ref={ref} position={[0, 0, -5]} receiveShadow>

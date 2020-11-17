@@ -3,6 +3,7 @@ import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { FontLoader } from 'three';
 import Modak from '../../fonts/Modak.json';
+import { Plane } from '../../Scene/Scene';
 
 function TextMesh({ args, position }) {
   const font = new FontLoader().parse(Modak);
@@ -54,16 +55,6 @@ function TextMesh({ args, position }) {
 //     </mesh>
 //   );
 // }
-export function Plane() {
-  const ref = useRef(null);
-  return (
-    <mesh ref={ref} position={[0, 0, -5]} receiveShadow>
-      <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="#0e1119" />
-    </mesh>
-  );
-}
-
 export default function Welcome() {
   const date = new Date();
   const [hour] = useState(date);
