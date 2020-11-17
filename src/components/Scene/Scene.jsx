@@ -60,23 +60,16 @@ export function TextMesh({ args, position }) {
   );
 }
 
-export default function Scene() {
+export function Lighting() {
   return (
-    <div className="Scene">
+    <mesh>
       <ambientLight intensity={0.1} />
       <spotLight
-        intensity={0.25}
-        position={[50, 80, 190]}
+        intensity={0.4}
+        position={[-80, 90, 250]}
         penumbra={1}
         castShadow
       />
-      <spotLight
-        intensity={0.3}
-        position={[-200, 80, 110]}
-        penumbra={1}
-        castShadow
-      />
-      <Plane position={[0, 0, -20]} />
-    </div>
+    </mesh>
   );
 }

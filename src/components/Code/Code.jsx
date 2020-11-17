@@ -1,7 +1,7 @@
 import React from 'react';
 import './Code.css';
 import { Canvas } from 'react-three-fiber';
-import { Plane, TextMesh } from '../Scene/Scene';
+import { Lighting, Plane, TextMesh } from '../Scene/Scene';
 
 export default function Code() {
   return (
@@ -14,13 +14,7 @@ export default function Code() {
           powerPreference: 'high-performance',
         }}
       >
-        <ambientLight intensity={0.1} />
-        <spotLight
-          intensity={0.4}
-          position={[-80, 90, 250]}
-          penumbra={1}
-          castShadow
-        />
+        <Lighting />
         <group>
           {/* <a.div> */}
           <Plane />

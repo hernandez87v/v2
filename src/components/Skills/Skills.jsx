@@ -1,7 +1,7 @@
 import React from 'react';
 import './Skills.css';
 import { Canvas } from 'react-three-fiber';
-import { Plane, TextMesh } from '../Scene/Scene';
+import { Lighting, Plane, TextMesh } from '../Scene/Scene';
 
 export default function Skills() {
   return (
@@ -14,13 +14,7 @@ export default function Skills() {
           powerPreference: 'high-performance',
         }}
       >
-        <ambientLight intensity={0.1} />
-        <spotLight
-          intensity={0.4}
-          position={[-80, 90, 250]}
-          penumbra={1}
-          castShadow
-        />
+        <Lighting />
         <group>
           <Plane />
           <TextMesh args="SKILLS" position={[-50, 50, 0]} />
