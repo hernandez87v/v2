@@ -55,21 +55,35 @@ export default function Home() {
             zIndex: '1',
           }}
         >
-          {' '}
-          <img
-            src={url('css')}
-            alt={'code'}
-            width="32"
-            height="32"
-            style={{ width: '32', height: '32' }}
-          />{' '}
-          <img
+          {/* <img
             src={url('html')}
             alt={'code'}
             width="32"
             height="32"
             style={{ width: '32', height: '32' }}
+          />{' '} */}{' '}
+          <img src={url('html')} alt={'code'} width="32" height="32" />{' '}
+          <img src={url('css')} alt={'code'} width="32" height="32" />{' '}
+          <img src={url('javascript')} alt={'code'} width="32" height="32" />{' '}
+          <img src={url('react')} alt={'code'} width="32" height="32" />{' '}
+          <img src={url('firebase')} alt={'code'} width="32" height="32" />{' '}
+          <img src={url('pwa')} alt={'code'} width="32" height="32" />{' '}
+          {/* <img src={url('figma')} alt={'code'} width="32" height="32" />
+          <img src={url('gatsby')} alt={'code'} width="32" height="32" /> */}
+          <img src={url('sass')} alt={'code'} width="32" height="32" />
+          <img src={url('ruby')} alt={'code'} width="32" height="32" />
+          <img src={url('rails')} alt={'code'} width="32" height="32" />
+          <img src={url('nodejs')} alt={'code'} width="32" height="32" />
+          <img src={url('npm')} alt={'code'} width="32" height="32" />
+          <img src={url('postgresql')} alt={'code'} width="32" height="32" />
+          <img src={url('docker')} alt={'code'} width="32" height="32" />
+          <img
+            src={url('visual-studio-code')}
+            alt={'code'}
+            width="32"
+            height="32"
           />
+          <img src={url('terminal')} alt={'code'} width="32" height="32" />
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} factor={1}>
           <Suspense fallback={<div>Loading...</div>}>
