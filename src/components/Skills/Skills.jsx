@@ -10,9 +10,6 @@ export default function Skills() {
         shadowMap
         colorManagement
         camera={{ position: [0, 0, 100], fov: 100 }}
-        gl={{
-          powerPreference: 'high-performance',
-        }}
       >
         <Lighting />
         <group>

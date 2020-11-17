@@ -8,20 +8,16 @@ import { Canvas } from 'react-three-fiber';
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 const Code = lazy(() => import('../Code/Code'));
 const Skills = lazy(() => import('../Skills/Skills'));
-
 // const url = (topic) =>
 //   `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${topic}/${topic}.png`;
-
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const parallax = useRef(current);
   const pageCount = 4;
-
   // function handleScrollTo(item) {
   //   setCurrent(item);
   //   parallax.current.scrollTo(item);
   // }
-
   function backSlide() {
     const next = (current - (1 % pageCount) + pageCount) % pageCount;
     setCurrent(next);
@@ -131,7 +127,7 @@ export default function Home() {
           </Canvas>
         </ParallaxLayer>
       </Parallax>
-      <div style={{ position: 'absolute', zIndex: 2 }}>
+      <div className="upDown" style={{ position: 'absolute', zIndex: 2 }}>
         <button onClick={() => backSlide()}>Back</button>
         <button onClick={() => forwardSlide()}>Forward</button>
       </div>

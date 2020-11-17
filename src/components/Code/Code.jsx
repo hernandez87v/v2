@@ -15,13 +15,11 @@ export default function Code() {
         }}
       >
         <Lighting />
-        <group>
-          {/* <a.div> */}
-          <Plane />
-          <TextMesh args="CODE" position={[-50, 50, 0]} />
-          {/* <h1> PWA Weather App</h1>
+        {/* <a.div> */}
+        <Plane />
+        <TextMesh args="CODE" position={[-50, 50, 0]} />
+        {/* <h1> PWA Weather App</h1>
           </a.div> */}
-        </group>
       </Canvas>
     </div>
   );

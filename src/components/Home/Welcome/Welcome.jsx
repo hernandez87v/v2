@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { useState } from 'react';
 import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
 import { Plane, WLighting, WTextMesh } from '../../Scene/Scene';
@@ -19,21 +19,17 @@ export default function Welcome() {
         }}
       >
         <WLighting />
-        <group>
-          <Plane />
-          <WTextMesh args="Good" position={[-55, 40, 0]} />
-          <Suspense fallback={null}>
-            {time < 12 ? (
-              <WTextMesh args="Morning," position={[-55, 15, 0]} />
-            ) : time < 18 ? (
-              <WTextMesh args="Afternoon," position={[-55, 15, 0]} />
-            ) : (
-              <WTextMesh args="Evening," position={[-55, 15, 0]} />
-            )}
-          </Suspense>
-          <WTextMesh args="my name" position={[-55, -10, 0]} />
-          <WTextMesh args="is Vlad." position={[-55, -35, 0]} />
-        </group>
+        <Plane />
+        <WTextMesh args="Good" position={[-55, 40, 0]} />
+        {time < 12 ? (
+          <WTextMesh args="Morning," position={[-55, 15, 0]} />
+        ) : time < 18 ? (
+          <WTextMesh args="Afternoon," position={[-55, 15, 0]} />
+        ) : (
+          <WTextMesh args="Evening," position={[-55, 15, 0]} />
+        )}
+        <WTextMesh args="my name" position={[-55, -10, 0]} />
+        <WTextMesh args="is Vlad." position={[-55, -35, 0]} />
       </Canvas>
     </div>
   );
