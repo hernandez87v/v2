@@ -43,8 +43,8 @@ function TextMesh({ args, position }) {
         clearcoat={1}
         reflectivity={1}
         roughness={0.3}
-        color="#7bdff2"
-        // color="#f25757"
+        // color="#7bdff2"
+        color="cyan"
         // color={hovered ? '#7bdff2' : '#7bdfe5'}
         attach="material"
       />
@@ -58,7 +58,7 @@ function Plane({ position }) {
   return (
     <mesh ref={ref} position={position} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="#7bdff2" />
+      <meshPhongMaterial attach="material" color="black" />
     </mesh>
   );
 }

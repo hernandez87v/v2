@@ -65,7 +65,7 @@ function Plane({ position }) {
       receiveShadow
     >
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="black" />
+      <meshPhongMaterial attach="material" color="#0e1119" />
     </mesh>
   );
 }
