@@ -132,10 +132,34 @@ export default function Home() {
         // style={{ position: 'absolute', zIndex: 2 }}
       >
         <button type="button" className="up" onClick={() => upSlide()}>
-          Up
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#00FFFF"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 19V6M5 12l7-7 7 7" />
+          </svg>
         </button>
         <button type="button" className="down" onClick={() => downSlide()}>
-          Down
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#00ffff"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 5v13M5 12l7 7 7-7" />
+          </svg>
         </button>
       </div>
     </div>

@@ -23,30 +23,32 @@
 
 .container {
   position: relative;
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   z-index: 2;
+  padding: 3rem;
+  left: 0;
 }
 
 button {
   height: 55px;
   width: 55px;
   font-size: 12px;
-  padding: 16px 30px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  text-align: center;
 }
 
 .up {
+  margin: 1rem;
   border-radius: 8px;
-  background: linear-gradient(145deg, #1e1e1e, #232323);
-  box-shadow: 6px 6px 18px #1a1a1a, -6px -6px 18px #282828;
+  background: linear-gradient(145deg, #222222, #000000);
+  box-shadow: 6px 6px 16px #222222, -6px -6px 16px #000000;
 }
 
 .down {
+  margin: 1rem;
   border-radius: 8px;
-  background: linear-gradient(145deg, #1e1e1e, #232323);
-  box-shadow: 6px 6px 18px #1a1a1a, -6px -6px 18px #282828;
+  background: linear-gradient(145deg, #1e1e1e, #000000);
+  box-shadow: 6px 6px 16px #1c1c1c, -6px -6px 16px #262626;
 }

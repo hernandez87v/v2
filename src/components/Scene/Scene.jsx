@@ -8,7 +8,7 @@ export function Plane() {
   return (
     <mesh ref={ref} position={[0, 0, -5]} receiveShadow>
       <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshPhongMaterial attach="material" color="#212121" />
+      <meshPhongMaterial attach="material" color="#000000" />
     </mesh>
   );
 }
