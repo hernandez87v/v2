@@ -2,7 +2,7 @@ import { Text } from 'drei';
 import React, { Suspense, lazy, useState, useRef } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 import { Canvas } from 'react-three-fiber';
-// import './Home.css';
+import './Home.css';
 // import { Lighting, SmallTextMesh } from './../Scene/Scene';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
@@ -18,13 +18,13 @@ export default function Home() {
   //   setCurrent(item);
   //   parallax.current.scrollTo(item);
   // }
-  function backSlide() {
+  function upSlide() {
     const next = (current - (1 % pageCount) + pageCount) % pageCount;
     setCurrent(next);
     parallax.current.scrollTo(next);
   }
 
-  function forwardSlide() {
+  function downSlide() {
     const next = (current + 1) % pageCount;
     setCurrent(next);
     parallax.current.scrollTo(next);
@@ -34,7 +34,7 @@ export default function Home() {
       <Parallax ref={(ref) => (parallax.current = ref)} pages={pageCount}>
         {/* <ParallaxLayer
           onClick={() => handleScrollTo(0)}
-          // onClick={() => backSlide()}
+          // onClick={() => upSlide()}
           offset={2}
           speed={-2}
           factor={1}
@@ -127,9 +127,16 @@ export default function Home() {
           </Canvas>
         </ParallaxLayer>
       </Parallax>
-      <div className="upDown" style={{ position: 'absolute', zIndex: 2 }}>
-        <button onClick={() => backSlide()}>Back</button>
-        <button onClick={() => forwardSlide()}>Forward</button>
+      <div
+        className="container"
+        // style={{ position: 'absolute', zIndex: 2 }}
+      >
+        <button type="button" className="up" onClick={() => upSlide()}>
+          Up
+        </button>
+        <button type="button" className="down" onClick={() => downSlide()}>
+          Down
+        </button>
       </div>
     </div>
   );
