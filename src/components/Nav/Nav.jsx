@@ -8,7 +8,7 @@ export default function Nav() {
       <h2 className="logo" alt="logo">
         <Link to="/">VH</Link>
       </h2>
-      <nav>
+      {/* <nav>
         <ul className="nav_links">
           <li>
             <Link to="/code">Code Nav</Link>
@@ -17,7 +17,7 @@ export default function Nav() {
             <Link to="/skills">Skills Nav</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
       <a className="cta" href="mailto:hernandez87v@hotmail.com">
         <button>Contact</button>
       </a>

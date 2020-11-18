@@ -16,7 +16,7 @@ export function Plane() {
 export function TextMesh({ args, position }) {
   const textOptions = {
     font,
-    size: 25,
+    size: 20,
     height: 2,
     curveSegments: 15,
     bevelEnabled: true,
