@@ -9,13 +9,26 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF('/html.glb')
   return (
     <group ref={group} {...props}>
-      <mesh material={materials['SVGMat.003']} geometry={nodes.Outer.geometry} position={[0, 4.67, -0.2]} />
-      <mesh material={materials['SVGMat.004']} geometry={nodes.Innter.geometry} position={[0, 4.67, -0.02]} />
       <mesh
-        material={materials['SVGMat.005']}
-        geometry={nodes['5'].geometry}
-        position={[0, 4.67, 0.32]}
-        rotation={[Math.PI / 2, 0, 0]}
+        material={materials.OuterC}
+        geometry={nodes.outer.geometry}
+        position={[0.06, 9.47, 21.19]}
+        rotation={[0, -0.05, 0]}
+        scale={[9.05, 9.05, 9.05]}
+      />
+      <mesh
+        material={materials.InnerC}
+        geometry={nodes.inner.geometry}
+        position={[-0.02, 9.47, 22.79]}
+        rotation={[0, -0.05, 0]}
+        scale={[9.05, 9.05, 9.05]}
+      />
+      <mesh
+        material={materials.Five}
+        geometry={nodes.five.geometry}
+        position={[-0.04, -9.59, 23.15]}
+        rotation={[Math.PI / 2, 0, 0.05]}
+        scale={[4.08, 4.08, 4.08]}
       />
     </group>
   )
