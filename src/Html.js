@@ -9,27 +9,11 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF('/html.glb')
   return (
     <group ref={group} {...props}>
-      <mesh
-        material={materials.OuterC}
-        geometry={nodes.outer.geometry}
-        position={[0.06, 9.47, 21.19]}
-        rotation={[0, -0.05, 0]}
-        scale={[9.05, 9.05, 9.05]}
-      />
-      <mesh
-        material={materials.InnerC}
-        geometry={nodes.inner.geometry}
-        position={[-0.02, 9.47, 22.79]}
-        rotation={[0, -0.05, 0]}
-        scale={[9.05, 9.05, 9.05]}
-      />
-      <mesh
-        material={materials.Five}
-        geometry={nodes.five.geometry}
-        position={[-0.04, -9.59, 23.15]}
-        rotation={[Math.PI / 2, 0, 0.05]}
-        scale={[4.08, 4.08, 4.08]}
-      />
+      <group position={[0, 0.35, 0]} rotation={[0, -0.04, 0]} scale={[1.01, 1.01, 1.01]}>
+        <mesh material={materials.darkOrange} geometry={nodes.curve_0.geometry} />
+        <mesh material={materials.orange} geometry={nodes.curve_1.geometry} />
+        <mesh material={materials.white} geometry={nodes.curve_2.geometry} />
+      </group>
     </group>
   )
 }
