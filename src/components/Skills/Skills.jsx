@@ -19,7 +19,7 @@ export default function Skills() {
           {/* <Suspense fallback={null}>
             <Model />
           </Suspense> */}
-          <TextMesh args={'<skills>'} position={[-45, 50, 0]} />
+          <TextMesh args={'<skills>'} position={[-45, 70, 0]} />
           {/* <Text
             color="white"
             anchorX="center"
@@ -37,7 +37,7 @@ export default function Skills() {
             Cypress SQL Databases PSQL
           </Text> */}
 
-          <TextMesh args={'</skills>'} position={[-45, -65, 0]} />
+          <TextMesh args={'</skills>'} position={[-45, -75, 0]} />
         </group>
       </Canvas>
       <h1>
