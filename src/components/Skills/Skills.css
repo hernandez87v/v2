@@ -8,10 +8,15 @@
 }
 
 h1 {
-  padding: 0;
+  padding: 20;
   margin: 0;
-  display: flex;
-  justify-self: center;
+  top: 20rem;
+  height: 60vh;
+  width: 70%;
+  /* display: flex;
+  justify-self: center; */
   align-items: center;
   color: white;
+  /* z-index: 2; */
+  position: absolute;
 }
