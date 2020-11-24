@@ -17,7 +17,7 @@ export default function Code() {
         <Lighting />
         {/* <a.div> */}
         <Plane />
-        <TextMesh args="<code>" position={[-50, 50, 0]} />
+        <TextMesh args="<code>" position={[-45, 50, 0]} />
         {/* <h1> PWA Weather App</h1>
           </a.div> */}
       </Canvas>

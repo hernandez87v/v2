@@ -18,7 +18,7 @@ export default function Skills() {
           {/* <Suspense fallback={null}>
             <Model />
           </Suspense> */}
-          <TextMesh args={'<skills>'} position={[-50, 50, 0]} />
+          <TextMesh args={'<skills>'} position={[-45, 50, 0]} />
         </group>
       </Canvas>
     </div>
