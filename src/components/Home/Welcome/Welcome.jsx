@@ -20,7 +20,7 @@ export default function Welcome() {
       >
         <WLighting />
         <Plane />
-        <TextMesh args="<greeting>" position={[-60, 75, 0]} />
+        <TextMesh args="<greeting>" position={[-70, 75, 0]} />
         <TextMesh args="Good" position={[-55, 40, 0]} />
         {time < 12 ? (
           <TextMesh args="Morning," position={[-55, 15, 0]} />
@@ -31,7 +31,7 @@ export default function Welcome() {
         )}
         <TextMesh args="my name" position={[-55, -10, 0]} />
         <TextMesh args="is Vlad." position={[-55, -35, 0]} />
-        <TextMesh args="</greeting>" position={[-60, -65, 0]} />
+        <TextMesh args="</greeting>" position={[-70, -65, 0]} />
       </Canvas>
     </div>
   );

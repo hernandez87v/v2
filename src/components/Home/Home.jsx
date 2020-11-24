@@ -1,7 +1,7 @@
-import { Text } from 'drei';
 import React, { Suspense, lazy, useState, useRef } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
-import { Canvas } from 'react-three-fiber';
+// import { Canvas } from 'react-three-fiber';
+// import { Text } from 'drei';
 import './Home.css';
 // import { Lighting, SmallTextMesh } from './../Scene/Scene';
 
@@ -107,7 +107,7 @@ export default function Home() {
             <Code />
           </Suspense>
         </ParallaxLayer>
-        <ParallaxLayer offset={3} speed={2}>
+        {/* <ParallaxLayer offset={3} speed={2}>
           <Canvas>
             <Text
               color="gray"
@@ -125,7 +125,7 @@ export default function Home() {
               molestias? Debitis, eligendi.
             </Text>
           </Canvas>
-        </ParallaxLayer>
+        </ParallaxLayer> */}
       </Parallax>
       <div
         className="container"
