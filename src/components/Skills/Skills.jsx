@@ -2,7 +2,7 @@ import React from 'react';
 import './Skills.css';
 import { Canvas } from 'react-three-fiber';
 import { Lighting, Plane, TextMesh } from '../Scene/Scene';
-import { Text } from 'drei';
+// import { Text } from 'drei';
 // import Model from '../../Html';
 
 export default function Skills() {
