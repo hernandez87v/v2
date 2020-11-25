@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import './Welcome.css';
 import { Canvas } from 'react-three-fiber';
+import './Welcome.css';
 import { Plane, WLighting, TextMesh } from '../../Scene/Scene';
+// const { Plane, WLighting, TextMesh } = lazy(() => import('../../Scene/Scene'));
 
 export default function Welcome() {
   const date = new Date();
