@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Canvas } from 'react-three-fiber';
 import './Welcome.css';
 import { Plane, WLighting, TextMesh } from '../../Scene/Scene';

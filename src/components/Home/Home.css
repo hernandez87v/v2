@@ -21,10 +21,9 @@
   color: white;
 } */
 
-.container {
+/* ---------- button navigation up down below --------- */
+/* .container {
   position: relative;
-  /* display: flex; */
-  /* justify-content: center; */
   z-index: 2;
   padding: 3rem;
   left: 0;
@@ -51,4 +50,4 @@ button {
   border-radius: 8px;
   background: linear-gradient(145deg, #1e1e1e, #000000);
   box-shadow: 6px 6px 16px #1c1c1c, -6px -6px 16px #262626;
-}
+} */

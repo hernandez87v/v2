@@ -127,7 +127,7 @@ export default function Home() {
           </Canvas>
         </ParallaxLayer> */}
       </Parallax>
-      <div
+      {/* <div
         className="container"
         // style={{ position: 'absolute', zIndex: 2 }}
       >
@@ -161,7 +161,7 @@ export default function Home() {
             <path d="M12 5v13M5 12l7 7 7-7" />
           </svg>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

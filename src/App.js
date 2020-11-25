@@ -13,16 +13,16 @@ const Skills = lazy(() => import('./components/Skills/Skills'));
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="App">
           <Nav />
           <Switch>
             <Route path="/" rel="preconnect" exact component={Home} />
             <Route path="/skills" rel="preconnect" exact component={Skills} />
             <Route path="/code" rel="preconnect" exact component={Code} />
           </Switch>
-        </Suspense>
-      </div>
+        </div>
+      </Suspense>
     </Router>
   );
 }
