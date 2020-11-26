@@ -1,54 +1,25 @@
 import React, { Suspense, lazy, useState, useRef } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
-// import { Canvas } from 'react-three-fiber';
 // import { Text } from 'drei';
 import './Home.css';
-// import { Lighting, SmallTextMesh } from './../Scene/Scene';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 const Code = lazy(() => import('../Code/Code'));
 const Skills = lazy(() => import('../Skills/Skills'));
-// const url = (topic) =>
-//   `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${topic}/${topic}.png`;
+const url = (topic) =>
+  `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${topic}/${topic}.png`;
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const parallax = useRef(current);
   const pageCount = 4;
-  // function handleScrollTo(item) {
-  //   setCurrent(item);
-  //   parallax.current.scrollTo(item);
-  // }
-  function upSlide() {
-    const next = (current - (1 % pageCount) + pageCount) % pageCount;
-    setCurrent(next);
-    parallax.current.scrollTo(next);
-  }
-
-  function downSlide() {
-    const next = (current + 1) % pageCount;
-    setCurrent(next);
-    parallax.current.scrollTo(next);
+  function handleScrollTo(item) {
+    setCurrent(item);
+    parallax.current.scrollTo(item);
   }
   return (
     <div className="Home">
       <Parallax ref={(ref) => (parallax.current = ref)} pages={pageCount}>
-        {/* <ParallaxLayer
-          onClick={() => handleScrollTo(0)}
-          // onClick={() => upSlide()}
-          offset={2}
-          speed={-2}
-          factor={1}
-          style={{
-            zIndex: '1',
-          }}
-        >
-          {' '}
-          <Canvas>
-            <Lighting />
-            <SmallTextMesh args={'up'} position={[-5, -20, -30]} />
-          </Canvas>
-        </ParallaxLayer> */}
-        {/* <ParallaxLayer
+        <ParallaxLayer
           className="gh-images"
           onClick={() => handleScrollTo(1)}
           offset={1.5}
@@ -61,23 +32,22 @@ export default function Home() {
             zIndex: '1',
             height: '0',
           }}
-        > */}
-        {/* <img
-            src={url('html')}
-            alt={'code'}
-            width="32"
-            height="32"
-            style={{ width: '32', height: '32' }}
-          />{' '} */}{' '}
-        {/* <img src={url('html')} alt={'html'} width="32" height="32" />{' '}
+        >
+          <img src={url('html')} alt={'html'} width="32" height="32" />{' '}
           <img src={url('css')} alt={'css'} width="32" height="32" />{' '}
           <img src={url('javascript')} alt={'code'} width="32" height="32" />{' '}
           <img src={url('react')} alt={'code'} width="32" height="32" />{' '}
           <img src={url('firebase')} alt={'code'} width="32" height="32" />{' '}
           <img src={url('pwa')} alt={'code'} width="32" height="32" />{' '}
-          <img src={url('figma')} alt={'code'} width="32" height="32" />
-          <img src={url('gatsby')} alt={'code'} width="32" height="32" />
-          <img src={url('sass')} alt={'code'} width="32" height="32" />
+          {/* <img src={url('figma')} alt={'code'} width="32" height="32" />
+          <img src={url('gatsby')} alt={'code'} width="32" height="32" /> */}
+          <img
+            src={url('sass')}
+            zIndex="-2"
+            alt={'code'}
+            width="32"
+            height="32"
+          />
           <img src={url('ruby')} alt={'code'} width="32" height="32" />
           <img src={url('rails')} alt={'code'} width="32" height="32" />
           <img src={url('nodejs')} alt={'code'} width="32" height="32" />
@@ -91,7 +61,7 @@ export default function Home() {
             height="32"
           />
           <img src={url('terminal')} alt={'code'} width="32" height="32" />
-        </ParallaxLayer> */}
+        </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} factor={1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
@@ -127,41 +97,6 @@ export default function Home() {
           </Canvas>
         </ParallaxLayer> */}
       </Parallax>
-      {/* <div
-        className="container"
-        // style={{ position: 'absolute', zIndex: 2 }}
-      >
-        <button type="button" className="up" onClick={() => upSlide()}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#00FFFF"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 19V6M5 12l7-7 7 7" />
-          </svg>
-        </button>
-        <button type="button" className="down" onClick={() => downSlide()}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#00ffff"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 5v13M5 12l7 7 7-7" />
-          </svg>
-        </button>
-      </div> */}
     </div>
   );
 }
