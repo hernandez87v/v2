@@ -22,7 +22,10 @@ function Title({ layers = undefined, ...props }) {
         {...textProps}
         layers={layers}
       >
-        codrops
+        React - ThreeJS - Javascript - ExpressJS - NodeJS - Ruby - RubyOnRails -
+        AJAX - JQuery - HTML - CSS - Docker - Google - Analytics - Gatsby - Jira
+        - Firebase - Figma - Fusion360 - Blender - Mocha - Chai - Selenium -
+        RSpec - Jest - Cypress - PSQL
       </Text>
     </group>
   );
@@ -53,11 +56,13 @@ function Scene() {
 
 export default function CubeText() {
   return (
-    <Canvas concurrent shadowMap camera={{ position: [-10, 4, 20], fov: 70 }}>
-      <color attach="background" args={['#000']} />
-      <Scene />
-      <ambientLight intensity={0.4} />
-      <OrbitControls />
-    </Canvas>
+    <>
+      <Canvas concurrent shadowMap camera={{ position: [-10, 4, 20], fov: 70 }}>
+        <color attach="background" args={['#000']} />
+        <Scene />
+        <ambientLight intensity={0.4} />
+        <OrbitControls />
+      </Canvas>
+    </>
   );
 }
