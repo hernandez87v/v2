@@ -2,6 +2,7 @@ import React from 'react';
 import './Code.css';
 import { Canvas } from 'react-three-fiber';
 import { Lighting, Plane, TextMesh } from '../Scene/Scene';
+import CubeText from '../Skills/CubeText';
 
 export default function Code() {
   return (
@@ -21,6 +22,7 @@ export default function Code() {
         {/* <h1> PWA Weather App</h1>
           </a.div> */}
       </Canvas>
+      <CubeText />
     </div>
   );
 }

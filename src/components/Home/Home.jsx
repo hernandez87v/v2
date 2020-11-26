@@ -6,8 +6,10 @@ import './Home.css';
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 const Code = lazy(() => import('../Code/Code'));
 const Skills = lazy(() => import('../Skills/Skills'));
+
 const url = (topic) =>
   `https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/${topic}/${topic}.png`;
+
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const parallax = useRef(current);
@@ -41,13 +43,7 @@ export default function Home() {
           <img src={url('pwa')} alt={'code'} width="32" height="32" />{' '}
           {/* <img src={url('figma')} alt={'code'} width="32" height="32" />
           <img src={url('gatsby')} alt={'code'} width="32" height="32" /> */}
-          <img
-            src={url('sass')}
-            zIndex="-2"
-            alt={'code'}
-            width="32"
-            height="32"
-          />
+          <img src={url('sass')} alt={'code'} width="32" height="32" />
           <img src={url('ruby')} alt={'code'} width="32" height="32" />
           <img src={url('rails')} alt={'code'} width="32" height="32" />
           <img src={url('nodejs')} alt={'code'} width="32" height="32" />
