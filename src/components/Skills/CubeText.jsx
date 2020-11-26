@@ -22,10 +22,8 @@ function Title({ layers = undefined, ...props }) {
         {...textProps}
         layers={layers}
       >
-        React - ThreeJS - Javascript - ExpressJS - NodeJS - Ruby - RubyOnRails -
-        AJAX - JQuery - HTML - CSS - Docker - Google - Analytics - Gatsby - Jira
-        - Firebase - Figma - Fusion360 - Blender - Mocha - Chai - Selenium -
-        RSpec - Jest - Cypress - PSQL
+        React - ThreeJS - Javascript - ExpressJS - NodeJS - HTML - CSS - Docker
+        - Google - Analytics - Gatsby - Firebase - Figma - Fusion360 - Blender
       </Text>
     </group>
   );
@@ -33,7 +31,7 @@ function Title({ layers = undefined, ...props }) {
 
 function TitleCopies({ layers }) {
   const vertices = useMemo(() => {
-    const y = new IcosahedronGeometry(12);
+    const y = new IcosahedronGeometry(102);
     return y.vertices;
   }, []);
 
@@ -56,13 +54,11 @@ function Scene() {
 
 export default function CubeText() {
   return (
-    <>
-      <Canvas concurrent shadowMap camera={{ position: [-10, 4, 20], fov: 70 }}>
-        <color attach="background" args={['#000']} />
-        <Scene />
-        <ambientLight intensity={0.4} />
-        <OrbitControls />
-      </Canvas>
-    </>
+    <Canvas concurrent shadowMap camera={{ position: [-10, 4, 20], fov: 70 }}>
+      <color attach="background" args={['#000']} />
+      <Scene />
+      <ambientLight intensity={0.4} />
+      <OrbitControls />
+    </Canvas>
   );
 }
