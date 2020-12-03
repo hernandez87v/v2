@@ -11,9 +11,9 @@ export default function Model(props) {
 
     useFrame((state) => {
       const t = state.clock.getElapsedTime();
-      group.current.rotation.z = -0.2 - (1 + Math.sin(t / 1.5)) / 20;
+      group.current.rotation.z = -0.2 - (1 + Math.sin(t / 1.5)) / 10;
       group.current.rotation.x = Math.cos(t / 4) / 8;
-      group.current.rotation.y = Math.sin(t / 4) / 8;
+      group.current.rotation.y = Math.sin(t / 4) / 2;
       // group.current.position.y = (1 + Math.sin(t / 1.5)) / 6;
     });
   return (
