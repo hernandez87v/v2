@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './Skills.css';
 import { Canvas } from 'react-three-fiber';
 import { Lighting, Plane, TextMesh } from '../Scene/Scene';
-// import Model from '../../Html';
+import Model from '../../React';
 
 export default function Skills() {
   return (
@@ -15,9 +15,9 @@ export default function Skills() {
         <Lighting />
         <group>
           <Plane />
-          {/* <Suspense fallback={null}>
+          <Suspense fallback={null}>
             <Model />
-          </Suspense> */}
+          </Suspense>
           <TextMesh args={'<skills>'} position={[-45, 70, 0]} />
           <TextMesh args={'</skills>'} position={[-45, -75, 0]} />
         </group>
