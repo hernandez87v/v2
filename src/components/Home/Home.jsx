@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useState, useRef } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
-import './Home.css';
+// import './Home.css';
 // import CubeText from '../Skills/CubeText';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
@@ -11,10 +11,6 @@ export default function Home() {
   const [current] = useState(0);
   const parallax = useRef(current);
   const pageCount = 4;
-  // function handleScrollTo(item) {
-  //   setCurrent(item);
-  //   parallax.current.scrollTo(item);
-  // }
   return (
     <div className="Home">
       <Parallax ref={(ref) => (parallax.current = ref)} pages={pageCount}>

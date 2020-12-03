@@ -22,13 +22,6 @@ export default function Skills() {
           <TextMesh args={'</skills>'} position={[-45, -75, 0]} />
         </group>
       </Canvas>
-      {/* <h1>
-        {' '}
-        React - ThreeJS - Javascript - ExpressJS - NodeJS - Ruby - RubyOnRails -
-        AJAX - JQuery - HTML - CSS - Docker - Google - Analytics - Gatsby - Jira
-        - Firebase - Figma - Fusion360 - Blender - Mocha - Chai - Selenium -
-        RSpec - Jest - Cypress - PSQL
-      </h1> */}
     </div>
   );
 }

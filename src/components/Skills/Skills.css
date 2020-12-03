@@ -6,17 +6,3 @@
   display: flex;
   justify-content: center;
 }
-
-h1 {
-  padding: 20;
-  margin: 0;
-  top: 15rem;
-  height: 50%;
-  width: 50%;
-  /* display: flex;
-  justify-self: center; */
-  align-items: center;
-  color: white;
-  /* z-index: 2; */
-  position: absolute;
-}
