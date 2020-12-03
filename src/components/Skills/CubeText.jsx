@@ -22,8 +22,7 @@ function Title({ layers = undefined, ...props }) {
         {...textProps}
         layers={layers}
       >
-        React - ThreeJS - Javascript - ExpressJS - NodeJS - HTML - CSS - Docker
-        - Google - Analytics - Gatsby - Firebase - Figma - Fusion360 - Blender
+        Hello Hello Hellos
       </Text>
     </group>
   );
