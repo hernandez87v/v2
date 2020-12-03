@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="Home">
       <Parallax ref={(ref) => (parallax.current = ref)} pages={pageCount}>
-        <ParallaxLayer
+        {/* <ParallaxLayer
           className="gh-images"
           onClick={() => handleScrollTo(1)}
           offset={1.5}
@@ -42,8 +42,8 @@ export default function Home() {
           <img src={url('react')} alt={'code'} width="32" height="32" />{' '}
           <img src={url('firebase')} alt={'code'} width="32" height="32" />{' '}
           <img src={url('pwa')} alt={'code'} width="32" height="32" />{' '}
-          {/* <img src={url('figma')} alt={'code'} width="32" height="32" />
-          <img src={url('gatsby')} alt={'code'} width="32" height="32" /> */}
+          <img src={url('figma')} alt={'code'} width="32" height="32" />
+          <img src={url('gatsby')} alt={'code'} width="32" height="32" />
           <img src={url('sass')} alt={'code'} width="32" height="32" />
           <img src={url('ruby')} alt={'code'} width="32" height="32" />
           <img src={url('rails')} alt={'code'} width="32" height="32" />
@@ -58,7 +58,7 @@ export default function Home() {
             height="32"
           />
           <img src={url('terminal')} alt={'code'} width="32" height="32" />
-        </ParallaxLayer>
+        </ParallaxLayer> */}
         <ParallaxLayer offset={0} speed={0} factor={1}>
           <Suspense fallback={<div>Loading...</div>}>
             <Welcome />
