@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import './Skills.css';
 import { Canvas } from 'react-three-fiber';
 import { Lighting, Plane, TextMesh } from '../Scene/Scene';
-import Model from '../../AnimatedLogos';
+import Model from '../../Logos';
 
 export default function Skills() {
   return (
