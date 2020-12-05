@@ -1,10 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-// import Home from './components/Home/Home';
-// import Code from './components/Code/Code';
-// import Nav from './components/Nav/Nav';
-// import Skills from './components/Skills/Skills';
 const Home = lazy(() => import('./components/Home/Home'));
 const Code = lazy(() => import('./components/Code/Code'));
 const Nav = lazy(() => import('./components/Nav/Nav'));
