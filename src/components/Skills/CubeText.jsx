@@ -22,7 +22,7 @@ function Title({ layers = undefined, ...props }) {
         {...textProps}
         layers={layers}
       >
-        Hello Hello Hellos
+        Hello
       </Text>
     </group>
   );
@@ -30,7 +30,7 @@ function Title({ layers = undefined, ...props }) {
 
 function TitleCopies({ layers }) {
   const vertices = useMemo(() => {
-    const y = new IcosahedronGeometry(102);
+    const y = new IcosahedronGeometry(30, 1);
     return y.vertices;
   }, []);
 
