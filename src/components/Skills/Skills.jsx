@@ -19,7 +19,7 @@ export default function Skills() {
             <Model />
           </Suspense>
           <TextMesh args={'<skills>'} position={[-50, 70, 0]} />
-          <TextMesh args={'</skills>'} position={[-50, -70, 0]} />
+          {/* <TextMesh args={'</skills>'} position={[-50, -70, 0]} /> */}
         </group>
       </Canvas>
     </div>
