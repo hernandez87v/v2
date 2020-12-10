@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, useState, useRef } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons';
 // import './Home.css';
-// import CubeText from '../Skills/CubeText';
+import CubeText from '../Skills/CubeText';
 
 const Welcome = lazy(() => import('./Welcome/Welcome'));
 const Code = lazy(() => import('../Code/Code'));
@@ -29,9 +29,9 @@ export default function Home() {
             <Code />
           </Suspense>
         </ParallaxLayer>
-        {/* <ParallaxLayer offset={3} speed={2}>
+        <ParallaxLayer offset={3} speed={2}>
           <CubeText />
-        </ParallaxLayer> */}
+        </ParallaxLayer>
       </Parallax>
     </div>
   );
