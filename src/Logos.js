@@ -35,7 +35,7 @@ export default function Model(props) {
       <mesh
         material={materials.app}
         geometry={nodes.appBackground.geometry}
-        position={[23, 29, 15]}
+        position={[15, 29, 15]}
         rotation={[0, -Math.PI / 2, 0]}
         scale={[0.67, 8, 8]}
         userData={{ name: 'appBackground' }}

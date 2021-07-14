@@ -4,7 +4,7 @@ import { Canvas } from 'react-three-fiber';
 import { Text, OrbitControls } from '@react-three/drei';
 
 const textProps = {
-  fontSize: 3.9,
+  fontSize: 4,
   font: 'http://fonts.gstatic.com/s/modak/v5/EJRYQgs1XtIEskMA-hI.woff',
 };
 
@@ -22,7 +22,7 @@ function Title({ layers = undefined, ...props }) {
         {...textProps}
         layers={layers}
       >
-        Hello Hello Hellos
+        Hello
       </Text>
     </group>
   );
@@ -30,7 +30,7 @@ function Title({ layers = undefined, ...props }) {
 
 function TitleCopies({ layers }) {
   const vertices = useMemo(() => {
-    const y = new IcosahedronGeometry(102);
+    const y = new IcosahedronGeometry(30, 1);
     return y.vertices;
   }, []);
 
@@ -57,7 +57,7 @@ export default function CubeText() {
       <color attach="background" args={['#000']} />
       <Scene />
       <ambientLight intensity={0.4} />
-      <OrbitControls />
+      <OrbitControls enableZoom={false} />
     </Canvas>
   );
 }
