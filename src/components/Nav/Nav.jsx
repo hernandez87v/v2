@@ -19,7 +19,7 @@ export default function Nav() {
         </ul>
       </nav> */}
       <a className="cta" href="mailto:hernandez87v@hotmail.com">
-        <button>Contact</button>
+        <h3>Contact</h3>
       </a>
     </header>
   );
