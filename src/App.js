@@ -17,9 +17,9 @@ function App() {
       >
         <WLighting />
         <Plane />
-        <TextMesh args="Welcome," position={[-55, 15, 0]} />
+        <TextMesh args="Welcome," position={[-65, 15, 0]} />
         <TextMesh args="my name" position={[-55, -10, 0]} />
-        <TextMesh args="is Vlad." position={[-55, -35, 0]} />
+        <TextMesh args="is Vlad." position={[-45, -35, 0]} />
         <OrbitControls
           minPolarAngle={Math.PI / 2}
           maxPolarAngle={Math.PI / 2}
@@ -28,6 +28,21 @@ function App() {
           enableZoom={false}
         />
       </Canvas>
+      <a
+        href="https://github.com/hernandez87v"
+        className="top-left"
+        children="Github"
+      />
+      <a
+        href="https://www.linkedin.com/in/vlad-hernandez/"
+        className="top-middle"
+        children="LinkedIn"
+      />
+      <a
+        href="https://twitter.com/vancity_exe"
+        className="top-right"
+        children="Twitter"
+      />
     </div>
   );
 }
