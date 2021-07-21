@@ -22,7 +22,7 @@ function Title({ layers = undefined, ...props }) {
         {...textProps}
         layers={layers}
       >
-        Hello
+        Under Construction
       </Text>
     </group>
   );
@@ -30,7 +30,7 @@ function Title({ layers = undefined, ...props }) {
 
 function TitleCopies({ layers }) {
   const vertices = useMemo(() => {
-    const y = new IcosahedronGeometry(30, 1);
+    const y = new IcosahedronGeometry(100, 1);
     return y.vertices;
   }, []);
 
@@ -53,7 +53,7 @@ function Scene() {
 
 export default function CubeText() {
   return (
-    <Canvas concurrent shadowMap camera={{ position: [-10, 4, 20], fov: 70 }}>
+    <Canvas concurrent shadowMap camera={{ position: [-50, 4, 20], fov: 70 }}>
       <color attach="background" args={['#000']} />
       <Scene />
       <ambientLight intensity={0.4} />
