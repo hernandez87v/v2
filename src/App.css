@@ -1,13 +1,58 @@
-.App {
+/* .App {
   height: 100vh;
   padding: 0;
-}
+} */
 
-.Welcome {
+/* .Welcome {
   width: 100%;
   height: 100vh;
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
+} */
+
+html,
+body,
+#root,
+.Welcome,
+canvas {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Verdana, Tahoma, sans-serif;
+}
+
+.Welcome {
+  position: absolute;
+}
+
+a {
+  font-weight: 600;
+  font-size: 14px;
+  color: inherit;
+  position: absolute;
+  display: inline;
+  text-decoration: none;
+  z-index: 1;
+  color: cyan;
+}
+
+a.top-left {
+  top: 60px;
+  left: 60px;
+}
+
+a.top-middle {
+  top: 90px;
+  right: 60px;
+}
+
+a.top-right {
+  top: 60px;
+  right: 60px;
 }
