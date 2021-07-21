@@ -1,7 +1,6 @@
 import React from 'react';
 import { Canvas } from 'react-three-fiber';
 import { Plane, WLighting, TextMesh } from './components/Scene/Scene';
-// import '../src/Welcome.css';
 import './App.css';
 import { OrbitControls } from 'drei';
 
@@ -21,7 +20,11 @@ function App() {
         <TextMesh args="Welcome," position={[-55, 15, 0]} />
         <TextMesh args="my name" position={[-55, -10, 0]} />
         <TextMesh args="is Vlad." position={[-55, -35, 0]} />
-        <OrbitControls />
+        <OrbitControls
+          minPolarAngle={(0, 0, 0)}
+          maxPolarAngle={(40, 50, 50)}
+          enableZoom={false}
+        />
       </Canvas>
     </div>
   );
