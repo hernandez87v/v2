@@ -1,13 +1,11 @@
-import React, { useState, Suspense } from 'react';
+import React from 'react';
 import { Canvas } from 'react-three-fiber';
 import { Plane, WLighting, TextMesh } from './components/Scene/Scene';
 // import '../src/Welcome.css';
 import './App.css';
+import { OrbitControls } from 'drei';
 
 function App() {
-  const date = new Date();
-  const [hour] = useState(date);
-  const time = hour.getHours();
   return (
     <div className="Welcome">
       <Canvas
@@ -20,18 +18,10 @@ function App() {
       >
         <WLighting />
         <Plane />
-        {/* <Suspense fallback={<div>Loading...</div>}>
-          <TextMesh args="Good" position={[-55, 40, 0]} />
-          {time < 12 ? (
-            <TextMesh args="Morning," position={[-55, 15, 0]} />
-          ) : time < 18 ? (
-            <TextMesh args="Afternoon," position={[-55, 15, 0]} />
-          ) : (
-            <TextMesh args="Evening," position={[-55, 15, 0]} />
-          )}
-        </Suspense> */}
+        <TextMesh args="Welcome," position={[-55, 15, 0]} />
         <TextMesh args="my name" position={[-55, -10, 0]} />
         <TextMesh args="is Vlad." position={[-55, -35, 0]} />
+        <OrbitControls />
       </Canvas>
     </div>
   );
