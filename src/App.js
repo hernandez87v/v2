@@ -1,25 +1,39 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useState, Suspense } from 'react';
+import { Canvas } from 'react-three-fiber';
+import { Plane, WLighting, TextMesh } from './components/Scene/Scene';
+// import '../src/Welcome.css';
 import './App.css';
-const Home = lazy(() => import('./components/Home/Home'));
-const Code = lazy(() => import('./components/Code/Code'));
-const Nav = lazy(() => import('./components/Nav/Nav'));
-const Skills = lazy(() => import('./components/Skills/Skills'));
 
 function App() {
+  const date = new Date();
+  const [hour] = useState(date);
+  const time = hour.getHours();
   return (
-    <Router>
-      <Suspense fallback={<div>Loading...</div>}>
-        <div className="App">
-          <Nav />
-          <Switch>
-            <Route path="/" rel="preconnect" exact component={Home} />
-            <Route path="/skills" rel="preconnect" exact component={Skills} />
-            <Route path="/code" rel="preconnect" exact component={Code} />
-          </Switch>
-        </div>
-      </Suspense>
-    </Router>
+    <div className="Welcome">
+      <Canvas
+        shadowMap
+        colorManagement
+        camera={{ position: [0, 0, 100], fov: 100 }}
+        gl={{
+          powerPreference: 'high-performance',
+        }}
+      >
+        <WLighting />
+        <Plane />
+        {/* <Suspense fallback={<div>Loading...</div>}>
+          <TextMesh args="Good" position={[-55, 40, 0]} />
+          {time < 12 ? (
+            <TextMesh args="Morning," position={[-55, 15, 0]} />
+          ) : time < 18 ? (
+            <TextMesh args="Afternoon," position={[-55, 15, 0]} />
+          ) : (
+            <TextMesh args="Evening," position={[-55, 15, 0]} />
+          )}
+        </Suspense> */}
+        <TextMesh args="my name" position={[-55, -10, 0]} />
+        <TextMesh args="is Vlad." position={[-55, -35, 0]} />
+      </Canvas>
+    </div>
   );
 }
 
