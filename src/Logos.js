@@ -32,14 +32,14 @@ export default function Model(props) {
           geometry={nodes.reactBackground_1.geometry}
         />
       </group>
-      <mesh
+      {/* <mesh
         material={materials.app}
         geometry={nodes.appBackground.geometry}
         position={[15, 29, 15]}
         rotation={[0, -Math.PI / 2, 0]}
         scale={[0.67, 8, 8]}
         userData={{ name: 'appBackground' }}
-      />
+      /> */}
       <group
         position={[-50, 1.08, 20]}
         scale={[2.31, 2.31, 2.31]}
