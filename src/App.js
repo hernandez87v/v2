@@ -21,8 +21,10 @@ function App() {
         <TextMesh args="my name" position={[-55, -10, 0]} />
         <TextMesh args="is Vlad." position={[-55, -35, 0]} />
         <OrbitControls
-          minPolarAngle={(0, 0, 0)}
-          maxPolarAngle={(40, 50, 50)}
+          minPolarAngle={Math.PI / 2}
+          maxPolarAngle={Math.PI / 2}
+          minAzimuthAngle={-Math.PI / 2}
+          maxAzimuthAngle={Math.PI / 2}
           enableZoom={false}
         />
       </Canvas>
