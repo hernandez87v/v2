@@ -31,6 +31,15 @@ body {
   position: absolute;
 }
 
+nav {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  /* position: absolute; */
+}
+
 a {
   font-weight: 600;
   font-size: 14px;
@@ -42,9 +51,9 @@ a {
   color: cyan;
 }
 
-a.top-left {
-  top: 60px;
-  left: 60px;
+/* a.top-left {
+  top: 10px;
+  left: 0px;
 }
 
 a.top-middle {
@@ -55,4 +64,4 @@ a.top-middle {
 a.top-right {
   top: 60px;
   right: 60px;
-}
+} */
