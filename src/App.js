@@ -32,16 +32,29 @@ function App() {
         href="https://github.com/hernandez87v"
         className="top-left"
         children="Github"
+        target="_blank"
+        rel="noopener noreferrer"
       />
       <a
         href="https://www.linkedin.com/in/vlad-hernandez/"
         className="top-middle"
         children="LinkedIn"
+        target="_blank"
+        rel="noopener noreferrer"
       />
       <a
         href="https://twitter.com/vancity_exe"
         className="top-right"
         children="Twitter"
+        target="_blank"
+        rel="noopener noreferrer"
+      />
+      <a
+        href="https://www.instagram.com/vancity.exe"
+        className="top-right"
+        children="Instagram"
+        target="_blank"
+        rel="noopener noreferrer"
       />
     </div>
   );
