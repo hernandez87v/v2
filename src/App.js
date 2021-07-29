@@ -7,6 +7,36 @@ import { OrbitControls } from 'drei';
 function App() {
   return (
     <div className="Welcome">
+      <nav className="nav-bar">
+        <a
+          href="https://github.com/hernandez87v"
+          className="socials"
+          children="github()"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
+        <a
+          href="https://www.linkedin.com/in/vlad-hernandez/"
+          className="socials"
+          children="linkedIn()"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
+        <a
+          href="https://twitter.com/vancity_exe"
+          className="socials"
+          children="twitter()"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
+        <a
+          href="https://www.instagram.com/vancity.exe"
+          className="socials"
+          children="instagram()"
+          target="_blank"
+          rel="noopener noreferrer"
+        />
+      </nav>
       <Canvas
         shadowMap
         colorManagement
@@ -28,36 +58,6 @@ function App() {
           enableZoom={false}
         />
       </Canvas>
-      <nav className="nav-bar">
-        <a
-          href="https://github.com/hernandez87v"
-          className="top-left"
-          children="github()"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-        <a
-          href="https://www.linkedin.com/in/vlad-hernandez/"
-          className="top-middle"
-          children="linkedIn()"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-        <a
-          href="https://twitter.com/vancity_exe"
-          className="top-right"
-          children="twitter()"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-        <a
-          href="https://www.instagram.com/vancity.exe"
-          className="top-right"
-          children="instagram()"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-      </nav>
     </div>
   );
 }

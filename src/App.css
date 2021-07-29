@@ -33,35 +33,19 @@ body {
 
 nav {
   margin: 0;
-  padding: 0;
+  padding: 10px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  /* position: absolute; */
+  position: absolute;
 }
 
 a {
   font-weight: 600;
   font-size: 14px;
-  color: inherit;
-  position: absolute;
+  /* color: inherit; */
   display: inline;
   text-decoration: none;
   z-index: 1;
   color: cyan;
 }
-
-/* a.top-left {
-  top: 10px;
-  left: 0px;
-}
-
-a.top-middle {
-  top: 90px;
-  right: 60px;
-}
-
-a.top-right {
-  top: 60px;
-  right: 60px;
-} */
