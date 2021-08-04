@@ -49,3 +49,13 @@ footer {
   color: rgb(43, 51, 51);
   text-align: center;
 }
+
+.construction h2 {
+  position: fixed;
+  font-variant: small-caps;
+  left: 0;
+  bottom: 10vh;
+  width: 100%;
+  color: rgb(138, 138, 138);
+  text-align: center;
+}
