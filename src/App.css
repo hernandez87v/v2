@@ -35,3 +35,7 @@ a {
   z-index: 1;
   color: cyan;
 }
+
+a:hover {
+  color: rgb(131, 255, 255);
+}
