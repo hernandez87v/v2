@@ -11,28 +11,28 @@ function App() {
         <a
           href="https://github.com/hernandez87v"
           className="socials"
-          children="github()"
+          children=".github()"
           target="_blank"
           rel="noopener noreferrer"
         />
         <a
           href="https://www.linkedin.com/in/vlad-hernandez/"
           className="socials"
-          children="linkedIn()"
+          children=".linkedIn()"
           target="_blank"
           rel="noopener noreferrer"
         />
         <a
           href="https://twitter.com/vancity_exe"
           className="socials"
-          children="twitter()"
+          children=".twitter()"
           target="_blank"
           rel="noopener noreferrer"
         />
         <a
           href="https://www.instagram.com/vancity.exe"
           className="socials"
-          children="instagram()"
+          children=".instagram()"
           target="_blank"
           rel="noopener noreferrer"
         />
@@ -58,6 +58,12 @@ function App() {
           enableZoom={false}
         />
       </Canvas>
+      <div className="construction">
+        <h2>🚧work in progress🚧</h2>
+      </div>
+      <footer>
+        <p>© 2021 Vlad Hernandez</p>
+      </footer>
     </div>
   );
 }
