@@ -58,6 +58,9 @@ function App() {
           enableZoom={false}
         />
       </Canvas>
+      <footer>
+        <p>© 2021 Vlad Hernandez</p>
+      </footer>
     </div>
   );
 }
