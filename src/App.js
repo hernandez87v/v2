@@ -2,7 +2,7 @@ import React from 'react';
 import { Canvas } from 'react-three-fiber';
 import { Plane, WLighting, TextMesh } from './components/Scene/Scene';
 import './App.css';
-import { OrbitControls } from 'drei';
+import { OrbitControls } from '@react-three/drei';
 
 function App() {
   return (
