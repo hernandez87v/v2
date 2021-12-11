@@ -30,7 +30,7 @@ function App() {
           rel="noopener noreferrer"
         />
         <a
-          href="https://www.instagram.com/vancity.exe"
+          href="https://www.instagram.com/vancity.exe/"
           className="socials"
           children=".instagram()"
           target="_blank"
