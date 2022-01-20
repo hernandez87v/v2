@@ -62,7 +62,7 @@ function App() {
         <h2>🚧work in progress🚧</h2>
       </div>
       <footer>
-        <p>© 2021 Vlad Hernandez</p>
+        <p>© {new Date().getFullYear()} Vlad H.</p>
       </footer>
     </div>
   );
